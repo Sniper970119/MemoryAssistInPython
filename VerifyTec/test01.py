@@ -28,13 +28,13 @@ else:
 
 messageFrame.place(x=150, y=50, anchor='nw')
 
-# 添加搜索框架
+# 添加顶部框架
 if DEBUG:
-    searchFrame = tkinter.Frame(rootFrame, height=50, width=700, bg='green')
+    topFrame = tkinter.Frame(rootFrame, height=50, width=700, bg='green')
 else:
-    searchFrame = tkinter.Frame(rootFrame, height=50, width=700)
+    topFrame = tkinter.Frame(rootFrame, height=50, width=700)
 
-searchFrame.place(x=0, y=0, anchor='nw')
+topFrame.place(x=0, y=0, anchor='nw')
 
 # 添加预留框架
 if DEBUG:
@@ -60,6 +60,10 @@ def treeviewClick(event):
     :param event:
     :return:
     """
+    if DEBUG:
+        for item in tree.selection():
+            item_text = tree.item(item, "values")
+            print('treeview has been double click at ' + item_text[0])
     isFinish = tkinter.messagebox.askyesno(title='完成任务', message='已完成当前任务')
     if isFinish:
         for item in tree.selection():
@@ -67,10 +71,7 @@ def treeviewClick(event):
             removeData(item_text[0])
         pass
     if DEBUG:
-        for item in tree.selection():
-            item_text = tree.item(item, "values")
-            print('treeview has been double click at ' + item_text[0])
-            print('user select ' + str(isFinish))
+        print('user select ' + str(isFinish))
     pass
 
 
@@ -127,8 +128,22 @@ def removeData(id):
             tree.insert('', 'end', values=dataInList)
 
 
+# 添加搜索栏
+searchBox = tkinter.Entry(topFrame, font=('Arial', 12), width=35, bd=5, relief='flat')
+searchBox.place(x=130, y=10, anchor='nw')
 
 
+# 定义搜索按钮事件
+def searchButtonHadle():
+    searchText = searchBox.get()
+    if DEBUG:
+        print('search button has been click,and the search text is ' + searchText)
+    pass
 
+
+# 添加搜索按钮
+searchImage =tkinter.PhotoImage(file="../images/search.gif")
+searchButton = tkinter.Button(topFrame, image=searchImage, command=searchButtonHadle)
+searchButton.place(x=500, y=10, anchor='nw')
 
 rootWindow.mainloop()
