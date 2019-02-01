@@ -1,20 +1,8 @@
-import tkinter as tk  # for python 3
-import pygubu
+from tkinter import *
 
-
-class Application:
-    def __init__(self, master):
-        # 1: Create a builder
-        self.builder = builder = pygubu.Builder()
-
-        # 2: Load an ui file
-        builder.add_from_file('test.ui')
-
-        # 3: Create the widget using a master as parent
-        self.mainwindow = builder.get_object('Menu_1', master)
-
-
-if __name__ == '__main__':
-    root = tk.Tk()
-    app = Application(root)
-    root.mainloop()
+root = Tk()
+# 以不同的颜色区别各个frame
+for fm in ['red', 'blue', 'yellow', 'green', 'white', 'black']:
+    # 注意这个创建Frame的方法与其它创建控件的方法不同，第一个参数不是root
+    Frame(height=20, width=400, bg=fm).pack()
+root.mainloop()
