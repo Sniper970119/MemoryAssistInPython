@@ -26,7 +26,7 @@ if DEBUG:
 else:
     messageFrame = tkinter.Frame(rootFrame, height=380, width=600)
 
-messageFrame.place(x=100, y=50, anchor='nw')
+messageFrame.place(x=150, y=50, anchor='nw')
 
 # 添加搜索框架
 if DEBUG:
@@ -46,7 +46,7 @@ reserveFrame.place(x=0, y=430, anchor='nw')
 
 # 添加菜单框架
 if DEBUG:
-    menuFrame = tkinter.Frame(rootFrame, height=380, width=100, bg='purple')
+    menuFrame = tkinter.Frame(rootFrame, height=380, width=150, bg='purple')
 else:
     menuFrame = tkinter.Frame(rootFrame, height=380, width=100)
 
@@ -55,11 +55,16 @@ menuFrame.place(x=0, y=50, anchor='nw')
 
 # 定义鼠标双击事件
 def treeviewClick(event):
+    """
+    定义鼠标在treeview上的双击事件
+    :param event:
+    :return:
+    """
     isFinish = tkinter.messagebox.askyesno(title='完成任务', message='已完成当前任务')
     if isFinish:
-        # for item in tree.selection():
-        #     item_text = tree.item(item, "values")
-        # tree.selection_remove(tree.selection)
+        for item in tree.selection():
+            item_text = tree.item(item, "values")
+            removeData(item_text[0])
         pass
     if DEBUG:
         for item in tree.selection():
@@ -71,11 +76,11 @@ def treeviewClick(event):
 
 # 在消息框架中添加treeView
 tree = ttk.Treeview(messageFrame, columns=['1', '2', '3', '4', '5'], show='headings', height=18)
-tree.column('1', width=120, anchor='center')
-tree.column('2', width=120, anchor='center')
-tree.column('3', width=120, anchor='center')
-tree.column('4', width=120, anchor='center')
-tree.column('5', width=120, anchor='center')
+tree.column('1', width=110, anchor='center')
+tree.column('2', width=110, anchor='center')
+tree.column('3', width=110, anchor='center')
+tree.column('4', width=110, anchor='center')
+tree.column('5', width=110, anchor='center')
 tree.heading('1', text='任务id')
 tree.heading('2', text='书名')
 tree.heading('3', text='任务范围')
@@ -87,7 +92,7 @@ tree.bind("<Double-Button-1>", treeviewClick)
 # 向表格中添加测试数据
 if DEBUG:
     dataList = []
-    for i in range(21):
+    for i in range(1, 21):
         # 先封装成字典，方便后期删除
         dir = {
             '任务id': str(i).zfill(4),
@@ -101,5 +106,29 @@ if DEBUG:
         # 转换成列表，方便插入treeview
         dataInList = [li['任务id'], li['书名'], li['任务范围'], li['任务进度'], li['下次任务']]
         tree.insert('', 'end', values=dataInList)
+
+
+def removeData(id):
+    """
+    从treeview中移除id
+    :param id: 需要被移除的id
+    :return:
+    """
+    if DEBUG:
+        print('current delete id is ' + id)
+    # 先删除所有点
+    x = tree.get_children()
+    for item in x:
+        tree.delete(item)
+    for each in dataList:
+        if each['任务id'] != id:
+            # 转换成列表，方便插入treeview
+            dataInList = [each['任务id'], each['书名'], each['任务范围'], each['任务进度'], each['下次任务']]
+            tree.insert('', 'end', values=dataInList)
+
+
+
+
+
 
 rootWindow.mainloop()
