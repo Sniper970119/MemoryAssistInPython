@@ -10,7 +10,11 @@ from tkinter import messagebox
 # 添加主页面
 rootWindow = tkinter.Tk()
 rootWindow.title('技术验证01')
-rootWindow.geometry('700x500')
+rootWindow.iconbitmap('../images/icon.ico')
+screenWidth = rootWindow.winfo_screenwidth()
+screenHeight = rootWindow.winfo_screenheight()
+rootWindow.geometry('700x500+' + str(int((screenWidth - 700) / 2)) + '+' + str(int((screenHeight - 500) / 2)))
+rootWindow.resizable(width=False, height=False)
 
 # 添加主框架
 if DEBUG:
@@ -20,17 +24,9 @@ else:
 
 rootFrame.place(x=0, y=0, anchor='nw')
 
-# 添加消息框架
-if DEBUG:
-    messageFrame = tkinter.Frame(rootFrame, height=380, width=600, bg='yellow')
-else:
-    messageFrame = tkinter.Frame(rootFrame, height=380, width=600)
-
-messageFrame.place(x=150, y=50, anchor='nw')
-
 # 添加顶部框架
 if DEBUG:
-    topFrame = tkinter.Frame(rootFrame, height=50, width=700, bg='green')
+    topFrame = tkinter.Frame(rootFrame, height=50, width=700, bg='lightPink')
 else:
     topFrame = tkinter.Frame(rootFrame, height=50, width=700)
 
@@ -38,19 +34,56 @@ topFrame.place(x=0, y=0, anchor='nw')
 
 # 添加预留框架
 if DEBUG:
-    reserveFrame = tkinter.Frame(rootFrame, height=100, width=700, bg='brown')
+    reserveFrame = tkinter.Frame(rootFrame, height=100, width=700, bg='hotpink')
 else:
     reserveFrame = tkinter.Frame(rootFrame, height=100, width=700)
 
 reserveFrame.place(x=0, y=430, anchor='nw')
 
+# 定义tab标签页
+tab = ttk.Notebook(rootFrame, height=350, width=700)
+
+tab.place(x=0, y=50, anchor='nw')
+
+# 定义tab 中的主框架
+if DEBUG:
+    firstTabFrame = tkinter.Frame(tab, height=350, width=700, bg='Thistle')
+else:
+    firstTabFrame = tkinter.Frame(tab, height=350, width=700)
+
+firstTabFrame.place(x=0, y=30, anchor='nw')
+
+# 添加消息框架
+if DEBUG:
+    messageFrame = tkinter.Frame(firstTabFrame, height=350, width=600, bg='yellow')
+else:
+    messageFrame = tkinter.Frame(firstTabFrame, height=350, width=600)
+
+messageFrame.place(x=0, y=00, anchor='nw')
+
 # 添加菜单框架
 if DEBUG:
-    menuFrame = tkinter.Frame(rootFrame, height=380, width=150, bg='purple')
+    menuFrame = tkinter.Frame(firstTabFrame, height=350, width=150, bg='pink')
 else:
-    menuFrame = tkinter.Frame(rootFrame, height=380, width=100)
+    menuFrame = tkinter.Frame(firstTabFrame, height=350, width=150)
 
-menuFrame.place(x=0, y=50, anchor='nw')
+menuFrame.place(x=550, y=00, anchor='nw')
+
+# 添加翻译tab
+secondTabFrame = tkinter.Frame(tab)
+secondTabFrame.place(x=0, y=0, anchor='nw')
+
+# 添加翻译框架
+if DEBUG:
+    translateFrame = tkinter.Frame(secondTabFrame, height=350, width=750, bg='plum')
+else:
+    translateFrame = tkinter.Frame(secondTabFrame, height=350, width=750)
+
+translateFrame.place(x=0, y=0, anchor='nw')
+
+# 将tab框架添加到tab中
+tab.add(firstTabFrame, text='我的计划')
+tab.add(secondTabFrame, text='我要查词')
 
 
 # 定义鼠标双击事件
@@ -142,8 +175,8 @@ def searchButtonHadle():
 
 
 # 添加搜索按钮
-searchImage =tkinter.PhotoImage(file="../images/search.gif")
+searchImage = tkinter.PhotoImage(file="../images/search.gif")
 searchButton = tkinter.Button(topFrame, image=searchImage, command=searchButtonHadle)
-searchButton.place(x=500, y=10, anchor='nw')
+searchButton.place(x=470, y=8.5, anchor='nw')
 
 rootWindow.mainloop()
