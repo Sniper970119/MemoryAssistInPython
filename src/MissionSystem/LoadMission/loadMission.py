@@ -10,7 +10,7 @@ class LoadMission():
         # 初始化读取工具
         self.loadTools = loadMissionFile.LoadMissionFile(fileName=filename)
         if DEBUG and MISSION_DEBUG:
-            print('{MISSION_DEBUG}{LOAD_MISSION} ready for load mission')
+            print('{MISSION_DEBUG}{*LOAD_MISSION*} ready for load mission')
 
     def loadMission(self):
         encodeText = self.loadTools.loadFile()
@@ -23,4 +23,4 @@ class LoadMission():
 if __name__ == '__main__':
     l = LoadMission('F:\python17\pythonPro\MemortAssit\data\mission.dat')
     data = l.loadMission()
-    print(data)
+    # print(data)
