@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
 
-from src.conf.config import *
+from src.Conf.config import *
 from src.View.MainFrame.TabFrame.FirstTabFrame import messageFrame
 from src.View.MainFrame.TabFrame.FirstTabFrame import selectFrame
 

@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
 
-from src.conf.config import *
+from src.Conf.config import *
 from src.View.MainFrame.TabFrame import tabFrame
 
 
@@ -8,7 +8,7 @@ class MainFrame():
     def __init__(self):
         # 添加主页面
         rootWindow = tkinter.Tk()
-        rootWindow.title('技术验证01')
+        rootWindow.title('MemoryAssist v0.1')
         rootWindow.iconbitmap('../images/icon.ico')
         screenWidth = rootWindow.winfo_screenwidth()
         screenHeight = rootWindow.winfo_screenheight()

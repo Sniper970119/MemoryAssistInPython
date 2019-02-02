@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
 
-from src.conf.config import *
+from src.Conf.config import *
 
 
 class MessageFrame():
@@ -87,10 +87,10 @@ class MessageFrame():
                 # 先封装成字典，方便后期删除
                 dir = {
                     '任务id': str(i).zfill(4),
-                    '书名': 'book' + str(i).zfill(2),
-                    '任务范围': 'mission' + str(i).zfill(2),
+                    '书名': 'bookName' + str(i).zfill(2),
+                    '任务范围': 'missionRange' + str(i).zfill(2),
                     '任务进度': 'state' + str(i).zfill(2),
-                    '下次任务': 'nextData' + str(i).zfill(2)
+                    '下次任务': 'nextTime' + str(i).zfill(2)
                 }
                 self.dataList.append(dir)
             for li in self.dataList:

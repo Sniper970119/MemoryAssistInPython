@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
 
-from src.conf.config import *
+from src.Conf.config import *
 
 
 class SelectFrame():
