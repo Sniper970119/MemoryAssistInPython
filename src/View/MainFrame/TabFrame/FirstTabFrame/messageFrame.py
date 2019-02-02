@@ -86,7 +86,7 @@ class MessageFrame():
             for i in range(1, 21):
                 # 先封装成字典，方便后期删除
                 dir = {
-                    '任务id': str(i).zfill(4),
+                    '任务id': str(i).zfill(6),
                     '书名': 'bookName' + str(i).zfill(2),
                     '任务范围': 'missionRange' + str(i).zfill(2),
                     '任务进度': 'state' + str(i).zfill(2),
