@@ -5,6 +5,7 @@ import pickle
 from src.Conf.config import *
 
 
+
 class EncodeText():
 
     def encodeing(self, data):
@@ -18,5 +19,5 @@ class EncodeText():
         # 进制转换加密
         encodeText = binascii.b2a_hex(byte_data)
         if DEBUG and MISSION_DEBUG:
-            print('{MISSION_DEBUG}{ENCODE_TEXT} list has been encode successfully')
+            print('{SYS}{MISSION_DEBUG} list has been encode successfully')
         return encodeText

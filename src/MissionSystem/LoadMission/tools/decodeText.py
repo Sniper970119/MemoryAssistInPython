@@ -16,6 +16,6 @@ class DecodeText():
         byte_data = binascii.a2b_hex(data)
         list = pickle.loads(byte_data)
         if DEBUG and MISSION_DEBUG:
-            print('{MISSION_DEBUG}{DECODE_TEXT} list has been decode successfully')
+            print('{SYS}{MISSION_DEBUG} list has been decode successfully')
         return list
 

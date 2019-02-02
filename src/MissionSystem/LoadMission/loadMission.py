@@ -10,7 +10,7 @@ class LoadMission():
         # 初始化读取工具
         self.loadTools = loadMissionFile.LoadMissionFile(fileName=filename)
         if DEBUG and MISSION_DEBUG:
-            print('{MISSION_DEBUG}{*LOAD_MISSION*} ready for load mission')
+            print('{SYS}{MISSION_DEBUG} ready for load mission')
 
     def loadMission(self):
         """

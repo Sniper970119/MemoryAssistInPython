@@ -16,6 +16,6 @@ class LoadMissionFile():
         fileData = self.missionFile.read()
         self.missionFile.close()
         if DEBUG and MISSION_DEBUG:
-            print('{MISSION_DEBUG}{LOAD_MISSION_FILE} file has been load from file successfully')
+            print('{SYS}{MISSION_DEBUG} file has been load from file successfully')
         return fileData
 

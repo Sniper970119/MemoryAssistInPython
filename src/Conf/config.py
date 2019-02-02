@@ -3,6 +3,8 @@
 import tkinter
 from tkinter import ttk
 from tkinter import messagebox
+# import ConfigParser
+
 
 
 # 调试模式总开关

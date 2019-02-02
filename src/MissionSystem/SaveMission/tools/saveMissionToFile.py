@@ -17,5 +17,5 @@ class SaveMissionToFile():
         self.missionFile.write(data)
         self.missionFile.close()
         if DEBUG and MISSION_DEBUG:
-            print('{MISSION_DEBUG}{SAVE_MISSION_TO_FILE} file has been write in file successfully')
+            print('{SYS}{MISSION_DEBUG} file has been write in file successfully')
         pass

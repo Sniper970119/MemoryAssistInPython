@@ -34,7 +34,7 @@ class MessageFrame():
         if DEBUG:
             for item in self.tree.selection():
                 item_text = self.tree.item(item, "values")
-                print('{VIEW_DEBUG}{MESSAGE_FRAME} treeview has been double click at ' + item_text[0])
+                print('{USR}{VIEW_DEBUG} treeview has been double click at ' + item_text[0])
         isFinish = tkinter.messagebox.askyesno(title='完成任务', message='已完成当前任务')
         if isFinish:
             for item in self.tree.selection():
@@ -42,7 +42,7 @@ class MessageFrame():
                 self.removeData(item_text[0])
             pass
         if DEBUG:
-            print('{VIEW_DEBUG}{MESSAGE_FRAME} user select ' + str(isFinish))
+            print('{USR}{VIEW_DEBUG} user select ' + str(isFinish))
         pass
 
     def removeData(self, id):
@@ -52,7 +52,7 @@ class MessageFrame():
         :return:
         """
         if DEBUG:
-            print('{VIEW_DEBUG}{MESSAGE_FRAME} current delete id is ' + id)
+            print('{SYS}{MESSAGE_FRAME} current delete id is ' + id)
         # 先删除所有点
         x = self.tree.get_children()
         for item in x:

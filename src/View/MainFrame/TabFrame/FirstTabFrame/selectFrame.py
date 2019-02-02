@@ -26,7 +26,7 @@ class SelectFrame():
         :return:
         """
         if DEBUG and VIEW_DEBUG:
-            print('{VIEW_DEBUG}{SELECT_FRAME} add button has been pressed')
+            print('{USR}{SELECT_FRAME} add button has been pressed')
         pass
 
     def selectEditButton(self):
@@ -35,7 +35,7 @@ class SelectFrame():
         :return:
         """
         if DEBUG and VIEW_DEBUG:
-            print('{VIEW_DEBUG}{SELECT_FRAME} edit button has been pressed')
+            print('{USR}{SELECT_FRAME} edit button has been pressed')
         pass
 
     def selectAllButton(self):
@@ -44,7 +44,7 @@ class SelectFrame():
         :return:
         """
         if DEBUG and VIEW_DEBUG:
-            print('{VIEW_DEBUG}{SELECT_FRAME} view all button has been pressed')
+            print('{USR}{SELECT_FRAME} view all button has been pressed')
         pass
 
     def printSelect(self):
