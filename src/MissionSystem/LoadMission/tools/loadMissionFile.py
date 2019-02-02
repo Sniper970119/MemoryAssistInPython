@@ -9,6 +9,10 @@ class LoadMissionFile():
         pass
 
     def loadFile(self):
+        """
+        读取文件
+        :return:读取的文件结果
+        """
         fileData = self.missionFile.read()
         self.missionFile.close()
         if DEBUG and MISSION_DEBUG:

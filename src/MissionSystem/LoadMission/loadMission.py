@@ -13,7 +13,13 @@ class LoadMission():
             print('{MISSION_DEBUG}{*LOAD_MISSION*} ready for load mission')
 
     def loadMission(self):
+        """
+        读取任务文件
+        :return:
+        """
+        # 获取加密文件内容
         encodeText = self.loadTools.loadFile()
+        # 解密加密内容
         list = self.decodeTools.decodeing(encodeText)
 
         return list
