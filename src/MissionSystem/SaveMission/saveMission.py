@@ -9,7 +9,9 @@ class SaveMission():
         # 初始化加密工具
         self.encodeTools = encodeText.EncodeText()
         # 初始化保存工具
-        self.saveTools = saveMissionToFile.SaveMissionToFile(filename)
+        self.saveTools = saveMissionToFile.SaveMissionToFile(fileName=filename)
+        if DEBUG and MISSION_DEBUG:
+            print('{MISSION_DEBUG}{SAVE_MISSION} ready for save mission')
 
     def saveMission(self, list):
         """
