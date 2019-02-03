@@ -30,12 +30,15 @@ if __name__ == '__main__':
     for i in range(1, 21):
         # 先封装成字典，方便后期删除
         dir = {
-            '任务id': str(i).zfill(4),
-            '书名': 'bookName' + str(i).zfill(2),
-            '任务范围': 'missionRange' + str(i).zfill(2),
-            '任务进度': 'state' + str(i).zfill(2),
-            '下次任务': 'nextTime' + str(i).zfill(2)
+            'missionId': str(i).zfill(4),
+            'bookName':  'bookName' + str(i).zfill(2),
+            'missionRange': 'missionRange' + str(i).zfill(2),
+            'nextTime': 'nextTime' + str(i).zfill(2),
+            'missionState': 'state' + str(i).zfill(2),
+            'loopTime': 5,
+            'isFinish': False
         }
+
         dataList.append(dir)
     s = SaveMission('F:\python17\pythonPro\MemortAssit\data\mission.dat')
     s.saveMission(list=dataList)

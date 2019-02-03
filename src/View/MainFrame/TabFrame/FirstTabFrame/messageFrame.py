@@ -20,7 +20,7 @@ class MessageFrame():
 
         # 初始化框架内容
         self.dataList = []
-        self.tree = ttk.Treeview(self.messageFrame, columns=['1', '2', '3', '4', '5'], show='headings', height=18)
+        self.tree = ttk.Treeview(self.messageFrame, columns=['1', '2', '3', '4', '5'], show='headings', height=15)
         # 绘制表格
         self.printMessage()
 
@@ -58,9 +58,10 @@ class MessageFrame():
         for item in x:
             self.tree.delete(item)
         for each in self.dataList:
-            if each['任务id'] != id:
+            if each['missionId'] != id:
                 # 转换成列表，方便插入treeview
-                dataInList = [each['任务id'], each['书名'], each['任务范围'], each['任务进度'], each['下次任务']]
+                dataInList = [each['missionId'], each['bookName'], each['missionRange'], each['missionState'],
+                              each['nextTime']]
                 self.tree.insert('', 'end', values=dataInList)
 
     def printMessage(self):
@@ -86,15 +87,17 @@ class MessageFrame():
             for i in range(1, 21):
                 # 先封装成字典，方便后期删除
                 dir = {
-                    '任务id': str(i).zfill(6),
-                    '书名': 'bookName' + str(i).zfill(2),
-                    '任务范围': 'missionRange' + str(i).zfill(2),
-                    '任务进度': 'state' + str(i).zfill(2),
-                    '下次任务': 'nextTime' + str(i).zfill(2)
+                    'missionId': str(i).zfill(4),
+                    'bookName': 'bookName' + str(i).zfill(2),
+                    'missionRange': 'missionRange' + str(i).zfill(2),
+                    'nextTime': 'nextTime' + str(i).zfill(2),
+                    'missionState': 'state' + str(i).zfill(2),
+                    'loopTime': 5,
+                    'isFinish': False
                 }
                 self.dataList.append(dir)
+            print(len(self.dataList))
             for li in self.dataList:
                 # 转换成列表，方便插入treeview
-                dataInList = [li['任务id'], li['书名'], li['任务范围'], li['任务进度'], li['下次任务']]
+                dataInList = [li['missionId'], li['bookName'], li['missionRange'], li['missionState'], li['nextTime']]
                 self.tree.insert('', 'end', values=dataInList)
-

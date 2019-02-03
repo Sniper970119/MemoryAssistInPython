@@ -4,7 +4,8 @@ import tkinter
 from tkinter import ttk
 from tkinter import messagebox
 import ConfigParser
-
+import time
+import datetime
 
 
 # 调试模式总开关
