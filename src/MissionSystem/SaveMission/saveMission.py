@@ -30,7 +30,7 @@ if __name__ == '__main__':
     for i in range(1, 21):
         # 先封装成字典，方便后期删除
         dir = {
-            'missionId': str(i).zfill(4),
+            'missionId': str(i).zfill(6),
             'bookName':  'bookName' + str(i).zfill(2),
             'missionRange': 'missionRange' + str(i).zfill(2),
             'nextTime': 'nextTime' + str(i).zfill(2),

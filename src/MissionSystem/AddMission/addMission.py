@@ -50,7 +50,11 @@ class AddMission():
 
 # 对添加任务子系统的测试
 if __name__ == '__main__':
-    list = []
+    from src.MissionSystem.LoadMission import loadMission
+
+    l = loadMission.LoadMission("F:\python17\pythonPro\MemortAssit\data\mission.dat")
+    list = l.loadMission()
+
     a = AddMission(confFileName='F:\python17\pythonPro\MemortAssit\conf\mession.ini',
                    dataFileName='F:\python17\pythonPro\MemortAssit\data\mission.dat')
     a.addMission(list=list, bookName='testBook', missionRange='testMission')

@@ -21,7 +21,6 @@ class LoadMission():
         encodeText = self.loadTools.loadFile()
         # 解密加密内容
         list = self.decodeTools.decodeing(encodeText)
-
         return list
 
 
@@ -29,4 +28,4 @@ class LoadMission():
 if __name__ == '__main__':
     l = LoadMission('F:\python17\pythonPro\MemortAssit\data\mission.dat')
     data = l.loadMission()
-    # print(data)
+    print(data)
