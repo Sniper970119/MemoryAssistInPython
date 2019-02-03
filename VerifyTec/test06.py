@@ -12,6 +12,8 @@ print (time.strftime("%Y-%m-%d", time.localtime()))
 time_ = '2019-02-01'
 a1 = datetime.datetime.strptime(time_, '%Y-%m-%d')
 a2 = datetime.datetime.strptime(time.strftime("%Y-%m-%d", time.localtime()), '%Y-%m-%d')
+
+print('s_time is:', a1+datetime.timedelta(days=1))
 print('s_time is:', a1)
 print('e_time is:', a2)
 print(a2.strftime("%Y-%m-%d"))
