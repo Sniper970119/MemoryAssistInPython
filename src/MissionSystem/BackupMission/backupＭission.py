@@ -51,12 +51,20 @@ class BackupMission():
         fileName = self.chooseRecoverFileTools.choose()
         fileName = self.filePath + fileName
         # 获取最新备份文件的文件名
-        backupFileNeedToLoad = True  # 循环读取备份文件，直到正确读取
+        backupFileNeedToLoad = True  # 循环读取备份文件标记，直到正确读取
         while (backupFileNeedToLoad):
             try:
                 loadMissionTools = loadMission.LoadMission(filename=fileName)
                 list = loadMissionTools.loadMission()
+                # 读取成功则跳出循环
                 backupFileNeedToLoad = False
+                # 判断文件是否真的读取成功了（读取失败返回None）
+                if list is None:
+                    if DEBUG and MISSION_DEBUG:
+                        print('{SYS}{W}{MISSION_DEBUG} load backup file fail, return list is None, file name is '
+                              + fileName)
+                    # 如果是读取失败将循环标记改回，继续下次读取
+                    backupFileNeedToLoad = True
             except:
                 if DEBUG and MISSION_DEBUG:
                     print('{SYS}{W}{MISSION_DEBUG} backup file load fail,name is ' + fileName)
