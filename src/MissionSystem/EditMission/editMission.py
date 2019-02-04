@@ -44,6 +44,7 @@ class EditMission():
                 self.saveMissionTools.saveMission(list)
             elif isFinish:
                 list = self.finishMissionTools.finish(list=list, missionId=missionId)
+                list = self.computeNextTimeTools.compute(list=list, missionId=missionId)
                 self.saveMissionTools.saveMission(list)
             elif isDelete:
                 list = self.removeMissionTools.remove(list=list, missionId=missionId)
@@ -54,7 +55,6 @@ class EditMission():
         except:
             if DEBUG and MISSION_DEBUG:
                 print('{SYS}{W}{MISSION_DEBUG} can not edit mission')
-
 
 
 # 测试任务编辑系统

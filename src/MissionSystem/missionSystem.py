@@ -2,22 +2,28 @@
 from src.Conf.config import *
 
 from src.MissionSystem.LoadMission import loadMission
-from src.MissionSystem.BackupMission import backupＭission
+from src.MissionSystem.BackupMission import backupMission
 from src.MissionSystem.SaveMission import saveMission
 from src.MissionSystem.EditMission import editMission
 from src.MissionSystem.AddMission import addMission
 
 
 class MissionSystem():
-    def __init__(self, confFileName='../data/mission.dat', dataFileName='../data/mission.dat',
-                 backupFilePath='../data/bkup/mbk/'):
+    def __init__(self, confFileName='F:\python17\pythonPro\MemortAssit\conf\mession.ini',
+                 dataFileName='F:\python17\pythonPro\MemortAssit\data\mission.dat',
+                 backupFilePath='F:\python17\pythonPro\MemortAssit\data/bkup/mbk/'):
+        if DEBUG and MISSION_DEBUG:
+            print('mission system start to init')
+        self.loadMissionTools = loadMission.LoadMission(filename=dataFileName)
         self.addMissionTools = addMission.AddMission(confFileName=confFileName, dataFileName=dataFileName)
         self.editMissionTools = editMission.EditMission(filename=dataFileName)
         self.saveMissionTools = saveMission.SaveMission(filename=dataFileName)
-        self.backupMissionTools = backupＭission.BackupMission(fileLimit=7, backupFilePath=backupFilePath,
+        self.backupMissionTools = backupMission.BackupMission(fileLimit=7, backupFilePath=backupFilePath,
                                                               missionFileName=dataFileName)
-        self.loadMissionTools = loadMission.LoadMission(filename=dataFileName)
         self.list = self.loadMission()
+        self.todayMission = self.findTodayMission()
+        if DEBUG and MISSION_DEBUG:
+            print('mission system finish init')
 
     def loadMission(self):
         """
@@ -27,6 +33,19 @@ class MissionSystem():
         list = self.loadMissionTools.loadMission()
         return list
 
+    def findTodayMission(self):
+        """
+        一级子系统的读取任务文件
+        :return:
+        """
+        todayList = []
+        today = datetime.datetime.strptime(time.strftime("%Y-%m-%d", time.localtime()), '%Y-%m-%d').strftime(
+            "%Y-%m-%d")
+        for each in self.list:
+            if each['nextTime'] == today:
+                each['isFinish'] = False
+                todayList.append(each)
+        return todayList
 
     def addMission(self, bookName, missionRange, missionId=None, nextTime=None, state=1, loopTime=5,
                    isFinish=False):
@@ -90,3 +109,17 @@ class MissionSystem():
         self.backupMissionTools.backup(list=self.list)
         if DEBUG and MISSION_DEBUG:
             print('{SYS}{R}{MISSION_DEBUG} mission has been backup successful')
+
+    def searchMission(self, missionId):
+        """
+        查询任务信息
+        :param missionId:
+        :return:
+        """
+        pass
+
+
+if __name__ == '__main__':
+    m = MissionSystem()
+    # f = open('../../data/mission.dat')
+    # print(f.read())

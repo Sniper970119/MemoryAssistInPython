@@ -26,10 +26,11 @@ class LoadMission():
             list = self.decodeTools.decodeing(encodeText)
             return list
         except:
+            print('except')
             os.remove(self.fileName)
-            if DEBUG and MISSION_DEBUG:
-                print('{SYS}{W}{MISSION_DEBUG} can not load mission,file has been delete')
-            return None
+        if DEBUG and MISSION_DEBUG:
+            print('{SYS}{W}{MISSION_DEBUG} can not load mission,file has been delete')
+        return None
 
 
 # 进行读取文件的子系统测试

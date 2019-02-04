@@ -58,3 +58,4 @@ class ComputeNextMissionTime():
                 each['state'] = stateCode
         if DEBUG and MISSION_DEBUG:
             print('{SYS}{W}{MISSION_DEBUG} wrong in compute next time, wrong state code')
+        return list

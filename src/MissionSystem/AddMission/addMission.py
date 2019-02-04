@@ -9,8 +9,8 @@ from src.MissionSystem.SaveMission import saveMission
 class AddMission():
     def __init__(self, confFileName='../data/mission.dat', dataFileName='../data/mission.dat'):
         # 初始化工具
-        self.addMissionTools = addMissionToList.AddMissionToList()
         self.loadConfigTools = loadConfigFile.LoadConfigFile(fileName=confFileName)
+        self.addMissionTools = addMissionToList.AddMissionToList()
         self.saveConfigTools = saveConfigFile.SaveConfigFile(fileName=confFileName)
         self.saveMissionTools = saveMission.SaveMission(filename=dataFileName)
         if DEBUG and MISSION_DEBUG:
@@ -52,9 +52,10 @@ class AddMission():
 if __name__ == '__main__':
     from src.MissionSystem.LoadMission import loadMission
 
-    l = loadMission.LoadMission("F:\python17\pythonPro\MemortAssit\data\mission.dat")
-    list = l.loadMission()
-
-    a = AddMission(confFileName='F:\python17\pythonPro\MemortAssit\conf\mession.ini',
-                   dataFileName='F:\python17\pythonPro\MemortAssit\data\mission.dat')
-    a.addMission(list=list, bookName='testBook', missionRange='testMission')
+    a = AddMission()
+    # l = loadMission.LoadMission("F:\python17\pythonPro\MemortAssit\data\mission.dat")
+    # list = l.loadMission()
+    #
+    # a = AddMission(confFileName='F:\python17\pythonPro\MemortAssit\conf\mession.ini',
+    #                dataFileName='F:\python17\pythonPro\MemortAssit\data\mission.dat')
+    # a.addMission(list=list, bookName='testBook', missionRange='testMission')
