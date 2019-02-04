@@ -6,7 +6,7 @@ class AddMissionToList():
 
     def addMission(self, list, missionId, bookName, missionRange, nextTime=None, state=1, loopTime=5, isFinish=False):
         """
-
+        添加任务
         :param list:  目标list
         :param missionId: 任务id（string
         :param bookName: 书名

@@ -4,11 +4,15 @@ from src.Conf.config import *
 
 
 class BackupManage():
-    def __init__(self, filePath='../data/bkup/'):
+    def __init__(self, filePath='../data/bkup/mbk/'):
         self.filePath = filePath
         pass
 
     def manage(self):
+        """
+        文件管理
+        :return:
+        """
         files = os.listdir(self.filePath)
         minFileName = None
         minFileTime = 0
@@ -31,6 +35,11 @@ class BackupManage():
         pass
 
     def deleteBackupFile(self, fileName):
+        """
+        删除旧的备份信息
+        :param fileName:
+        :return:
+        """
         os.remove(self.filePath + fileName)
         if DEBUG and MISSION_DEBUG:
             print('{SYS}{MISSION_DEBUG} backup file has been delete,file name is ' + fileName)

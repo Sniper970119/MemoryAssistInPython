@@ -36,20 +36,25 @@ class EditMission():
         :param isDelete: 执行删除任务
         :return: 编辑后的list
         """
-        if isEdit:
-            list = self.editMissionTools.edit(list=list, missionId=missionId, bookName=bookName,
-                                              missionRange=missionRange,
-                                              nextTime=nextTime, state=state, loopTime=loopTime, isFinish=isFinish)
-            self.saveMissionTools.saveMission(list)
-        elif isFinish:
-            list = self.finishMissionTools.finish(list=list, missionId=missionId)
-            self.saveMissionTools.saveMission(list)
-        elif isDelete:
-            list = self.removeMissionTools.remove(list=list, missionId=missionId)
-            self.saveMissionTools.saveMission(list)
-        else:
+        try:
+            if isEdit:
+                list = self.editMissionTools.edit(list=list, missionId=missionId, bookName=bookName,
+                                                  missionRange=missionRange,
+                                                  nextTime=nextTime, state=state, loopTime=loopTime, isFinish=isFinish)
+                self.saveMissionTools.saveMission(list)
+            elif isFinish:
+                list = self.finishMissionTools.finish(list=list, missionId=missionId)
+                self.saveMissionTools.saveMission(list)
+            elif isDelete:
+                list = self.removeMissionTools.remove(list=list, missionId=missionId)
+                self.saveMissionTools.saveMission(list)
+            else:
+                pass
             pass
-        pass
+        except:
+            if DEBUG and MISSION_DEBUG:
+                print('{SYS}{W}{MISSION_DEBUG} can not edit mission')
+
 
 
 # 测试任务编辑系统

@@ -20,8 +20,12 @@ class SaveMission():
         :return:
         """
         # 获取加密结果
-        encodeText = self.encodeTools.encodeing(list)
-        self.saveTools.saveToFile(encodeText)
+        try:
+            encodeText = self.encodeTools.encodeing(list)
+            self.saveTools.saveToFile(encodeText)
+        except:
+            if DEBUG and MISSION_DEBUG:
+                print('{SYS}{W}{MISSION_DEBUG} can not save mission file')
 
 
 # 进行文件存储的子系统测试
@@ -31,7 +35,7 @@ if __name__ == '__main__':
         # 先封装成字典，方便后期删除
         dir = {
             'missionId': str(i).zfill(6),
-            'bookName':  'bookName' + str(i).zfill(2),
+            'bookName': 'bookName' + str(i).zfill(2),
             'missionRange': 'missionRange' + str(i).zfill(2),
             'nextTime': 'nextTime' + str(i).zfill(2),
             'missionState': 'state' + str(i).zfill(2),
