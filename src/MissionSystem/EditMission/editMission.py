@@ -22,6 +22,20 @@ class EditMission():
 
     def edit(self, list, missionId, bookName=None, missionRange=None, nextTime=None, state=None, loopTime=None,
              isEdit=False, isFinish=False, isDelete=False):
+        """
+
+        :param list: 需要被编辑的列表
+        :param missionId: 任务id
+        :param bookName: 书名
+        :param missionRange: 任务范围
+        :param nextTime: 下次时间
+        :param state: 任务状态
+        :param loopTime: 迭代次数
+        :param isEdit: 执行编辑任务
+        :param isFinish: 执行完成任务
+        :param isDelete: 执行删除任务
+        :return: 编辑后的list
+        """
         if isEdit:
             list = self.editMissionTools.edit(list=list, missionId=missionId, bookName=bookName,
                                               missionRange=missionRange,
@@ -52,5 +66,5 @@ if __name__ == '__main__':
     # 测试更改
     # e.edit(list, '000025', isEdit=True, bookName='bookTest')
     # 测试删除
-    e.edit(list,'000025', isDelete=True)
+    e.edit(list, '000025', isDelete=True)
     print(list)

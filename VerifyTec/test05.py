@@ -30,3 +30,5 @@ print(binascii.b2a_hex(byte_data))
 # print(binascii.a2b_hex(binascii.b2a_hex(text.encode())))
 print(binascii.a2b_hex(binascii.b2a_hex(byte_data)))
 print(pickle.loads(byte_data))
+
+

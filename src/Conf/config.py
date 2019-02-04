@@ -6,6 +6,7 @@ from tkinter import messagebox
 import ConfigParser
 import time
 import datetime
+import os
 
 
 # 调试模式总开关
