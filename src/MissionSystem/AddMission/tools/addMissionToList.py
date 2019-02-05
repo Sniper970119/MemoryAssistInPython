@@ -26,7 +26,7 @@ class AddMissionToList():
             'bookName': bookName,
             'missionRange': missionRange,
             'nextTime': nextTime,
-            'missionState': state,
+            'state': state,
             'loopTime': loopTime,
             'isFinish': isFinish
         }

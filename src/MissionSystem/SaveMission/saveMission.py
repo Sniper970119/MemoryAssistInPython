@@ -31,13 +31,13 @@ class SaveMission():
 # 进行文件存储的子系统测试
 if __name__ == '__main__':
     dataList = []
-    for i in range(1, 21):
+    for i in range(1, 6):
         # 先封装成字典，方便后期删除
         dir = {
             'missionId': str(i).zfill(6),
             'bookName': 'bookName' + str(i).zfill(2),
             'missionRange': 'missionRange' + str(i).zfill(2),
-            'nextTime': '2019-02-04',
+            'nextTime': '2019-02-05',
             'state': 1,
             'loopTime': 5,
             'isFinish': False

@@ -11,6 +11,7 @@ class MessageFrame():
 
         :param firstTabFrame: 当前Frame的父容器
         """
+        self.missionSystemTools = missionSystem.MissionSystem()
         # 初始化框架
         if DEBUG and VIEW_DEBUG:
             self.messageFrame = tkinter.Frame(firstTabFrame, height=350, width=600, bg='yellow')
@@ -24,6 +25,9 @@ class MessageFrame():
         self.tree = ttk.Treeview(self.messageFrame, columns=['1', '2', '3', '4', '5'], show='headings', height=15)
         # 绘制表格
         self.printMessage()
+        # 调用心跳线程更新
+        self.threadUpdate()
+        MessageFrame.needReprint = False
 
     # 定义鼠标双击事件
     def treeviewClick(self, event):
@@ -41,6 +45,7 @@ class MessageFrame():
             for item in self.tree.selection():
                 item_text = self.tree.item(item, "values")
                 self.removeData(item_text[0])
+                # 标记任务已完成
                 missionSystem.MissionSystem().editMission(missionId=item_text[0], isFinish=True)
             pass
         if DEBUG and VIEW_DEBUG:
@@ -71,14 +76,24 @@ class MessageFrame():
         从treeview更新
         :return:
         """
-        if DEBUG and VIEW_DEBUG:
-            print('{SYS}{MESSAGE_FRAME} reprint treeview')
-        for each in self.dataList:
-            if each['missionId'] != id:
-                # 转换成列表，方便插入treeview
-                dataInList = [each['missionId'], each['bookName'], each['missionRange'], each['state'],
-                              each['nextTime']]
-                self.tree.insert('', 'end', values=dataInList)
+        while (True):
+            # 心跳线程每隔一秒检查是否需要重绘
+            time.sleep(1)
+            if MessageFrame.needReprint:
+                # 将重绘标记置False
+                MessageFrame.needReprint = False
+                # 读取任务列表
+                self.getList()
+                if DEBUG and VIEW_DEBUG:
+                    print('{SYS}{MESSAGE_FRAME} reprint treeview')
+                # 先删除所有点
+                x = self.tree.get_children()
+                for item in x:
+                    self.tree.delete(item)
+                for each in self.dataList:
+                    dataInList = [each['missionId'], each['bookName'], each['missionRange'], each['state'],
+                                  each['nextTime']]
+                    self.tree.insert('', 'end', values=dataInList)
 
     def printMessage(self):
         """
@@ -125,3 +140,10 @@ class MessageFrame():
             #     dataInList = [li['missionId'], li['bookName'], li['missionRange'], li['missionState'], li['nextTime']]
             #     self.tree.insert('', 'end', values=dataInList)
             pass
+
+    def threadUpdate(self):
+        t = threading.Thread(target=self.updataData)
+        t.setDaemon(True)  # 设置为守护线程
+        if DEBUG and VIEW_DEBUG:
+            print('{SYS}{MISSION_DEBUG} update thread has been ran')
+        t.start()

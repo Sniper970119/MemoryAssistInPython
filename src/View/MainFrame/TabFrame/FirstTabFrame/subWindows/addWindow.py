@@ -9,7 +9,6 @@ class AddWindow():
     def __init__(self):
         self.missionSystemTools = missionSystem.MissionSystem()
         self.addWindow = None
-        pass
 
     def window(self):
         self.addWindow = tkinter.Toplevel()
@@ -38,15 +37,19 @@ class AddWindow():
             确认添加按钮的事件
             :return:
             """
+            # 获取两个任务信息
             bookName = nameEntry.get()
             missionRange = missionRangeEntry.get()
+            # 调用添加任务工具
             self.missionSystemTools.addMission(bookName=bookName, missionRange=missionRange)
+            # 关闭窗口
             self.addWindow.after(300, self.addWindow.destroy)
-            messageFrame.MessageFrame().updataData()
+            # 将messageFrame的重绘变量置为True
+            messageFrame.MessageFrame.needReprint = True
             if DEBUG and VIEW_DEBUG:
                 print('{USR}{MESSAGE_FRAME} now user click add mission button and system save it')
             pass
-
+        # 按钮
         addButton = tkinter.Button(self.addWindow, text='确认添加', command=addMission)
         addButton.place(x=200, y=155, anchor='nw')
-        pass
+

@@ -3,6 +3,7 @@
 from src.Conf.config import *
 from src.View.MainFrame.TabFrame.FirstTabFrame import messageFrame
 from src.View.MainFrame.TabFrame.FirstTabFrame import selectFrame
+from src.View.MainFrame.TabFrame.FirstTabFrame.subWindows import addWindow
 
 
 class FirstTabFrame():
@@ -23,5 +24,3 @@ class FirstTabFrame():
         messageFrame.MessageFrame(firstTabFrame=self.firstTabFrame)
         selectFrame.SelectFrame(firstTabFrame=self.firstTabFrame)
 
-    def getFrame(self):
-        return self.firstTabFrame
