@@ -18,9 +18,11 @@ class AddMissionToList():
         :return: 插入后的list
         """
 
+        # 如果新建任务时没有指定日期，则生成当前日期
         if nextTime is None:
             nextTime = datetime.datetime.strptime(time.strftime("%Y-%m-%d", time.localtime()), '%Y-%m-%d').strftime(
                 "%Y-%m-%d")
+        # 构造任务字典
         missionDir = {
             'missionId': str(missionId).zfill(6),
             'bookName': bookName,
@@ -30,7 +32,9 @@ class AddMissionToList():
             'loopTime': loopTime,
             'isFinish': isFinish
         }
+        # 将任务字典添加到列表中
         list.append(missionDir)
+        # 打印debug日志
         if DEBUG and MISSION_DEBUG:
             print('{SYS}{MISSION_DEBUG} mission has been add to list successfully, id is ' + str(missionId))
         return list

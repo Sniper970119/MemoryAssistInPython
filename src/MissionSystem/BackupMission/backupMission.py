@@ -10,6 +10,7 @@ from src.MissionSystem.BackupMission.tools import chooseRecoverFile
 
 class BackupMission():
     def __init__(self, fileLimit=7, backupFilePath='../data/bkup/mbk/', missionFileName='../data/bkup/mission.dat'):
+        # 初始化工具
         self.missionFileName = missionFileName
         self.fileLimit = fileLimit
         self.filePath = backupFilePath
@@ -30,15 +31,16 @@ class BackupMission():
         fileName = self.filePath + currentTime + '.dat'
         # 由于文件名发生变化，只能在这里初始化保存工具
         saveMissionTools = saveMission.SaveMission(filename=fileName)
+        # 打印debug日志
         if DEBUG and MISSION_DEBUG:
             print('{SYS}{MISSION_DEBUG} save backup file')
-        # 保存
+
+        # 保存备份文件
         saveMissionTools.saveMission(list=list)
 
         # 调用备份管理，管理备份文件
         self.backupManageTools.manage()
 
-        pass
 
     def recover(self):
         """
@@ -57,12 +59,14 @@ class BackupMission():
                 backupFileNeedToLoad = False
                 # 判断文件是否真的读取成功了（读取失败返回None）
                 if list is None:
+                    # 打印debug日志
                     if DEBUG and MISSION_DEBUG:
                         print('{SYS}{W}{MISSION_DEBUG} load backup file fail, return list is None, file name is '
                               + fileName)
                     # 如果是读取失败将循环标记改回，继续下次读取
                     backupFileNeedToLoad = True
             except:
+                # 打印debug日志
                 if DEBUG and MISSION_DEBUG:
                     print('{SYS}{W}{MISSION_DEBUG} backup file load fail,name is ' + fileName)
 
@@ -70,7 +74,6 @@ class BackupMission():
         saveMissionTools = saveMission.SaveMission(filename=self.missionFileName)
         saveMissionTools.saveMission(list=list)
 
-        pass
 
 
 if __name__ == '__main__':

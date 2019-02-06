@@ -17,6 +17,7 @@ class LoadConfigFile():
         # 读取配置文件
         self.config.readfp(open(self.fileName))
         missionId = self.config.get('MISSION', 'missionId')
+        # 打印debug日志
         if DEBUG and MISSION_DEBUG:
             print('{SYS}{MISSION_DEBUG} config has been load from file successfully')
         return int(missionId)

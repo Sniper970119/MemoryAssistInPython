@@ -18,6 +18,7 @@ class EncodeText():
         byte_data = pickle.dumps(data)
         # 进制转换加密
         encodeText = binascii.b2a_hex(byte_data)
+        # 打印debug日志
         if DEBUG and MISSION_DEBUG:
             print('{SYS}{MISSION_DEBUG} list has been encode successfully')
         return encodeText

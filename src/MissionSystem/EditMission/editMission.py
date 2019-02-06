@@ -11,6 +11,7 @@ from src.MissionSystem.SaveMission import saveMission
 
 class EditMission():
     def __init__(self, filename='../data/mission.dat'):
+        # 初始化工具
         self.computeNextTimeTools = computeNextMissionTime.ComputeNextMissionTime()
         self.editMissionTools = editMissionList.EditMissionList()
         self.finishMissionTools = finishMission.FinishMission()
@@ -35,19 +36,24 @@ class EditMission():
         :return: 编辑后的list
         """
         try:
+            # 对不同的编辑命令做出不同的响应
             if isEdit:
+                # 调用编辑子系统
                 list = self.editMissionTools.edit(list=list, missionId=missionId, bookName=bookName,
                                                   missionRange=missionRange,
                                                   nextTime=nextTime, state=state, loopTime=loopTime, isFinish=isFinish)
                 self.saveMissionTools.saveMission(list)
             if isFinish:
+                # 调用完成子系统
                 list = self.finishMissionTools.finish(list=list, missionId=missionId)
                 list = self.computeNextTimeTools.compute(list=list, missionId=missionId)
                 self.saveMissionTools.saveMission(list)
             if isDelete:
+                # 调用删除子系统
                 list = self.removeMissionTools.remove(list=list, missionId=missionId)
                 self.saveMissionTools.saveMission(list)
         except:
+            # 打印debug日志
             if DEBUG and MISSION_DEBUG:
                 print('{SYS}{W}{MISSION_DEBUG} can not edit mission')
 

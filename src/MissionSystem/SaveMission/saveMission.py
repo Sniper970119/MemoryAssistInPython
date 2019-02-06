@@ -22,6 +22,7 @@ class SaveMission():
             encodeText = self.encodeTools.encodeing(list)
             self.saveTools.saveToFile(encodeText)
         except:
+            # 打印debug日志
             if DEBUG and MISSION_DEBUG:
                 print('{SYS}{W}{MISSION_DEBUG} can not save mission file')
 

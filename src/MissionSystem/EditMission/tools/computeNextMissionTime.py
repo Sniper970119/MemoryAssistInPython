@@ -17,12 +17,17 @@ class ComputeNextMissionTime():
         pass
 
     def compute(self, list, missionId):
+        # 找到目标任务
         for each in list:
             if each['missionId'] == missionId:
+                # 获取当前任务状态，防御编程，强制转化
                 missionState = int(each['state'])
+                # 更改后的任务状态
+                stateCode = int(each['state'])
+                # 获取当前时间
                 currnetTime = datetime.datetime.strptime(time.strftime("%Y-%m-%d", time.localtime()), '%Y-%m-%d')
                 nextTime = None
-                stateCode = int(each['state'])
+                # 对不同的任务状态执行对应操作
                 if missionState == 0:
                     if DEBUG and MISSION_DEBUG:
                         print('{SYS}{MISSION_DEBUG} this is a mission dead,id is ' + missionId)
@@ -46,11 +51,13 @@ class ComputeNextMissionTime():
                     stateCode = stateCode + 1
                 elif missionState == 7:
                     nextTime = (currnetTime + datetime.timedelta(days=15)).strftime("%Y-%m-%d")
+                    # 判断是否有下一次迭代，如果没有置为never
                     if each['loopTime'] != 0:
                         each['loopTime'] = each['loopTime'] - 1
                     else:
                         stateCode = 0
                 else:
+                    # 打印debug日志
                     if DEBUG and MISSION_DEBUG:
                         print('{SYS}{W}{MISSION_DEBUG} wrong in compute next time, wrong state code')
                 each['nextTime'] = nextTime

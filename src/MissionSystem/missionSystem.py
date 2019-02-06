@@ -12,8 +12,7 @@ class MissionSystem():
     def __init__(self, confFileName='F:\python17\pythonPro\MemortAssit\conf\mession.ini',
                  dataFileName='F:\python17\pythonPro\MemortAssit\data\mission.dat',
                  backupFilePath='F:\python17\pythonPro\MemortAssit\data/bkup/mbk/'):
-        # if DEBUG and MISSION_DEBUG:
-        #     print('mission system start to init')
+        # 初始化工具
         self.loadMissionTools = loadMission.LoadMission(filename=dataFileName)
         self.addMissionTools = addMission.AddMission(confFileName=confFileName, dataFileName=dataFileName)
         self.editMissionTools = editMission.EditMission(filename=dataFileName)
@@ -22,30 +21,34 @@ class MissionSystem():
                                                               missionFileName=dataFileName)
         self.list = self.loadMission()
         self.todayMission = self.findTodayMission()
-        # if DEBUG and MISSION_DEBUG:
-        # print('mission system finish init')
 
     def loadMission(self):
         """
         一级子系统的读取任务文件
         :return:
         """
+        # 读取任务文件
         list = self.loadMissionTools.loadMission()
+        # 如果返回为None，即无法读取正确的配置信息
         if list == None:
+            # 使用备份文件恢复数据
             self.backupMissionTools.recover()
         return list
 
     def findTodayMission(self):
         """
-        一级子系统的读取任务文件
+        一级子系统的读取任务文件，返回今天应该完成的任务
         :return:
         """
+        # 从文件中读取任务
+        self.list = self.loadMission()
+        # 今日任务列表
         todayList = []
         today = datetime.datetime.strptime(time.strftime("%Y-%m-%d", time.localtime()), '%Y-%m-%d').strftime(
             "%Y-%m-%d")
+        # 将下次任务日期为今天的任务取出
         for each in self.list:
             if each['nextTime'] == today:
-                each['isFinish'] = False
                 todayList.append(each)
         return todayList
 
@@ -63,10 +66,15 @@ class MissionSystem():
         :param isFinish: 任务是否完成
         :return: 添加后的list
         """
+        # 转换任务id
+        if missionId is not None:
+            missionId = str(missionId).zfill(6)
+        # 调用增加任务工具
         self.addMissionTools.addMission(list=self.list, bookName=bookName, missionRange=missionRange,
                                         missionId=missionId,
                                         nextTime=nextTime, state=state, loopTime=loopTime,
                                         isFinish=isFinish)
+        # 打印debug日志
         if DEBUG and MISSION_DEBUG:
             print('{SYS}{R}{MISSION_DEBUG} mission has been added successful')
 
@@ -86,9 +94,13 @@ class MissionSystem():
         :param isDelete: 执行删除任务
         :return: 编辑后的list
         """
+        # 转换任务id
+        missionId = str(missionId).zfill(6)
+        # 调用工具编辑任务
         self.editMissionTools.edit(self.list, missionId, bookName=bookName, missionRange=missionRange,
                                    nextTime=nextTime,
                                    state=state, loopTime=loopTime, isEdit=isEdit, isFinish=isFinish, isDelete=isDelete)
+        # 打印debug日志
         if DEBUG and MISSION_DEBUG:
             print('{SYS}{R}{MISSION_DEBUG} mission has been edited successful')
 
@@ -98,7 +110,9 @@ class MissionSystem():
         :param list:
         :return:
         """
+        # 调用工具保存任务
         self.saveMissionTools.saveMission(list=self.list)
+        # 打印 debug日志
         if DEBUG and MISSION_DEBUG:
             print('{SYS}{R}{MISSION_DEBUG} mission has been saved successful')
 
@@ -108,7 +122,9 @@ class MissionSystem():
         :param list:
         :return:
         """
+        # 调用工具备份
         self.backupMissionTools.backup(list=self.list)
+        # 打印debug日志
         if DEBUG and MISSION_DEBUG:
             print('{SYS}{R}{MISSION_DEBUG} mission has been backup successful')
 
@@ -118,7 +134,9 @@ class MissionSystem():
         :param missionId:
         :return:
         """
+        # 转换任务id
         missionId = str(missionId).zfill(6)
+        # 返回当前任务的信息
         for each in self.list:
             if each['missionId'] == missionId:
                 return each

@@ -22,13 +22,25 @@ class LoadMission():
             encodeText = self.loadTools.loadFile()
             # 解密加密内容
             list = self.decodeTools.decodeing(encodeText)
-            return list
+            # 返回列表
+            returnList = []
+            # 获取当日时间
+            today = datetime.datetime.strptime(time.strftime("%Y-%m-%d", time.localtime()), '%Y-%m-%d').strftime(
+                "%Y-%m-%d")
+            # 对当日任务完成情况置为False
+            for each in list:
+                if each['nextTime'] == today:
+                    each['isFinish'] = False
+                    returnList.append(each)
+            return returnList
         except:
-            print('except')
+            # 反正读取不了  删了吧  -.-
             os.remove(self.fileName)
-        if DEBUG and MISSION_DEBUG:
-            print('{SYS}{W}{MISSION_DEBUG} can not load mission,file has been delete')
-        return None
+            # 打印debug日志
+            if DEBUG and MISSION_DEBUG:
+                print('{SYS}{W}{MISSION_DEBUG} can not load mission,file has been delete')
+            # 返回None作为调用者知道读取失败的信息
+            return None
 
 
 # 进行读取文件的子系统测试
