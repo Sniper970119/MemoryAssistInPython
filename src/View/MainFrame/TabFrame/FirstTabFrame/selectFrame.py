@@ -2,6 +2,7 @@
 
 from src.Conf.config import *
 from src.View.MainFrame.TabFrame.FirstTabFrame.subWindows import addWindow
+from src.View.MainFrame.TabFrame.FirstTabFrame.subWindows import editWindow
 
 
 class SelectFrame():
@@ -27,7 +28,6 @@ class SelectFrame():
         :return:
         """
         win = addWindow.AddWindow().window()
-
         if DEBUG and VIEW_DEBUG:
             print('{USR}{SELECT_FRAME} add button has been pressed')
         pass
@@ -37,6 +37,7 @@ class SelectFrame():
         选择编辑按钮后的操作
         :return:
         """
+        win = editWindow.EditWindow().window()
         if DEBUG and VIEW_DEBUG:
             print('{USR}{SELECT_FRAME} edit button has been pressed')
         pass

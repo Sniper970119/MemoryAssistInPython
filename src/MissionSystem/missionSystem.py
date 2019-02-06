@@ -12,8 +12,8 @@ class MissionSystem():
     def __init__(self, confFileName='F:\python17\pythonPro\MemortAssit\conf\mession.ini',
                  dataFileName='F:\python17\pythonPro\MemortAssit\data\mission.dat',
                  backupFilePath='F:\python17\pythonPro\MemortAssit\data/bkup/mbk/'):
-        if DEBUG and MISSION_DEBUG:
-            print('mission system start to init')
+        # if DEBUG and MISSION_DEBUG:
+        #     print('mission system start to init')
         self.loadMissionTools = loadMission.LoadMission(filename=dataFileName)
         self.addMissionTools = addMission.AddMission(confFileName=confFileName, dataFileName=dataFileName)
         self.editMissionTools = editMission.EditMission(filename=dataFileName)
@@ -22,8 +22,8 @@ class MissionSystem():
                                                               missionFileName=dataFileName)
         self.list = self.loadMission()
         self.todayMission = self.findTodayMission()
-        if DEBUG and MISSION_DEBUG:
-            print('mission system finish init')
+        # if DEBUG and MISSION_DEBUG:
+            # print('mission system finish init')
 
     def loadMission(self):
         """
@@ -116,6 +116,10 @@ class MissionSystem():
         :param missionId:
         :return:
         """
+        missionId = str(missionId).zfill(6)
+        for each in self.list:
+            if each['missionId'] == missionId:
+                return each
         pass
 
 
