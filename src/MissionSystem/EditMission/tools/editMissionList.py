@@ -7,10 +7,6 @@ class EditMissionList():
     def edit(self, list, missionId, bookName=None, missionRange=None, nextTime=None, state=None, loopTime=None,
              isFinish=None):
         missionId = str(missionId).zfill(6)
-        print('edit')
-        print(list)
-        print(missionId, bookName, missionRange, nextTime, state, loopTime, isFinish)
-        print()
         for each in list:
             if each['missionId'] == missionId:
                 if bookName != None:
@@ -25,7 +21,6 @@ class EditMissionList():
                     each['loopTime'] = loopTime
                 if isFinish != None:
                     each['isFinish'] = isFinish
-        print(list)
         if DEBUG and MISSION_DEBUG:
             print('{SYS}{MISSION_DEBUG} mission has been edit finish successfully id is ' + missionId)
 

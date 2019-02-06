@@ -13,8 +13,6 @@ class AddMission():
         self.addMissionTools = addMissionToList.AddMissionToList()
         self.saveConfigTools = saveConfigFile.SaveConfigFile(fileName=confFileName)
         self.saveMissionTools = saveMission.SaveMission(filename=dataFileName)
-        if DEBUG and MISSION_DEBUG:
-            print('{SYS}{MISSION_DEBUG} ready for add mission')
         pass
 
     def addMission(self, list, bookName, missionRange, missionId=None, nextTime=None, state=1, loopTime=5,

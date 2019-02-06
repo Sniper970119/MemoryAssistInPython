@@ -12,6 +12,7 @@ class FinishMission():
         :param missionId: 完成的任务编号
         :return: list列表
         """
+        missionId = str(missionId).zfill(6)
         for each in list:
             if each['missionId'] == missionId:
                 each['isFinish'] = True

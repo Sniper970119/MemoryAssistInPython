@@ -16,9 +16,6 @@ class BackupMission():
         self.backupFileTools = backupFile.BackupFile()
         self.backupManageTools = backupManage.BackupManage(filePath=backupFilePath)
         self.chooseRecoverFileTools = chooseRecoverFile.ChooseRecoverFile(filePath=backupFilePath)
-
-        if DEBUG and MISSION_DEBUG:
-            print('{SYS}{MISSION_DEBUG} ready for backup mission')
         pass
 
     def backup(self, list):

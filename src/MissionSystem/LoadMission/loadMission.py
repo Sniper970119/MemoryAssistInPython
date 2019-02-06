@@ -11,8 +11,6 @@ class LoadMission():
         self.decodeTools = decodeText.DecodeText()
         # 初始化读取工具
         self.loadTools = loadMissionFile.LoadMissionFile(fileName=filename)
-        if DEBUG and MISSION_DEBUG:
-            print('{SYS}{MISSION_DEBUG} ready for load mission')
 
     def loadMission(self):
         """

@@ -19,11 +19,10 @@ class ComputeNextMissionTime():
     def compute(self, list, missionId):
         for each in list:
             if each['missionId'] == missionId:
-                missionState = each['state']
-                currnetTime = datetime.datetime.strptime(time.strftime("%Y-%m-%d", time.localtime()),
-                                                         '%Y-%m-%d')
+                missionState = int(each['state'])
+                currnetTime = datetime.datetime.strptime(time.strftime("%Y-%m-%d", time.localtime()), '%Y-%m-%d')
                 nextTime = None
-                stateCode = each['state']
+                stateCode = int(each['state'])
                 if missionState == 0:
                     if DEBUG and MISSION_DEBUG:
                         print('{SYS}{MISSION_DEBUG} this is a mission dead,id is ' + missionId)

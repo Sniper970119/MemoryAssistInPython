@@ -10,8 +10,6 @@ class SaveMission():
         self.encodeTools = encodeText.EncodeText()
         # 初始化保存工具
         self.saveTools = saveMissionToFile.SaveMissionToFile(fileName=filename)
-        if DEBUG and MISSION_DEBUG:
-            print('{SYS}{MISSION_DEBUG} ready for save mission')
 
     def saveMission(self, list):
         """

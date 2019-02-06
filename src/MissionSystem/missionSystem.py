@@ -23,7 +23,7 @@ class MissionSystem():
         self.list = self.loadMission()
         self.todayMission = self.findTodayMission()
         # if DEBUG and MISSION_DEBUG:
-            # print('mission system finish init')
+        # print('mission system finish init')
 
     def loadMission(self):
         """
@@ -31,6 +31,8 @@ class MissionSystem():
         :return:
         """
         list = self.loadMissionTools.loadMission()
+        if list == None:
+            self.backupMissionTools.recover()
         return list
 
     def findTodayMission(self):

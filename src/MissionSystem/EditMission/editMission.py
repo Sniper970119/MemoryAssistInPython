@@ -16,8 +16,6 @@ class EditMission():
         self.finishMissionTools = finishMission.FinishMission()
         self.removeMissionTools = removeMission.RemoveMission()
         self.saveMissionTools = saveMission.SaveMission(filename=filename)
-        if DEBUG and MISSION_DEBUG:
-            print('{SYS}{MISSION_DEBUG} ready for edit mission')
         pass
 
     def edit(self, list, missionId, bookName=None, missionRange=None, nextTime=None, state=None, loopTime=None,
@@ -42,16 +40,13 @@ class EditMission():
                                                   missionRange=missionRange,
                                                   nextTime=nextTime, state=state, loopTime=loopTime, isFinish=isFinish)
                 self.saveMissionTools.saveMission(list)
-            elif isFinish:
+            if isFinish:
                 list = self.finishMissionTools.finish(list=list, missionId=missionId)
                 list = self.computeNextTimeTools.compute(list=list, missionId=missionId)
                 self.saveMissionTools.saveMission(list)
-            elif isDelete:
+            if isDelete:
                 list = self.removeMissionTools.remove(list=list, missionId=missionId)
                 self.saveMissionTools.saveMission(list)
-            else:
-                pass
-            pass
         except:
             if DEBUG and MISSION_DEBUG:
                 print('{SYS}{W}{MISSION_DEBUG} can not edit mission')

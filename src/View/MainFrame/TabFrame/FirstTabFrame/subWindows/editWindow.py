@@ -8,16 +8,15 @@ from src.View.MainFrame.TabFrame.FirstTabFrame import messageFrame
 class EditWindow():
     def __init__(self):
         self.missionSystemTools = missionSystem.MissionSystem()
-        self.addWindow = None
 
     def window(self):
         self.addWindow = tkinter.Toplevel()
-        self.addWindow.title('编辑任务')
-        self.addWindow.iconbitmap('../images/icon.ico')
         screenWidth = self.addWindow.winfo_screenwidth()
         screenHeight = self.addWindow.winfo_screenheight()
         self.addWindow.geometry(
             '300x430+' + str(int((screenWidth - 300) / 2)) + '+' + str(int((screenHeight - 430) / 2)))
+        self.addWindow.title('编辑任务')
+        self.addWindow.iconbitmap('../images/icon.ico')
         self.addWindow.resizable(width=False, height=False)
 
         self.missionId = tkinter.StringVar()
@@ -128,13 +127,13 @@ class EditWindow():
             确认添加按钮的事件
             :return:
             """
-            # 获取两个任务信息
-            bookName = nameEntry.get()
-            missionRange = missionRangeEntry.get()
             # 调用添加任务工具
             self.missionSystemTools.editMission(missionId=idEntry.get(), bookName=self.bookName.get(),
                                                 missionRange=self.missionRange.get(),
-                                                state=self.state.get(), loopTime=self.loopTime.get(), isEdit=True)
+                                                state=self.state.get(), loopTime=self.loopTime.get(),
+                                                isEdit=True)
+            if self.isFinish.get() == '1':
+                self.missionSystemTools.editMission(missionId=idEntry.get(), isFinish=True)
             # 关闭窗口
             self.addWindow.after(300, self.addWindow.destroy)
             # 将messageFrame的重绘变量置为True

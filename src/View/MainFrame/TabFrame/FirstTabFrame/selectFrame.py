@@ -3,6 +3,7 @@
 from src.Conf.config import *
 from src.View.MainFrame.TabFrame.FirstTabFrame.subWindows import addWindow
 from src.View.MainFrame.TabFrame.FirstTabFrame.subWindows import editWindow
+from src.View.MainFrame.TabFrame.FirstTabFrame.subWindows import viewAllWindow
 
 
 class SelectFrame():
@@ -47,6 +48,7 @@ class SelectFrame():
         选择查看全部后的操作
         :return:
         """
+        win = viewAllWindow.ViewAllWindow().window()
         if DEBUG and VIEW_DEBUG:
             print('{USR}{SELECT_FRAME} view all button has been pressed')
         pass

@@ -12,13 +12,13 @@ class AddWindow():
 
     def window(self):
         self.addWindow = tkinter.Toplevel()
-        self.addWindow.title('添加任务')
-        self.addWindow.iconbitmap('../images/icon.ico')
         screenWidth = self.addWindow.winfo_screenwidth()
         screenHeight = self.addWindow.winfo_screenheight()
         self.addWindow.geometry(
             '300x230+' + str(int((screenWidth - 300) / 2)) + '+' + str(int((screenHeight - 230) / 2)))
         self.addWindow.resizable(width=False, height=False)
+        self.addWindow.title('添加任务')
+        self.addWindow.iconbitmap('../images/icon.ico')
 
         nameLabel = tkinter.Label(self.addWindow, text='书名', font=('Arial', 12), width=15, height=2)
         nameLabel.place(x=-30, y=50, anchor='nw')
