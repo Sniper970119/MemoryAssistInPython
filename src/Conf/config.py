@@ -3,6 +3,11 @@
 import tkinter
 from tkinter import ttk
 from tkinter import messagebox
+import ConfigParser
+import time
+import datetime
+import os
+import threading
 
 
 # 调试模式总开关

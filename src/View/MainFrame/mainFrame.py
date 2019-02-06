@@ -8,12 +8,12 @@ class MainFrame():
     def __init__(self):
         # 添加主页面
         rootWindow = tkinter.Tk()
-        rootWindow.title('MemoryAssist v0.1')
-        rootWindow.iconbitmap('../images/icon.ico')
         screenWidth = rootWindow.winfo_screenwidth()
         screenHeight = rootWindow.winfo_screenheight()
         rootWindow.geometry('700x500+' + str(int((screenWidth - 700) / 2)) + '+' + str(int((screenHeight - 500) / 2)))
         rootWindow.resizable(width=False, height=False)
+        rootWindow.title('MemoryAssist v0.1')
+        rootWindow.iconbitmap('../images/icon.ico')
 
         # 添加主框架
         if DEBUG and VIEW_DEBUG:

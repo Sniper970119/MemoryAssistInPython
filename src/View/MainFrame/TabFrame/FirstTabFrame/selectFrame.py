@@ -1,6 +1,9 @@
 # -*- coding:utf-8 -*-
 
 from src.Conf.config import *
+from src.View.MainFrame.TabFrame.FirstTabFrame.subWindows import addWindow
+from src.View.MainFrame.TabFrame.FirstTabFrame.subWindows import editWindow
+from src.View.MainFrame.TabFrame.FirstTabFrame.subWindows import viewAllWindow
 
 
 class SelectFrame():
@@ -25,8 +28,9 @@ class SelectFrame():
         选择添加按钮后的操作
         :return:
         """
+        win = addWindow.AddWindow().window()
         if DEBUG and VIEW_DEBUG:
-            print('{VIEW_DEBUG}{SELECT_FRAME} add button has been pressed')
+            print('{USR}{SELECT_FRAME} add button has been pressed')
         pass
 
     def selectEditButton(self):
@@ -34,8 +38,9 @@ class SelectFrame():
         选择编辑按钮后的操作
         :return:
         """
+        win = editWindow.EditWindow().window()
         if DEBUG and VIEW_DEBUG:
-            print('{VIEW_DEBUG}{SELECT_FRAME} edit button has been pressed')
+            print('{USR}{SELECT_FRAME} edit button has been pressed')
         pass
 
     def selectAllButton(self):
@@ -43,8 +48,9 @@ class SelectFrame():
         选择查看全部后的操作
         :return:
         """
+        win = viewAllWindow.ViewAllWindow().window()
         if DEBUG and VIEW_DEBUG:
-            print('{VIEW_DEBUG}{SELECT_FRAME} view all button has been pressed')
+            print('{USR}{SELECT_FRAME} view all button has been pressed')
         pass
 
     def printSelect(self):
@@ -62,4 +68,3 @@ class SelectFrame():
         viewAllButton = tkinter.Button(self.menuFrame, text='查看全部', width=10, height=1, command=self.selectAllButton)
         viewAllButton.place(x=35, y=220, anchor='nw')
         pass
-

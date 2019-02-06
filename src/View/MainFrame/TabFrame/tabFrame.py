@@ -9,7 +9,7 @@ class TabFrame():
     def __init__(self, rootFrame):
         """
 
-        :param rootFrame: 跟框架
+        :param rootFrame: 根框架
         """
         self.tab = ttk.Notebook(rootFrame, height=350, width=700)
 
