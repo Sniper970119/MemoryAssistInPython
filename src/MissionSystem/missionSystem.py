@@ -9,9 +9,9 @@ from src.MissionSystem.AddMission import addMission
 
 
 class MissionSystem():
-    def __init__(self, confFileName='F:\python17\pythonPro\MemortAssit\conf\mession.ini',
-                 dataFileName='F:\python17\pythonPro\MemortAssit\data\mission.dat',
-                 backupFilePath='F:\python17\pythonPro\MemortAssit\data/bkup/mbk/'):
+    def __init__(self, confFileName='conf\mession.ini',
+                 dataFileName='data\mission.dat',
+                 backupFilePath='data/bkup/mbk/'):
         # 初始化工具
         self.loadMissionTools = loadMission.LoadMission(filename=dataFileName)
         self.addMissionTools = addMission.AddMission(confFileName=confFileName, dataFileName=dataFileName)
