@@ -13,6 +13,11 @@ secretKey = 'FN5ZzcxZIt41MWthQexp'  # 你的密钥
 
 class Translate():
     def translate(self, q):
+        """
+        使用百度翻译进行翻译
+        :param q: 需要被翻译的文本（英汉均可）
+        :return: 翻译后的文本
+        """
         httpClient = None
         myurl = '/api/trans/vip/translate'
         fromLang = 'auto'
