@@ -9,7 +9,7 @@ class Translate():
         :param word: 需要被翻译的文本（英汉均可）
         :return:
         """
-        translateURL = 'http://fy.webxml.com.cn/webservices/EnglishChinese.asmx/Translator?wordKey=' + word
+        translateURL = 'http://fy.webxml.com.cn/webservices/EnglishChinese.asmx/Translator?wordKey=' + str(word)
         r = requests.get(translateURL)
         text = r.text
         # 判断翻译类型，调用不同的解析方案
@@ -74,5 +74,5 @@ class Translate():
 if __name__ == '__main__':
     # print(Translate().isChinese('aa'))
     # print(Translate().isChinese('火车'))
-    Translate().translate('train')
+    Translate().translate('apple')
     pass

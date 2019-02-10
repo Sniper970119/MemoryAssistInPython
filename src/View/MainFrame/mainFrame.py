@@ -2,7 +2,7 @@
 
 from src.Conf.config import *
 from src.View.MainFrame.TabFrame import tabFrame
-
+from src.View.MainFrame.SearchFrame import searchFrame
 
 class MainFrame():
     def __init__(self):
@@ -25,5 +25,6 @@ class MainFrame():
 
         # 调用子组件
         tabFrame.TabFrame(rootFrame=rootFrame)
+        searchFrame.SearchFrame(rootFrame=rootFrame)
 
         rootWindow.mainloop()
