@@ -5,7 +5,7 @@ from src.MissionSystem.LoadMission.tools import loadMissionFile
 
 
 class LoadMission():
-    def __init__(self, filename='../data/mission.dat'):
+    def __init__(self, filename='data/mission.dat'):
         self.fileName = filename
         # 初始化解密工具
         self.decodeTools = decodeText.DecodeText()
@@ -31,7 +31,7 @@ class LoadMission():
             for each in list:
                 if each['nextTime'] == today:
                     each['isFinish'] = False
-                    returnList.append(each)
+                returnList.append(each)
             return returnList
         except:
             # 反正读取不了  删了吧  -.-
