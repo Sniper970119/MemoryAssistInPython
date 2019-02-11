@@ -18,34 +18,29 @@ class SearchFrame():
 
         # 定义搜索按钮事件（按钮点击的事件）
         def searchButtonHandle():
-            searchText = str(searchBox.get())
+            searchText = searchBox.get().encode('utf-8')
             if searchText == '':
                 return
             if DEBUG and VIEW_DEBUG:
                 print('{USR}{VIEW_DEBUG}search button has been click,and the search text is ' + searchText)
             result, isWord = searchSystem.SearchSystem().search(searchText)
             if isWord:
-                print('word  ' + result['translation'])
                 showWord.ShowWord().window(result)
             else:
-                print('mission ' + result['bookName'])
                 showMission.ShowMission().window(result)
 
         # 定义搜索按钮事件（回车的事件）
         def enterSearch(event):
             searchText = searchBox.get().encode('utf-8')
-            print(type(searchText))
             if searchText == '':
                 return
             if DEBUG and VIEW_DEBUG:
                 print('{USR}{VIEW_DEBUG}search button has been click,and the search text is ' + searchText)
             result, isWord = searchSystem.SearchSystem().search(searchText)
             if isWord:
-                print('word  ' + result['translation'])
                 showWord.ShowWord().window(result)
                 pass
             else:
-                print('mission ' + result['bookName'])
                 showMission.ShowMission().window(result)
                 pass
 

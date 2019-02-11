@@ -24,3 +24,5 @@ class FirstTabFrame():
         messageFrame.MessageFrame(firstTabFrame=self.firstTabFrame)
         selectFrame.SelectFrame(firstTabFrame=self.firstTabFrame)
 
+        tab.add(self.firstTabFrame, text='我的计划')
+

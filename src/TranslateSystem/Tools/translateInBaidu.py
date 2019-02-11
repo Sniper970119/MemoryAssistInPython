@@ -39,7 +39,6 @@ class Translate():
             # response是HTTPResponse对象
             response = httpClient.getresponse()
             res = response.read().encode('latin-1').decode('unicode_escape')
-            print(res)
             # 分割返回结果，将unicode转化为中文并输出
             result = re.findall('"dst":"(.*?)"', res)[0]
             if DEBUG and SEARCH_DEBUG:

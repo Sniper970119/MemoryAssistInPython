@@ -22,7 +22,7 @@ class MessageFrame():
 
         # 初始化框架内容
         self.dataList = []
-        self.tree = ttk.Treeview(self.messageFrame, columns=['1', '2', '3', '4', '5'], show='headings', height=15)
+        self.tree = ttk.Treeview(self.messageFrame, columns=['1', '2', '3', '4', '5'], show='headings', height=17)
         # 绘制表格
         self.printMessage()
         # 调用心跳线程更新
