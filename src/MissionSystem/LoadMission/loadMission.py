@@ -34,6 +34,9 @@ class LoadMission():
                 returnList.append(each)
             return returnList
         except:
+            # 处理非异常情况，即第一次打开软件的空数据文件
+            if os.path.getsize(self.fileName) == 0:
+                return []
             # 反正读取不了  删了吧  -.-
             os.remove(self.fileName)
             # 打印debug日志

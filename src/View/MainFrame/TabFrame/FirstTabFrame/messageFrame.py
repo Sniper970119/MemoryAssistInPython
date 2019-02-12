@@ -44,9 +44,9 @@ class MessageFrame():
         if isFinish:
             for item in self.tree.selection():
                 item_text = self.tree.item(item, "values")
-                self.removeData(item_text[0])
                 # 标记任务已完成
                 missionSystem.MissionSystem().editMission(missionId=item_text[0], isFinish=True)
+                self.removeData(item_text[0])
             pass
         if DEBUG and VIEW_DEBUG:
             print('{USR}{VIEW_DEBUG} user select ' + str(isFinish))
@@ -59,7 +59,7 @@ class MessageFrame():
         :return:
         """
         if DEBUG and VIEW_DEBUG:
-            print('{SYS}{MESSAGE_FRAME} current delete id is ' + id)
+            print('{SYS}{MESSAGE_FRAME} current remove from treeview id is ' + id)
         # 先删除所有点
         x = self.tree.get_children()
         for item in x:
@@ -123,22 +123,6 @@ class MessageFrame():
 
         # 向表格中添加测试数据
         if DEBUG and VIEW_DEBUG:
-            # for i in range(1, 21):
-            #     # 先封装成字典，方便后期删除
-            #     dir = {
-            #         'missionId': str(i).zfill(4),
-            #         'bookName': 'bookName' + str(i).zfill(2),
-            #         'missionRange': 'missionRange' + str(i).zfill(2),
-            #         'nextTime': 'nextTime' + str(i).zfill(2),
-            #         'missionState': 'state' + str(i).zfill(2),
-            #         'loopTime': 5,
-            #         'isFinish': False
-            #     }
-            #     self.dataList.append(dir)
-            # for li in self.dataList:
-            #     # 转换成列表，方便插入treeview
-            #     dataInList = [li['missionId'], li['bookName'], li['missionRange'], li['missionState'], li['nextTime']]
-            #     self.tree.insert('', 'end', values=dataInList)
             pass
 
     def threadUpdate(self):
