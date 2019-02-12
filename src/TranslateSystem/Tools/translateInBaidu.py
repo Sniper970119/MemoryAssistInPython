@@ -69,4 +69,4 @@ class Translate():
 
 
 if __name__ == '__main__':
-    Translate().translate('火车')
+    print(Translate().translate('火车train'))

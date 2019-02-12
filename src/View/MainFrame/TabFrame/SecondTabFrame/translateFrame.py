@@ -62,6 +62,10 @@ class TranslateFrame():
             if text == '':
                 return
             translateResult = translateInBaidu.Translate().translate(text)
+            # 应对调用无法处理翻译的情况
+            if translateResult is None:
+                messagebox.showwarning(title='翻译错误', message='无法翻译，请检查输入\n　如输入无误请稍后再试')
+            # 解锁输出text并清空，将新翻译的文字填入，加锁text
             self.outputText.config(state='normal')
             self.outputText.delete('1.0', 'end')
             self.outputText.insert('insert', translateResult)

@@ -95,5 +95,5 @@ class Translate():
 if __name__ == '__main__':
     # print(Translate().isChinese('aa'))
     # print(Translate().isChinese('火车'))
-    Translate().translate('apple')
+    Translate().translate('applee')
     pass

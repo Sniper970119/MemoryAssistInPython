@@ -26,10 +26,15 @@ class SearchFrame():
             if DEBUG and VIEW_DEBUG:
                 print('{USR}{VIEW_DEBUG}search button has been click,and the search text is ' + searchText)
             result, isWord = searchSystem.SearchSystem().search(searchText)
-            if isWord:
-                showWord.ShowWord().window(result)
+            # 处理子系统无法解析单词，返回的None标记，继续向用户进行反馈
+            if result is None:
+                messagebox.showwarning(title='错误的单词', message='无法解析该单词，请检查拼写')
             else:
-                showMission.ShowMission().window(result)
+                # 窗口显示单词信息或者任务信息
+                if isWord:
+                    showWord.ShowWord().window(result)
+                else:
+                    showMission.ShowMission().window(result)
 
         # 定义搜索按钮事件（回车的事件）
         def enterSearch(event):
@@ -44,10 +49,15 @@ class SearchFrame():
 
             # 调用搜索子系统
             result, isWord = searchSystem.SearchSystem().search(searchText)
-            if isWord:
-                showWord.ShowWord().window(result)
+            # 处理子系统无法解析单词，返回的None标记，继续向用户进行反馈
+            if result is None:
+                messagebox.showwarning(title='错误的单词', message='无法解析该单词，请检查拼写')
             else:
-                showMission.ShowMission().window(result)
+                # 窗口显示单词信息或者任务信息
+                if isWord:
+                    showWord.ShowWord().window(result)
+                else:
+                    showMission.ShowMission().window(result)
 
         # 添加搜索栏
         searchBox = tkinter.Entry(topFrame, font=('Arial', 12), width=35, bd=5, relief='flat')

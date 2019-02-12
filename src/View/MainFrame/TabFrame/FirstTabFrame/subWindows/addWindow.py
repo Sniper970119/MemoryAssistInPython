@@ -40,6 +40,10 @@ class AddWindow():
             # 获取两个任务信息
             bookName = nameEntry.get()
             missionRange = missionRangeEntry.get()
+            # 检查输入非空，若为空向用户反馈更改
+            if bookName is '' or missionRange is '':
+                messagebox.showwarning(title='添加错误', message='书名和任务范围不可为空')
+                return
             # 调用添加任务工具
             self.missionSystemTools.addMission(bookName=bookName, missionRange=missionRange)
             # 关闭窗口
