@@ -9,15 +9,36 @@ class Translate():
         :param word: 需要被翻译的文本（英汉均可）
         :return:
         """
-        translateURL = 'http://fy.webxml.com.cn/webservices/EnglishChinese.asmx/Translator?wordKey=' + str(word)
-        r = requests.get(translateURL)
-        text = r.text
-        # 判断翻译类型，调用不同的解析方案
-        if self.isChinese(word):
-            message = self.handleCNRequest(text)
-        else:
-            message = self.handleENRequest(text)
-        return message
+        try:
+            translateURL = 'http://fy.webxml.com.cn/webservices/EnglishChinese.asmx/Translator?wordKey=' + str(word)
+            r = requests.get(translateURL)
+            text = r.text
+            # 判断翻译类型，调用不同的解析方案
+            if self.isChinese(word):
+                message = self.handleCNRequest(text)
+            else:
+                message = self.handleENRequest(text)
+            return message
+        except Exception, e:
+            # 打开错误日志文件
+            wrongFile = open('data/wrongMessage.dat', 'a+')
+            # 获取当前时间
+            currentTime = str(datetime.datetime.strptime(time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime()),
+                                                         '%Y-%m-%d-%H-%M-%S'))
+            # 生成报错的错误信息
+            wrongMessage = {
+                '|currentTime': currentTime,
+                '|file': 'SearchSystem-TranslateTools-translateInWebXml',
+                '|word': word,
+                '|wrongMessage': str(e)
+            }
+            # 存入文件
+            wrongFile.write(str(wrongMessage))
+            # 增加换行符
+            wrongFile.write('\n')
+            wrongFile.close()
+            return None
+
 
     def handleCNRequest(self, text):
         """
@@ -74,5 +95,5 @@ class Translate():
 if __name__ == '__main__':
     # print(Translate().isChinese('aa'))
     # print(Translate().isChinese('火车'))
-    Translate().translate('apple')
+    Translate().translate('applee')
     pass

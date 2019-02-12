@@ -24,6 +24,10 @@ class SearchSystem():
             if DEBUG and SEARCH_DEBUG:
                 print('{SYS}{SEARCH_DEBUG} word translate')
             result = self.translateTools.translate(words)
+            # 应对无法完成翻译，翻译模块无法解析返回文本，错误处理返回None作为无法处理信息
+            if result is None:
+                # 继续向调用者反馈无法翻译的信息，以便向用户做出说明
+                return None, True
             return result, True
         else:
             # 打印debug日志

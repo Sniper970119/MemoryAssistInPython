@@ -127,21 +127,87 @@ class EditWindow():
             确认添加按钮的事件
             :return:
             """
-            # 调用添加任务工具
-            self.missionSystemTools.editMission(missionId=idEntry.get(), bookName=self.bookName.get(),
-                                                missionRange=self.missionRange.get(),
-                                                state=self.state.get(), loopTime=self.loopTime.get(),
-                                                isEdit=True)
-            if self.isFinish.get() == '1':
-                self.missionSystemTools.editMission(missionId=idEntry.get(), isFinish=True)
-            # 关闭窗口
-            self.addWindow.after(300, self.addWindow.destroy)
-            # 将messageFrame的重绘变量置为True
-            messageFrame.MessageFrame.needReprint = True
-            if DEBUG and VIEW_DEBUG:
-                print('{USR}{MESSAGE_FRAME} now user click edit mission button and system change it')
-            pass
+
+            # 输入的任务id检查
+            id = idEntry.get()
+            try:
+                id = int(idEntry.get())
+            except:
+                messagebox.showwarning(title='错误的id', message='请输入正确的任务id（非数字）')
+                return
+            # 书名检查
+            if self.bookName.get() is '':
+                messagebox.showwarning(title='错误的书名', message='请输入正确的书名（空白的书名）')
+                return
+            # 任务范围检查
+            if self.missionRange.get() is '':
+                messagebox.showwarning(title='错误的任务范围', message='请输入正确的任务范围（空白的任务范围）')
+                return
+            # 任务状态检查
+            state = self.state.get()
+            try:
+                state = int(self.state.get())
+                if state > 7 or state < 0:
+                    messagebox.showwarning(title='错误的任务状态', message='输入正确的任务状态编码（范围错误）')
+                    return
+            except:
+                messagebox.showwarning(title='错误的任务状态', message='请输入正确的任务状态编码（非数字）')
+                return
+            # 输入的迭代次数检查
+            time = self.loopTime.get()
+            try:
+                time = int(self.loopTime.get())
+            except:
+                messagebox.showwarning(title='错误的迭代次数', message='请输入正确的迭代次数（非数字）')
+                return
+            # 完成状态检查
+            finish = self.isFinish.get()
+            try:
+                finish = int(self.isFinish.get())
+                if finish != 1 and finish != 0:
+                    messagebox.showwarning(title='错误的完成状态', message='输入正确的完成状态编码（范围错误）')
+                    return
+            except:
+                messagebox.showwarning(title='错误的完成状态', message='请输入正确的完成状态（非数字）')
+                return
+            # 用户再次确认
+            if messagebox.askokcancel(title='是否继续编辑', message='确认后不可恢复，确认信息正确有效'):
+                # 调用添加任务工具
+                self.missionSystemTools.editMission(missionId=id, bookName=self.bookName.get(),
+                                                    missionRange=self.missionRange.get(),
+                                                    state=state, loopTime=time,
+                                                    isEdit=True)
+                if finish == 1:
+                    self.missionSystemTools.editMission(missionId=idEntry.get(), isFinish=True)
+                # 关闭窗口
+                self.addWindow.after(300, self.addWindow.destroy)
+                # 将messageFrame的重绘变量置为True
+                messageFrame.MessageFrame.needReprint = True
+                #记录用户操作
+                self.logUserAction('user click edit mission button')
+                if DEBUG and VIEW_DEBUG:
+                    print('{USR}{MESSAGE_FRAME} now user click edit mission button')
 
         # 按钮
         addButton = tkinter.Button(self.addWindow, text='确认修改', command=editMission)
         addButton.place(x=200, y=385, anchor='nw')
+
+
+    def logUserAction(self, action, message=None):
+
+        # 记录用户操作
+        userActionLogFile = open('data/userAction.dat', 'a+')
+        # 获取当前时间
+        currentTime = str(datetime.datetime.strptime(time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime()),
+                                                     '%Y-%m-%d-%H-%M-%S'))
+        # 生成记录信息
+        if message is None:
+            userAction = '{' + currentTime + '} ' + action + ' '
+        else:
+            userAction = '{' + currentTime + '} ' + action + ' ' + message
+
+        # 存入文件
+        userActionLogFile.write(str(userAction))
+        # 增加换行符
+        userActionLogFile.write('\n')
+        userActionLogFile.close()

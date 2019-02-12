@@ -29,6 +29,8 @@ class SelectFrame():
         :return:
         """
         win = addWindow.AddWindow().window()
+        # 调用用户操作记录函数，记录用户此次操作
+        self.logUserAction('add button has been pressed')
         if DEBUG and VIEW_DEBUG:
             print('{USR}{SELECT_FRAME} add button has been pressed')
         pass
@@ -39,6 +41,8 @@ class SelectFrame():
         :return:
         """
         win = editWindow.EditWindow().window()
+        # 调用用户操作记录函数，记录用户此次操作
+        self.logUserAction('edit button has been pressed')
         if DEBUG and VIEW_DEBUG:
             print('{USR}{SELECT_FRAME} edit button has been pressed')
         pass
@@ -49,6 +53,8 @@ class SelectFrame():
         :return:
         """
         win = viewAllWindow.ViewAllWindow().window()
+        # 调用用户操作记录函数，记录用户此次操作
+        self.logUserAction('view button has been pressed')
         if DEBUG and VIEW_DEBUG:
             print('{USR}{SELECT_FRAME} view all button has been pressed')
         pass
@@ -68,3 +74,22 @@ class SelectFrame():
         viewAllButton = tkinter.Button(self.menuFrame, text='查看全部', width=10, height=1, command=self.selectAllButton)
         viewAllButton.place(x=35, y=220, anchor='nw')
         pass
+
+    def logUserAction(self, action, message=None):
+
+        # 记录用户操作
+        userActionLogFile = open('data/userAction.dat', 'a+')
+        # 获取当前时间
+        currentTime = str(datetime.datetime.strptime(time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime()),
+                                                     '%Y-%m-%d-%H-%M-%S'))
+        # 生成记录信息
+        if message is None:
+            userAction = '{' + currentTime + '} ' + action + ' '
+        else:
+            userAction = '{' + currentTime + '} ' + action + ' ' + message
+
+        # 存入文件
+        userActionLogFile.write(str(userAction))
+        # 增加换行符
+        userActionLogFile.write('\n')
+        userActionLogFile.close()

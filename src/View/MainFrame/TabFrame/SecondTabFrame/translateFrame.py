@@ -48,17 +48,24 @@ class TranslateFrame():
         绘制翻译按钮
         :return:
         """
+
         def translateText():
             """
             翻译按钮事件
             :return:
             """
+            # 调用用户操作记录函数，记录用户此次操作
+            self.logUserAction('user select translate')
             if DEBUG and VIEW_DEBUG:
                 print('{USR}{VIEW_DEBUG} user select translate')
             text = self.inputText.get("0.0", "end").encode('utf-8')
             if text == '':
                 return
             translateResult = translateInBaidu.Translate().translate(text)
+            # 应对调用无法处理翻译的情况
+            if translateResult is None:
+                messagebox.showwarning(title='翻译错误', message='无法翻译，请检查输入\n　如输入无误请稍后再试')
+            # 解锁输出text并清空，将新翻译的文字填入，加锁text
             self.outputText.config(state='normal')
             self.outputText.delete('1.0', 'end')
             self.outputText.insert('insert', translateResult)
@@ -70,6 +77,8 @@ class TranslateFrame():
             :param event:
             :return:
             """
+            # 调用用户操作记录函数，记录用户此次操作
+            self.logUserAction('user press enter')
             if DEBUG and VIEW_DEBUG:
                 print('{USR}{VIEW_DEBUG} user press enter')
             translateText()
@@ -93,6 +102,7 @@ class TranslateFrame():
             """
             self.inputText.tag_add(tkinter.SEL, "1.0", tkinter.END)
             return 'break'
+
         # 翻译按钮
         translateButton = tkinter.Button(self.secondTabFrame, text='翻 译', bg='red', width=7,
                                          activebackground='firebrick', fg='ghostwhite', activeforeground='ghostwhite',
@@ -109,6 +119,8 @@ class TranslateFrame():
             复制翻译后的文本到剪切板
             :return:
             """
+            # 调用用户操作记录函数，记录用户此次操作
+            self.logUserAction('user select copy to shear plate')
             if DEBUG and VIEW_DEBUG:
                 print('{USR}{VIEW_DEBUG} user select copy to shear plate')
             win32clipboard.OpenClipboard()
@@ -120,13 +132,13 @@ class TranslateFrame():
             win32clipboard.SetClipboardData(win32con.CF_TEXT, translateResultUseToCopy)
             win32clipboard.CloseClipboard()
             pass
+
         # 复制到剪切板按钮
         copyToShearPlateButton = tkinter.Button(self.secondTabFrame, text='复 制', bg='red', width=7,
                                                 activebackground='firebrick', fg='ghostwhite',
                                                 activeforeground='ghostwhite',
                                                 command=copyToShearPlate)
         copyToShearPlateButton.place(x=570, y=290, anchor='nw')
-
 
         def deleteAll():
             self.outputText.config(state='normal')
@@ -135,7 +147,26 @@ class TranslateFrame():
 
         # 清空按钮
         deleteAllButton = tkinter.Button(self.secondTabFrame, text='清 空', bg='red', width=7,
-                                                activebackground='firebrick', fg='ghostwhite',
-                                                activeforeground='ghostwhite',
-                                                command=deleteAll)
+                                         activebackground='firebrick', fg='ghostwhite',
+                                         activeforeground='ghostwhite',
+                                         command=deleteAll)
         deleteAllButton.place(x=630, y=290, anchor='nw')
+
+    def logUserAction(self, action, message=None):
+
+        # 记录用户操作
+        userActionLogFile = open('data/userAction.dat', 'a+')
+        # 获取当前时间
+        currentTime = str(datetime.datetime.strptime(time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime()),
+                                                     '%Y-%m-%d-%H-%M-%S'))
+        # 生成记录信息
+        if message is None:
+            userAction = '{' + currentTime + '} ' + action + ' '
+        else:
+            userAction = '{' + currentTime + '} ' + action + ' ' + message
+
+        # 存入文件
+        userActionLogFile.write(str(userAction))
+        # 增加换行符
+        userActionLogFile.write('\n')
+        userActionLogFile.close()
