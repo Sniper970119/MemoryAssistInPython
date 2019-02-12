@@ -45,7 +45,24 @@ class Translate():
                 print('{SYS}{SEARCH_DEBUG} word has been translate, result is ' + result)
             return result
         except Exception, e:
-            print e
+            # 打开错误日志文件
+            wrongFile = open('data/wrongMessage.dat', 'a+')
+            # 获取当前时间
+            currentTime = str(datetime.datetime.strptime(time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime()),
+                                                         '%Y-%m-%d-%H-%M-%S'))
+            # 生成报错的错误信息
+            wrongMessage = {
+                '|currentTime': currentTime,
+                '|file': 'TranslateSystem-Tools-translateInBaidu',
+                '|translateText': q,
+                '|wrongMessage': str(e)
+            }
+            # 存入文件
+            wrongFile.write(str(wrongMessage))
+            # 增加换行符
+            wrongFile.write('\n')
+            wrongFile.close()
+            return None
         finally:
             if httpClient:
                 httpClient.close()

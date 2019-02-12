@@ -23,6 +23,23 @@ class LoadMissionFile():
             if DEBUG and MISSION_DEBUG:
                 print('{SYS}{MISSION_DEBUG} file has been load from file successfully')
             return fileData
-        except:
+        except Exception, e:
+            # 打开错误日志文件
+            wrongFile = open('data/wrongMessage.dat', 'a+')
+            # 获取当前时间
+            currentTime = str(datetime.datetime.strptime(time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime()),
+                                                         '%Y-%m-%d-%H-%M-%S'))
+            # 生成报错的错误信息
+            wrongMessage = {
+                '|currentTime': currentTime,
+                '|file': 'MissionSystem-LoadMission-loadMissionFile',
+                '|wrongMessage': str(e)
+            }
+            # 存入文件
+            wrongFile.write(str(wrongMessage))
+            # 增加换行符
+            wrongFile.write('\n')
+            wrongFile.close()
             return None
+
 
