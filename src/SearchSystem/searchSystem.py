@@ -43,8 +43,6 @@ class SearchSystem():
             return False
         except:
             return True
-        # print(word.isdigit())
-        # return word.isdigit()
 
 
 if __name__ == '__main__':
