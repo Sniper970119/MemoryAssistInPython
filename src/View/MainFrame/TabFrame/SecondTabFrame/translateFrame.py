@@ -102,7 +102,7 @@ class TranslateFrame():
         self.inputText.bind("<Return>", autoTranslate)
         self.inputText.bind("<Control-Key-a>", selectText)
         self.inputText.bind("<Control-Key-A>", selectText)
-        translateButton.place(x=620, y=120, anchor='nw')
+        translateButton.place(x=600, y=120, anchor='nw')
 
         def copyToShearPlate():
             """
@@ -120,9 +120,22 @@ class TranslateFrame():
             win32clipboard.SetClipboardData(win32con.CF_TEXT, translateResultUseToCopy)
             win32clipboard.CloseClipboard()
             pass
-
+        # 复制到剪切板按钮
         copyToShearPlateButton = tkinter.Button(self.secondTabFrame, text='复 制', bg='red', width=7,
                                                 activebackground='firebrick', fg='ghostwhite',
                                                 activeforeground='ghostwhite',
                                                 command=copyToShearPlate)
-        copyToShearPlateButton.place(x=620, y=290, anchor='nw')
+        copyToShearPlateButton.place(x=570, y=290, anchor='nw')
+
+
+        def deleteAll():
+            self.outputText.config(state='normal')
+            self.outputText.delete('1.0', 'end')
+            self.outputText.config(state='disabled')
+
+        # 清空按钮
+        deleteAllButton = tkinter.Button(self.secondTabFrame, text='清 空', bg='red', width=7,
+                                                activebackground='firebrick', fg='ghostwhite',
+                                                activeforeground='ghostwhite',
+                                                command=deleteAll)
+        deleteAllButton.place(x=630, y=290, anchor='nw')
