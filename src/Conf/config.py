@@ -10,6 +10,8 @@ import os
 import threading
 import requests
 import re
+import win32clipboard
+import win32con
 
 
 # 调试模式总开关
