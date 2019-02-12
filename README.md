@@ -25,4 +25,4 @@
 
 ## 动态展示
 
-![gif展示](https://github.com/Sniper970119/MemoryAssistInPython/showPic/show.gif)
+![gif展示](https://github.com/Sniper970119/MemoryAssistInPython/blob/master/showPic/show.gif)
