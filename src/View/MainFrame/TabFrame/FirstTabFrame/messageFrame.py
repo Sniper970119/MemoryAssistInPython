@@ -36,6 +36,7 @@ class MessageFrame():
         :param event:
         :return:
         """
+
         if DEBUG and VIEW_DEBUG:
             for item in self.tree.selection():
                 item_text = self.tree.item(item, "values")
@@ -44,10 +45,14 @@ class MessageFrame():
         if isFinish:
             for item in self.tree.selection():
                 item_text = self.tree.item(item, "values")
+                # 调用用户操作记录函数，记录用户此次操作
+                self.logUserAction('treeview has been double click at ', item_text[0])
                 # 标记任务已完成
                 missionSystem.MissionSystem().editMission(missionId=item_text[0], isFinish=True)
                 self.removeData(item_text[0])
             pass
+        # 调用用户操作记录函数，记录用户此次操作
+        self.logUserAction('user select  ', str(isFinish))
         if DEBUG and VIEW_DEBUG:
             print('{USR}{VIEW_DEBUG} user select ' + str(isFinish))
         pass
@@ -131,3 +136,22 @@ class MessageFrame():
         if DEBUG and VIEW_DEBUG:
             print('{SYS}{MISSION_DEBUG} update thread has been ran')
         t.start()
+
+    def logUserAction(self, action, message=None):
+
+        # 记录用户操作
+        userActionLogFile = open('data/userAction.dat', 'a+')
+        # 获取当前时间
+        currentTime = str(datetime.datetime.strptime(time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime()),
+                                                     '%Y-%m-%d-%H-%M-%S'))
+        # 生成记录信息
+        if message is None:
+            userAction = '{' + currentTime + '} ' + action + ' '
+        else:
+            userAction = '{' + currentTime + '} ' + action + ' ' + message
+
+        # 存入文件
+        userActionLogFile.write(str(userAction))
+        # 增加换行符
+        userActionLogFile.write('\n')
+        userActionLogFile.close()
