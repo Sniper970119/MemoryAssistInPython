@@ -2,7 +2,7 @@
 
 from src.Conf.config import *
 from src.View.MainFrame.TabFrame import tabFrame
-
+from src.View.MainFrame.SearchFrame import searchFrame
 
 class MainFrame():
     def __init__(self):
@@ -13,7 +13,7 @@ class MainFrame():
         rootWindow.geometry('700x500+' + str(int((screenWidth - 700) / 2)) + '+' + str(int((screenHeight - 500) / 2)))
         rootWindow.resizable(width=False, height=False)
         rootWindow.title('MemoryAssist v0.1')
-        rootWindow.iconbitmap('../images/icon.ico')
+        rootWindow.iconbitmap('images/icon.ico')
 
         # 添加主框架
         if DEBUG and VIEW_DEBUG:
@@ -25,5 +25,6 @@ class MainFrame():
 
         # 调用子组件
         tabFrame.TabFrame(rootFrame=rootFrame)
+        searchFrame.SearchFrame(rootFrame=rootFrame)
 
         rootWindow.mainloop()

@@ -2,6 +2,7 @@
 
 from src.Conf.config import *
 from src.View.MainFrame.TabFrame.FirstTabFrame import firstTabFrame
+from src.View.MainFrame.TabFrame.SecondTabFrame import translateFrame
 
 
 class TabFrame():
@@ -17,6 +18,7 @@ class TabFrame():
 
         # 调用子组件
         firstTabFrame.FirstTabFrame(tab=self.tab)
+        translateFrame.TranslateFrame(tab=self.tab)
 
 
 

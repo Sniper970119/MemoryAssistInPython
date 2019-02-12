@@ -15,9 +15,9 @@ class EditWindow():
         screenHeight = self.addWindow.winfo_screenheight()
         self.addWindow.geometry(
             '300x430+' + str(int((screenWidth - 300) / 2)) + '+' + str(int((screenHeight - 430) / 2)))
-        self.addWindow.title('编辑任务')
-        self.addWindow.iconbitmap('../images/icon.ico')
         self.addWindow.resizable(width=False, height=False)
+        self.addWindow.title('编辑任务')
+        self.addWindow.iconbitmap('images/icon.ico')
 
         self.missionId = tkinter.StringVar()
         self.bookName = tkinter.StringVar()

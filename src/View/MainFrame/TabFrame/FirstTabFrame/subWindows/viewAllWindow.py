@@ -17,7 +17,7 @@ class ViewAllWindow():
             '550x320+' + str(int((screenWidth - 550) / 2)) + '+' + str(int((screenHeight - 320) / 2)))
         self.addWindow.resizable(width=False, height=False)
         self.addWindow.title('查看全部')
-        self.addWindow.iconbitmap('../images/icon.ico')
+        self.addWindow.iconbitmap('images/icon.ico')
         self.tree = ttk.Treeview(self.addWindow, columns=['1', '2', '3', '4', '5', '6', '7'], show='headings',
                                  height=15)
 
