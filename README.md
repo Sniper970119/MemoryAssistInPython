@@ -9,6 +9,7 @@
 
 （前几天参加完华为的敏捷开发的培训，本来想试试敏捷，结果好像变成原型了可还行x
 
+
 比较详尽的说明请点[这里](http://www.sniper97.cn/index.php/memoryAssist/)
 
 2019-2-1:技术验证阶段，主要测试GUI页面是否能达到预期要求。
@@ -22,3 +23,6 @@
 2019-2-12: 完成第二次迭代。
 
 
+## 动态展示
+
+![gif展示](https://github.com/Sniper970119/MemoryAssistInPython/showPic/show.gif)
