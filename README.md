@@ -12,6 +12,8 @@
 
 比较详尽的说明请点[这里](http://www.sniper97.cn/index.php/memoryAssist/)
 
+API帮助文档请点[这里](http://www.sniper97.cn/MemoryAssist/API)
+
 2019-2-1:技术验证阶段，主要测试GUI页面是否能达到预期要求。
 
 2019-2-2:初步完成GUI部分框架，尽力改回敏捷模型，先开发一部分功能
