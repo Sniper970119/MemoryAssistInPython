@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-from src.View.MainFrame import mainFrame
+from src.Client.View.MainFrame import mainFrame
 
 # 主界面
 if __name__ == '__main__':
