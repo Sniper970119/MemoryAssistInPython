@@ -7,7 +7,9 @@ from src.Conf.config import *
 
 
 class EncodeText():
-
+    """
+    编码文件类，将需要保存的列表序列化并加密。实际操作类。
+    """
     def encodeing(self, data):
         """
         将列表加密

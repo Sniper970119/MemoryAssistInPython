@@ -5,6 +5,9 @@ from src.Conf.config import *
 
 
 class LoadConfigFile():
+    """
+    该类负责读取配置文件，属于实际操作类
+    """
     def __init__(self, fileName='../conf/mission.ini'):
         self.config = ConfigParser.ConfigParser()
         self.fileName = fileName

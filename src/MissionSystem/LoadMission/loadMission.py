@@ -5,6 +5,9 @@ from src.MissionSystem.LoadMission.tools import loadMissionFile
 
 
 class LoadMission():
+    """
+    读取文件子系统。调用类，任务由被调用者完成。
+    """
     def __init__(self, filename='data/mission.dat'):
         self.fileName = filename
         # 初始化解密工具

@@ -3,6 +3,9 @@ from src.Conf.config import *
 
 
 class SaveMissionToFile():
+    """
+    保存文件类，将列表保存到文件。实际操作类
+    """
     def __init__(self, fileName='../data/mission.dat'):
         self.fileName = fileName
 

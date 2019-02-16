@@ -4,7 +4,9 @@ from src.Conf.config import *
 
 
 class FinishMission():
-
+    """
+    该类负责完成任务，即将任务标记为完成状态。实际操作类。
+    """
     def finish(self, list, missionId):
         """
         完成任务

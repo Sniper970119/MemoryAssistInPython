@@ -12,6 +12,9 @@ import requests
 import re
 import win32clipboard
 import win32con
+"""
+该类负责导入包、debug开关
+"""
 
 
 # 调试模式总开关

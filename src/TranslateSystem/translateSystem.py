@@ -5,6 +5,9 @@ from src.TranslateSystem.Tools import translateInBaidu
 
 
 class TranslateSystem():
+    """
+    翻译子系统，调用类，任务由被调用者完成。
+    """
     def __init__(self):
         # 初始化工具
         self.translateInBaiduTools = translateInBaidu.Translate()

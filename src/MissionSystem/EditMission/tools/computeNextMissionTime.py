@@ -4,6 +4,9 @@ from src.Conf.config import *
 
 
 class ComputeNextMissionTime():
+    """
+    负责计算任务的下一次任务时间，实际操作类。
+    """
     def __init__(self):
         # 定义几种任务状态的常量，分别为，不再提示、新任务、一天后重复、两天后重复···和更多（15天）
         self.NEVER = 0
@@ -17,6 +20,12 @@ class ComputeNextMissionTime():
         pass
 
     def compute(self, list, missionId):
+        """
+        计算下次任务时间
+        :param list: 传入的列表
+        :param missionId: 需要计算的id
+        :return: 修改后的任务列表
+        """
         # 首先将列表备份，以便添加失败时返回最近正常的点
         backupList = list[:]
         try:

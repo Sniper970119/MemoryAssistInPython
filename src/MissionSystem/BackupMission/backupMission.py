@@ -9,6 +9,9 @@ from src.MissionSystem.BackupMission.tools import chooseRecoverFile
 
 
 class BackupMission():
+    """
+    备份系统，负责文件的备份、恢复等。调用类，任务由被调用者完成。
+    """
     def __init__(self, fileLimit=7, backupFilePath='../data/bkup/mbk/', missionFileName='../data/bkup/mission.dat'):
         # 初始化工具
         self.missionFileName = missionFileName

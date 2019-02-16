@@ -3,6 +3,9 @@ from src.Conf.config import *
 
 
 class ShowMission():
+    """
+    搜索栏显示任务GUI部分。
+    """
     def __init__(self):
         pass
 

@@ -4,7 +4,10 @@ from src.TranslateSystem.Tools import translateInBaidu
 
 
 class TranslateFrame():
-
+    """
+    第二个Tab框架，其实应该命名为secondTabFrame，但是命名时为了便于理解于是命名成这个。
+    负责翻译框架的显示以及错误信息的反馈。
+    """
     def __init__(self, tab):
         """
 

@@ -3,6 +3,9 @@ from src.Conf.config import *
 
 
 class ShowWord():
+    """
+    搜索栏显示查词结果的GUi部分
+    """
     def __init__(self):
         pass
 

@@ -7,7 +7,9 @@ from src.View.MainFrame.TabFrame.FirstTabFrame.subWindows import viewAllWindow
 
 
 class SelectFrame():
-
+    """
+    右侧选择GUI。同时对应右侧按钮进行调用。
+    """
     def __init__(self, firstTabFrame):
         """
 

@@ -6,7 +6,9 @@ from src.View.MainFrame.TabFrame.SecondTabFrame import translateFrame
 
 
 class TabFrame():
-
+    """
+    tab框架的主框架。
+    """
     def __init__(self, rootFrame):
         """
 

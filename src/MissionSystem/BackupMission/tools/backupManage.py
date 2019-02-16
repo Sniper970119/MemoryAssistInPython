@@ -4,6 +4,9 @@ from src.Conf.config import *
 
 
 class BackupManage():
+    """
+    该类负责备份管理，维护备份文件的个数，属于实际操作类
+    """
     def __init__(self, filePath='../data/bkup/mbk/'):
         self.filePath = filePath
         pass

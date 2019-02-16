@@ -3,6 +3,9 @@ from src.Conf.config import *
 
 
 class AddMissionToList():
+    """
+    该类负责将任务添加到列表，属于实际操作类
+    """
 
     def addMission(self, list, missionId, bookName, missionRange, nextTime=None, state=1, loopTime=5, isFinish=False):
         """

@@ -3,6 +3,9 @@ from src.Conf.config import *
 
 
 class Translate():
+    """
+    翻译类，负责单词的中英互译。具体操作类。
+    """
     def translate(self, word):
         """
         翻译单词（返回详细的单词翻译）

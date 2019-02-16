@@ -5,6 +5,9 @@ from src.MissionSystem.SaveMission.tools import saveMissionToFile
 
 
 class SaveMission():
+    """
+    保存文件子系统。调用类，任务由被调用者完成。
+    """
     def __init__(self, filename='../data/mission.dat'):
         # 初始化加密工具
         self.encodeTools = encodeText.EncodeText()

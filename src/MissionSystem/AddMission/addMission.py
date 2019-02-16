@@ -7,6 +7,9 @@ from src.MissionSystem.SaveMission import saveMission
 
 
 class AddMission():
+    """
+    该类负责增加任务相关事宜，属于调用类，调用各种方法完成目的。
+    """
     def __init__(self, confFileName='../data/mission.dat', dataFileName='../data/mission.dat'):
         # 初始化工具
         self.loadConfigTools = loadConfigFile.LoadConfigFile(fileName=confFileName)

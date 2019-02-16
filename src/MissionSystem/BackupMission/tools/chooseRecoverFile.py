@@ -4,6 +4,9 @@ from src.Conf.config import *
 
 
 class ChooseRecoverFile():
+    """
+    该类负责选择恢复文件，即选择一个最合适的文件作为数据恢复样本。实际操作类
+    """
     def __init__(self, filePath='../data/bkup/mbk/'):
         self.filePath = filePath
         pass

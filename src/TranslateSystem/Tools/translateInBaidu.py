@@ -12,6 +12,9 @@ secretKey = 'FN5ZzcxZIt41MWthQexp'  # 你的密钥
 
 
 class Translate():
+    """
+    负责长文本的翻译，默认中译英或者英译中，输入其他语言也可以。实际操作类。
+    """
     def translate(self, q):
         """
         使用百度翻译进行翻译

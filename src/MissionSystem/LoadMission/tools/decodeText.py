@@ -6,7 +6,9 @@ from src.Conf.config import *
 
 
 class DecodeText():
-
+    """
+    负责解码文本，将加密的文档解密并解序列化。实际操作类。
+    """
     def decodeing(self, data):
         """
         解密

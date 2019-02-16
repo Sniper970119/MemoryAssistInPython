@@ -3,7 +3,9 @@ from src.Conf.config import *
 
 
 class RemoveMission():
-
+    """
+    移除任务类，负责将任务删除。实际操作类
+    """
     def remove(self, list, missionId):
         """
         删除任务

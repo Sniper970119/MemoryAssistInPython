@@ -9,6 +9,9 @@ from src.MissionSystem.AddMission import addMission
 
 
 class MissionSystem():
+    """
+    任务系统，一级子系统。对外提供任务系统的各个功能。
+    """
     def __init__(self, confFileName='conf\mession.ini',
                  dataFileName='data\mission.dat',
                  backupFilePath='data/bkup/mbk/'):

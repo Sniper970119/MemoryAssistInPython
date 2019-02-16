@@ -5,7 +5,9 @@ from src.MissionSystem import missionSystem
 
 
 class MessageFrame():
-
+    """
+    负责显示 显示当日任务信息的GUI界面，以及用户完成任务信息的响应。
+    """
     def __init__(self, firstTabFrame=None):
         """
 

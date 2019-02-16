@@ -7,6 +7,9 @@ from src.View.MainFrame.SearchFrame.ShowTools import showMission
 
 
 class SearchFrame():
+    """
+    搜索子系统，负责调用任务模块以及非法数据的过滤与提示。
+    """
     def __init__(self, rootFrame):
         # 添加顶部框架
         if DEBUG:

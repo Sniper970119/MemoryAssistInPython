@@ -7,7 +7,9 @@ from src.View.MainFrame.TabFrame.FirstTabFrame.subWindows import addWindow
 
 
 class FirstTabFrame():
-
+    """
+    第一个Tab框架，负责显示任务信息等GUI界面。
+    """
     def __init__(self, tab):
         """
 

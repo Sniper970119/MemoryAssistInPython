@@ -6,6 +6,9 @@ from src.SearchSystem.TranslateTools import translateInWebXml
 
 
 class SearchSystem():
+    """
+    搜索子系统。区分搜索的类型，分别调用查词或者任务系统的任务搜索方法。
+    """
     def __init__(self, dataFileName='data\mission.dat'):
         # 初始化工具
         self.missionSystemTools = missionSystem.MissionSystem(dataFileName=dataFileName)

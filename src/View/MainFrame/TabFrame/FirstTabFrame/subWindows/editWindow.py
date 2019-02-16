@@ -6,6 +6,9 @@ from src.View.MainFrame.TabFrame.FirstTabFrame import messageFrame
 
 
 class EditWindow():
+    """
+    编辑任务的GUI界面。负责显示编辑任务的GUI以及非法输入拦截。
+    """
     def __init__(self):
         self.missionSystemTools = missionSystem.MissionSystem()
 

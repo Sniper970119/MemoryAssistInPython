@@ -3,9 +3,23 @@ from src.Conf.config import *
 
 
 class EditMissionList():
-
+    """
+    负责编辑任务，实际操作类
+    """
     def edit(self, list, missionId, bookName=None, missionRange=None, nextTime=None, state=None, loopTime=None,
              isFinish=None):
+        """
+        编辑任务
+        :param list:  目标list
+        :param missionId: 任务id（string
+        :param bookName: 书名
+        :param missionRange: 任务范围
+        :param nextTime: 下次任务时间
+        :param state: 任务状态
+        :param loopTime: 剩余迭代次数
+        :param isFinish: 任务是否完成
+        :return: 插入后的list
+        """
         # 首先将列表备份，以便添加失败时返回最近正常的点
         backupList = list[:]
         try:

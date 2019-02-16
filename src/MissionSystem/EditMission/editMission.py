@@ -10,6 +10,9 @@ from src.MissionSystem.SaveMission import saveMission
 
 
 class EditMission():
+    """
+    编辑任务子系统。调用类，任务由被调用者完成。
+    """
     def __init__(self, filename='../data/mission.dat'):
         # 初始化工具
         self.computeNextTimeTools = computeNextMissionTime.ComputeNextMissionTime()
@@ -30,9 +33,9 @@ class EditMission():
         :param nextTime: 下次时间
         :param state: 任务状态
         :param loopTime: 迭代次数
-        :param isEdit: 执行编辑任务
-        :param isFinish: 执行完成任务
-        :param isDelete: 执行删除任务
+        :param isEdit: 执行编辑任务标记
+        :param isFinish: 执行完成任务标记
+        :param isDelete: 执行删除任务标记
         :return: 编辑后的list
         """
         try:

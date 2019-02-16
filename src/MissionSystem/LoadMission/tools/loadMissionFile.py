@@ -3,6 +3,9 @@ from src.Conf.config import *
 
 
 class LoadMissionFile():
+    """
+    负责读取任务文件类，实际操作类。
+    """
     def __init__(self, fileName='../data/mission.dat'):
         self.fileName = fileName
         pass

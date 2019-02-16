@@ -6,6 +6,9 @@ from src.View.MainFrame.TabFrame.FirstTabFrame import messageFrame
 
 
 class ViewAllWindow():
+    """
+    显示全部任务的GUI界面
+    """
     def __init__(self):
         self.missionSystemTools = missionSystem.MissionSystem()
 
