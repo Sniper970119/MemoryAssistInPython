@@ -1,8 +1,8 @@
 # -*- coding:utf-8 -*-
 
-from src.Client.Conf.config import *
-from src.Client.VersionControlSystem.GetNewFile.Tools import getUpdateFile
-from src.Client.VersionControlSystem.GetNewFile.Tools import getIndexFile
+from src.Update.Conf.config import *
+from src.Update.VersionControlSystem.GetNewFile.Tools import getUpdateFile
+from src.Update.VersionControlSystem.GetNewFile.Tools import getIndexFile
 
 
 class GetNewFile():
