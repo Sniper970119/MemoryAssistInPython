@@ -1,20 +1,21 @@
 # -*- coding:utf-8 -*-
 
 from src.Update.Conf.config import *
-from src.Update.VersionControlSystem.GetNewFile.Tools import getUpdateFile
-from src.Update.VersionControlSystem.GetNewFile.Tools import getIndexFile
+from src.Update.VersionControlSystem.GetNewFile.Tools import getUpdateFile, getIndexFile, unZipFile
 
 
 class GetNewFile():
-    def __init__(self):
+    def __init__(self, filePath='update.zip'):
         try:
             self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self.s.connect((SERVER_IP, SERVER_FILE_PORT))
             self.getUpdateFileTools = getUpdateFile.GetUpdateFile(self.s)
             self.getIndexFileTools = getIndexFile.GetIndexFile(self.s)
+            self.unZipFileTools = unZipFile.UnZipFile(filePath)
 
             self.getIndexFileTools.getFile()
             self.getUpdateFileTools.get()
+            self.unZipFileTools.un_zip()
         except socket.error as msg:
             # 打开错误日志文件
             wrongFile = open('data/wrongMessage.dat', 'a+')

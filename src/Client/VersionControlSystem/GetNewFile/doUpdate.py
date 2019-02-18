@@ -1,16 +1,19 @@
 # -*- coding:utf-8 -*-
+
 from src.Update.Conf.config import *
-from src.Update.SystemTools.ConfFileRead import configFileRead
+from src.Client.VersionControlSystem.GetNewFile.Tools import getUpdateFile, getIndexFile
 
 
-class JudgeNeedUpdate():
+class GetNewFile():
     def __init__(self):
         try:
-            self.configFileReadTools = configFileRead.ConfigFileRead()
             self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            self.s.connect((SERVER_IP, SERVER_MES_PORT))
+            self.s.connect((SERVER_IP, SERVER_FILE_PORT))
+            self.getUpdateFileTools = getUpdateFile.GetUpdateFile(self.s)
+            self.getIndexFileTools = getIndexFile.GetIndexFile(self.s)
 
-
+            self.getIndexFileTools.getFile()
+            self.getUpdateFileTools.get()
         except socket.error as msg:
             # 打开错误日志文件
             wrongFile = open('data/wrongMessage.dat', 'a+')
@@ -29,14 +32,7 @@ class JudgeNeedUpdate():
             wrongFile.write('\n')
             wrongFile.close()
 
-    def judge(self):
-        return True
-        vision = self.configFileReadTools.readFile('VERSION', 'version')
-        # 请求码为100时 返回最新版本号
-        self.s.send('100')
-        returnData = self.s.recv(1024)
-        if vision == returnData:
-            return True
-        else:
-            return False
-        pass
+
+
+if __name__ == '__main__':
+    GetNewFile()

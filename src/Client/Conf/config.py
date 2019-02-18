@@ -24,6 +24,9 @@ SERVER_FILE_PORT = 9000
 SERVER_MES_PORT = 9001
 
 
+VERSION = 1.0
+
+
 
 # 调试模式总开关
 DEBUG = True

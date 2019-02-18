@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
-from src.Update.Conf.config import *
-from src.Update.SystemTools.ConfFileRead import configFileRead
+from src.Client.Conf.config import *
+from src.Client.SystemTools.ConfFileRead import configFileRead
 
 
 class JudgeNeedUpdate():
