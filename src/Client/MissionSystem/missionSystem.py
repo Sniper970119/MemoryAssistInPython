@@ -47,11 +47,11 @@ class MissionSystem():
         self.list = self.loadMission()
         # 今日任务列表
         todayList = []
-        today = datetime.datetime.strptime(time.strftime("%Y-%m-%d", time.localtime()), '%Y-%m-%d').strftime(
-            "%Y-%m-%d")
-        # 将下次任务日期为今天的任务取出
+        today = datetime.datetime.strptime(time.strftime("%Y-%m-%d", time.localtime()), '%Y-%m-%d')
+        # 将下次任务日期为今天（或更早）的任务取出
         for each in self.list:
-            if each['nextTime'] == today:
+            missionTime = datetime.datetime.strptime(each['nextTime'], "%Y-%m-%d")
+            if missionTime <= today:
                 todayList.append(each)
         return todayList
 

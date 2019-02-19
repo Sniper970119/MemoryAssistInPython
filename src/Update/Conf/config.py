@@ -4,6 +4,8 @@ import time
 from tkinter import messagebox
 import ConfigParser
 import struct
+import zipfile
+import shutil
 import os
 
 SERVER_IP = '127.0.0.1'

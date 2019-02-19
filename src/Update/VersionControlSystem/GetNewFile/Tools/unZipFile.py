@@ -1,8 +1,5 @@
 # -*- coding:utf-8 -*-
-import zipfile
-import shutil
-import os
-
+from src.Update.Conf.config import *
 
 class UnZipFile():
     def __init__(self, file_name):
