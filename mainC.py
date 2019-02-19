@@ -7,3 +7,4 @@ if __name__ == '__main__':
     # print(f.read())
 
 
+# sphinx-apidoc -o ./source ../src
