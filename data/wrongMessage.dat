@@ -1,6 +1,4 @@
-{'|data': '', '|file': 'MissionSystem-LoadMission-decodeText', '|currentTime': '2019-02-12 22:45:24', '|wrongMessage': ''}
-{'|data': '', '|file': 'MissionSystem-LoadMission-decodeText', '|currentTime': '2019-02-12 22:45:24', '|wrongMessage': ''}
-{'|data': '', '|file': 'MissionSystem-LoadMission-decodeText', '|currentTime': '2019-02-12 22:45:24', '|wrongMessage': ''}
-{'|data': '', '|file': 'MissionSystem-LoadMission-decodeText', '|currentTime': '2019-02-12 22:45:24', '|wrongMessage': ''}
-{'|data': '', '|file': 'MissionSystem-LoadMission-decodeText', '|currentTime': '2019-02-12 22:45:24', '|wrongMessage': ''}
-{'|data': '', '|file': 'MissionSystem-LoadMission-decodeText', '|currentTime': '2019-02-12 22:45:24', '|wrongMessage': ''}
+{'|file': 'VersionControlSystem-GetNewFile-doUpdate', '|currentTime': '2019-02-19 13:09:22', '|wrongMessage': error(10061, '')}
+{'|file': 'VersionControlSystem-GetNewFile-doUpdate', '|currentTime': '2019-02-19 13:11:13', '|wrongMessage': error(10061, '')}
+{'|file': 'VersionControlSystem-GetNewFile-doUpdate', '|currentTime': '2019-02-19 13:11:27', '|wrongMessage': error(10061, '')}
+{'|file': 'VersionControlSystem-GetNewFile-judgeNeedUpdate', '|currentTime': '2019-02-19 13:12:32', '|wrongMessage': error(10061, '')}
