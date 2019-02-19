@@ -21,6 +21,7 @@ class UnZipFile():
         zip_file.close()
         self.moveFile()
 
+
     def moveFile(self):
         """
         移动文件，将解压后的更新文件移动出来并删除

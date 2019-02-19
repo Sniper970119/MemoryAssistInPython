@@ -20,7 +20,7 @@ class JudgeNeedUpdate():
             # 生成报错的错误信息
             wrongMessage = {
                 '|currentTime': currentTime,
-                '|file': 'VersionControlSystem-GetNewFile-doUpdate',
+                '|file': 'VersionControlSystem-GetNewFile-judgeNeedUpdate',
                 '|wrongMessage': msg
             }
             # 存入文件
@@ -30,13 +30,15 @@ class JudgeNeedUpdate():
             wrongFile.close()
 
     def judge(self):
-        return True
-        vision = self.configFileReadTools.readFile('VERSION', 'version')
+        # return True
+        version = self.configFileReadTools.readFile('VERSION', 'version')
+        print(version)
         # 请求码为100时 返回最新版本号
-        self.s.send('100')
+        code = '100'.encode('utf-8')
+        self.s.send(code)
         returnData = self.s.recv(1024)
-        if vision == returnData:
-            return True
+        if version == returnData:
+            return False, returnData
         else:
-            return False
+            return True, returnData
         pass
