@@ -1,9 +1,9 @@
 # -*- coding:utf-8 -*-
 
 
-from src.Update.Conf.config import *
-from src.Update.SystemTools.ConfFileRead.Tools import readConfigFile
-from src.Update.SystemTools.ConfFileRead.Tools import saveConfigFile
+from src.Server.Conf.config import *
+from src.Server.SystemTools.ConfFileRead.Tools import readConfigFile
+from src.Server.SystemTools.ConfFileRead.Tools import saveConfigFile
 
 
 class ConfigFileRead():

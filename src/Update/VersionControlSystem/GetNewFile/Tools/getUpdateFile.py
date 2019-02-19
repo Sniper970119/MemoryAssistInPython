@@ -1,13 +1,20 @@
 # -*- coding:utf-8 -*-
-from src.Client.Conf.config import *
+from src.Update.Conf.config import *
 
 
 class GetUpdateFile():
+    """
+    获取服务器发送过来的更新文件
+    """
     def __init__(self, s):
         self.s = s
         pass
 
     def get(self):
+        """
+        获取服务器发送到客户端的更新文件，并按照更新索引文件的地址保存
+        :return:
+        """
         file_path = './data/fileIndex.properties'
         property = Properties(file_path)  # 读取文件
         loopTime = property.getLength()
@@ -43,6 +50,9 @@ class GetUpdateFile():
 
 
 class Properties:
+    """
+    解析索引文件
+    """
     def __init__(self, file_name):
         self.file_name = file_name
         self.properties = {}
@@ -59,10 +69,20 @@ class Properties:
         else:
             fopen.close()
 
-    def get(self, key, default_value=''):
+    def get(self, key, default_value='./'):
+        """
+        获取应该存放的路径
+        :param key: 文件名
+        :param default_value: 默认返回值（如果没做规定则默认放到根目录）
+        :return:
+        """
         if key in self.properties:
             return self.properties[key]
         return default_value
 
     def getLength(self):
+        """
+        回去索引列表中更新文件长度
+        :return:
+        """
         return len(self.properties)

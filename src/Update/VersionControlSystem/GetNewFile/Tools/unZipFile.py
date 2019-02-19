@@ -10,7 +10,10 @@ class UnZipFile():
         pass
 
     def un_zip(self):
-        """unzip zip file"""
+        """
+        解压文件
+        :return:
+        """
         zip_file = zipfile.ZipFile(self.fileName)
         if os.path.isdir(self.fileName + "_files"):
             pass
@@ -22,6 +25,10 @@ class UnZipFile():
         self.moveFile()
 
     def moveFile(self):
+        """
+        移动文件，将解压后的更新文件移动出来并删除
+        :return:
+        """
         for filename in os.listdir('./update.zip_files/update/'):
             try:
                 os.remove('./' + filename)

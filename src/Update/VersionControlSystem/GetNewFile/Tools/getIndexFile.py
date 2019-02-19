@@ -1,12 +1,19 @@
 # -*- coding:utf-8 -*-
-from src.Client.Conf.config import *
+from src.Update.Conf.config import *
 
 
 class GetIndexFile():
+    """
+    从服务器获取更新索引文件
+    """
     def __init__(self, s):
         self.s = s
 
     def getFile(self):
+        """
+        获取服务器索引文件并保存
+        :return:
+        """
         fileinfo_size = struct.calcsize('128si2s')
         buf = self.s.recv(fileinfo_size)
         if buf:

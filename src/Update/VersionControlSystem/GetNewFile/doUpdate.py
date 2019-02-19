@@ -9,12 +9,16 @@ class GetNewFile():
         try:
             self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self.s.connect((SERVER_IP, SERVER_FILE_PORT))
+            # 工具生成
             self.getUpdateFileTools = getUpdateFile.GetUpdateFile(self.s)
             self.getIndexFileTools = getIndexFile.GetIndexFile(self.s)
             self.unZipFileTools = unZipFile.UnZipFile(filePath)
 
+            # 获取索引
             self.getIndexFileTools.getFile()
+            # 获取更新文件夹
             self.getUpdateFileTools.get()
+            # 解压更新文件
             self.unZipFileTools.un_zip()
         except socket.error as msg:
             # 打开错误日志文件

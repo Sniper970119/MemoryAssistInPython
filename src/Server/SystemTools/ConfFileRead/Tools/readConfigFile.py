@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 
 
-from src.Update.Conf.config import *
+from src.Server.Conf.config import *
 
 
 class ReadConfigFile():
@@ -9,7 +9,7 @@ class ReadConfigFile():
     该类负责读取配置文件，属于实际操作类
     """
 
-    def __init__(self, fileName='../conf/main.ini'):
+    def __init__(self, fileName='../conf/server.ini'):
         self.config = ConfigParser.ConfigParser()
         self.fileName = fileName
 

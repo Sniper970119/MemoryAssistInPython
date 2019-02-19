@@ -9,6 +9,10 @@ class VersionControl():
         self.judgeNeedUpdateTools = judgeNeedUpdate.JudgeNeedUpdate()
 
     def handle(self):
+        """
+        版本控制一级系统
+        :return:
+        """
         if self.judgeNeedUpdateTools.judge():
             if messagebox.askokcancel(title='是否更新', message='检测到有新版本，是否更新'):
                 doUpdate.GetNewFile()
