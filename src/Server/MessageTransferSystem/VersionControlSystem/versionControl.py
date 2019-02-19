@@ -7,6 +7,9 @@ from src.Server.MessageTransferSystem.VersionControlSystem.Tools import handleRe
 
 
 class VersionControl():
+    """
+    进行版本控制，调用来
+    """
     def __init__(self, filePath='./updateFile/'):
         self.filePath = filePath
         threading.Thread(target=self.listenFile).start()
@@ -14,6 +17,10 @@ class VersionControl():
 
 
     def listenMessage(self):
+        """
+        监听消息端口，根据客户端发送的消息代码做出响应
+        :return:
+        """
         try:
             self.messageSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self.messageSocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -29,6 +36,10 @@ class VersionControl():
         pass
 
     def listenFile(self):
+        """
+        监听文件端口，向客户端发送更新文件
+        :return:
+        """
         try:
             self.fileSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self.fileSocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -45,17 +56,35 @@ class VersionControl():
         pass
 
     def handlerReceiveCode(self, connect, address):
+        """
+        处理响应代码
+        :param connect: socket连接
+        :param address: socket地址
+        :return:
+        """
         self.handleReceiveCodeTools = handleReceiveCode.HandleReceiveCode(connect,address)
         self.handleReceiveCodeTools.getNumber()
 
 
     def sendIndexFile(self, connect, address):
+        """
+        处理发送索引文件
+        :param connect: socket连接
+        :param address: socket地址
+        :return:
+        """
         self.sendIndexFileTools = sendInexFile.SendIndexFile(connect, address)
         self.sendIndexFileTools.sendFile()
         self.sendUpdateFileTools = sendUpdateFile.SendUpdateFile(connect, address, filePath=self.filePath)
         self.sendUpdateFileTools.findFile()
 
     def sendUpdateFile(self, connect, address):
+        """
+        处理发送更新文件
+        :param connect: socket连接
+        :param address: socket地址
+        :return:
+        """
         self.sendUpdateFileTools = sendUpdateFile.SendUpdateFile(connect, address, filePath=self.filePath)
         self.sendUpdateFileTools.findFile()
 

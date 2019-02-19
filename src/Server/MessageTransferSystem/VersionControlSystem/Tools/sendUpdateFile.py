@@ -3,6 +3,9 @@ from src.Server.Conf.config import *
 
 
 class SendUpdateFile():
+    """
+    发送更新文件
+    """
     def __init__(self, connect, address, filePath='./updateFile/'):
         self.properties = {}
         self.connect = connect
@@ -12,6 +15,10 @@ class SendUpdateFile():
         pass
 
     def findFile(self):
+        """
+        发送更新文件
+        :return:
+        """
         files = os.listdir(self.filePath)
         for each in files:
             fileAbsPath = self.filePath+each
