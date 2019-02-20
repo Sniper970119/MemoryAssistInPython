@@ -22,6 +22,7 @@ class VersionControl():
                     doUpdate.GetNewFile()
                     configFileRead.ConfigFileRead().saveFile('VERSION', 'version', version)
         except socket.error as msg:
+            print('no network')
             # 打开错误日志文件
             wrongFile = open('data/wrongMessage.dat', 'a+')
             # 获取当前时间

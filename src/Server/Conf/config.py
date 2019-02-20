@@ -7,6 +7,7 @@ import struct
 import threading
 import ConfigParser
 
+SERVER_IP = 'localhost'
 
 # 调试模式总开关
 DEBUG = True

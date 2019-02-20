@@ -37,6 +37,7 @@ class JudgeNeedUpdate():
         code = '100'.encode('utf-8')
         self.s.send(code)
         returnData = self.s.recv(1024)
+        print(returnData)
         if version == returnData:
             return False, returnData
         else:

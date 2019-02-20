@@ -24,7 +24,8 @@ class VersionControl():
         try:
             self.messageSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self.messageSocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-            self.messageSocket.bind(('127.0.0.1', 9001))
+            host = socket.gethostname()
+            self.messageSocket.bind((host, 9001))
             self.messageSocket.listen(10)
         except socket.error as msg:
             print(msg)
@@ -43,7 +44,8 @@ class VersionControl():
         try:
             self.fileSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self.fileSocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-            self.fileSocket.bind(('127.0.0.1', 9000))
+            host = socket.gethostname()
+            self.fileSocket.bind((host, 9000))
             self.fileSocket.listen(10)
         except socket.error as msg:
             print(msg)

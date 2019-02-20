@@ -12,9 +12,9 @@ def getUrl(url):
         path = '/'
     # 建立socket链接
     client = s.socket(s.AF_INET, s.SOCK_STREAM)
-    client.connect((host, 80))
+    client.connect(('140.143.147.128', 9000))
 
-    client.send('GET {} HTTP/1.1\r\nHost:{}\r\nConnection:close\r\n\r\n'.format(path, host).encode('utf-8'))
+    client.send('100'.encode('utf-8'))
     data = b''
     while True:
         # 一次获取多少数据

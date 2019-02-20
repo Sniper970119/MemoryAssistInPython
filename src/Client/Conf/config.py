@@ -18,7 +18,7 @@ import struct
 该类负责导入包、debug开关
 """
 # 服务器ip
-SERVER_IP = '127.0.0.1'
+SERVER_IP = 'memoryassist.sniper97.cn'
 # 服务器端口
 SERVER_FILE_PORT = 9000
 SERVER_MES_PORT = 9001
