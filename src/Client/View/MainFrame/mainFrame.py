@@ -13,7 +13,7 @@ class MainFrame():
         screenHeight = rootWindow.winfo_screenheight()
         rootWindow.geometry('700x500+' + str(int((screenWidth - 700) / 2)) + '+' + str(int((screenHeight - 500) / 2)))
         rootWindow.resizable(width=False, height=False)
-        rootWindow.title('MemoryAssist v1.0.1')
+        rootWindow.title('MemoryAssist v1.0.2')
         rootWindow.iconbitmap('images/icon.ico')
 
         # 添加主框架
