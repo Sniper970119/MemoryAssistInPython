@@ -7,7 +7,7 @@ from src.Server.SystemTools.ConfFileRead.Tools import saveConfigFile
 
 
 class ConfigFileRead():
-    def __init__(self, fileName='../conf/server.ini'):
+    def __init__(self, fileName='./conf/server.ini'):
         self.readConfigFileTools = readConfigFile.ReadConfigFile(fileName=fileName)
         self.saveConfigFileTools = saveConfigFile.SaveConfigFile(fileName=fileName)
         pass
