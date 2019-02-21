@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
 from src.Server.Conf.config import *
-
+from src.Server.SystemTools.ConfFileRead import configFileRead
 
 class HandleReceiveCode():
     """
@@ -22,8 +22,8 @@ class HandleReceiveCode():
         # 100代码为返回最新版本号
         if code == '100':
             # 这里应该是读服务器端的配置文件读取最新版本号
-            returnCode = 'v1.0'.encode('utf-8')
-            self.connect.send(returnCode)
+            returnCode = str(configFileRead.ConfigFileRead().readFile('VERSION', 'lastest_version'))
+            self.connect.send(returnCode.encode('utf-8'))
             pass
         pass
 

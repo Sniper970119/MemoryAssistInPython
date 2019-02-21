@@ -38,7 +38,9 @@ API帮助文档请点[这里](http://www.sniper97.cn/MemoryAssist/API)
 
 2019-2-20：v1.0.1发布。服务器端已经在服务器上运行，可以进行远程自动更新与文件互传。
 
+2019-2-21：v1.0.2发布。修复服务器可能返回错误的版本号的问题。
 
-## 动态展示
+
+## 动态展示（v0.2）
 
 ![gif展示](https://github.com/Sniper970119/MemoryAssistInPython/blob/master/showPic/show.gif)

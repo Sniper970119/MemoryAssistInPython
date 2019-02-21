@@ -52,5 +52,5 @@ class ReadConfigFile():
 
 # 配置文件读取测试
 if __name__ == '__main__':
-    l = ReadConfigFile(fileName='F:\python17\pythonPro\MemortAssit\conf\main.ini')
-    print(l.readConfigFile('VERSION', 'version'))
+    l = ReadConfigFile(fileName='F:\python17\pythonPro\MemortAssit\conf\server.ini')
+    print(l.readConfigFile('VERSION', 'lastest_version'))
