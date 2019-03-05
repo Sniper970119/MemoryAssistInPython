@@ -7,7 +7,7 @@ from src.Client.SystemTools.ConfFileRead.Tools import saveConfigFile
 
 
 class ConfigFileRead():
-    def __init__(self, fileName='../conf/main.ini'):
+    def __init__(self, fileName='./conf/main.ini'):
         self.readConfigFileTools = readConfigFile.ReadConfigFile(fileName=fileName)
         self.saveConfigFileTools = saveConfigFile.SaveConfigFile(fileName=fileName)
         pass
@@ -32,3 +32,6 @@ class ConfigFileRead():
         """
         self.saveConfigFileTools.saveConfigFile(configMainName=configMainName, configSubName=configSubName, value=value)
 
+
+if __name__ == '__main__':
+    print(ConfigFileRead().readFile('USER_CODE', 'user_code'))
