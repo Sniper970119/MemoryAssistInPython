@@ -8,6 +8,7 @@ import threading
 import ConfigParser
 import random
 import string
+import pymongo
 
 SERVER_IP = 'localhost'
 
