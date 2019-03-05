@@ -6,6 +6,8 @@ import os
 import struct
 import threading
 import ConfigParser
+import random
+import string
 
 SERVER_IP = 'localhost'
 

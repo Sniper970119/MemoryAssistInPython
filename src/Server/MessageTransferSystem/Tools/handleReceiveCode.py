@@ -1,7 +1,9 @@
 # -*- coding:utf-8 -*-
 from src.Server.Conf.config import *
-from src.Server.SystemTools.ConfFileRead import configFileRead
-
+# from src.Server.SystemTools.ConfFileRead import configFileRead
+from src.Server.MessageTransferSystem.Tools.CodeHandle.Code100 import Code100
+from src.Server.MessageTransferSystem.Tools.CodeHandle.Code101 import Code101
+from src.Server.MessageTransferSystem.Tools.CodeHandle.Code102 import Code102
 class HandleReceiveCode():
     """
     处理接受的请求代码
@@ -21,9 +23,13 @@ class HandleReceiveCode():
             print('Accept new connection(mes) from {0},code is {1}'.format(self.address, code))
         # 100代码为返回最新版本号
         if code == '100':
-            # 这里应该是读服务器端的配置文件读取最新版本号
-            returnCode = str(configFileRead.ConfigFileRead().readFile('VERSION', 'lastest_version'))
-            self.connect.send(returnCode.encode('utf-8'))
+            Code100().respond(self.connect)
+        # 101代码为返回用户识别码
+        elif code == '101':
+            Code101().respond(self.connect)
+        # 102代码为处理已经拥有用户识别码的用户发送的数据
+        elif code == '102':
+            Code102().respond(self.connect)
             pass
         pass
 

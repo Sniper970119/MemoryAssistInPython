@@ -3,7 +3,7 @@ from src.Server.Conf.config import *
 
 from src.Server.MessageTransferSystem.VersionControlSystem.Tools import sendInexFile
 from src.Server.MessageTransferSystem.VersionControlSystem.Tools import sendUpdateFile
-from src.Server.MessageTransferSystem.VersionControlSystem.Tools import handleReceiveCode
+from src.Server.MessageTransferSystem.Tools import handleReceiveCode
 
 
 class VersionControl():
@@ -64,7 +64,7 @@ class VersionControl():
         :param address: socket地址
         :return:
         """
-        self.handleReceiveCodeTools = handleReceiveCode.HandleReceiveCode(connect,address)
+        self.handleReceiveCodeTools = handleReceiveCode.HandleReceiveCode(connect, address)
         self.handleReceiveCodeTools.getNumber()
 
 
