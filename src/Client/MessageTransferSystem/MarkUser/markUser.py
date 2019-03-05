@@ -20,7 +20,7 @@ class MarkUser():
             # 生成报错的错误信息
             wrongMessage = {
                 '|currentTime': currentTime,
-                '|file': 'MessageTransferSystem-VersionControl-versionControl',
+                '|file': 'MessageTransferSystem-MarkUser-markUser',
                 '|wrongMessage': msg
             }
             # 存入文件
@@ -42,3 +42,16 @@ class MarkUser():
             returnData = self.s.recv(1024)
             # 写回配置文件
             self.configFileReadTools.saveFile('USER_CODE', 'user_code', returnData)
+        else:
+            # 如果有识别码，则向服务器发送识别码和当前记录的登录次数
+            logTime = self.configFileReadTools.readFile('USER_CODE', 'user_time')
+            self.s.send('102')
+            returnData = self.s.recv(1024)
+            if returnData == 'user_code':
+                # 发送用户识别码
+                self.s.send(userCode.encode('utf-8'))
+            returnData = self.s.recv(1024)
+            if returnData == 'time':
+                # 发送登录次数，发送成功则将配置文件中的属性清零
+                self.s.send(logTime.encode('utf-8'))
+                self.configFileReadTools.saveFile('USER_CODE', 'user_time', '0')
