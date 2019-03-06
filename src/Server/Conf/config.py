@@ -9,6 +9,7 @@ import ConfigParser
 import random
 import string
 import pymongo
+import re
 
 SERVER_IP = 'localhost'
 
