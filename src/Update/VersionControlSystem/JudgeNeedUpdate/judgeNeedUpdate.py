@@ -9,6 +9,7 @@ class JudgeNeedUpdate():
             self.configFileReadTools = configFileRead.ConfigFileRead()
             self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self.s.connect((SERVER_IP, SERVER_MES_PORT))
+            print(SERVER_IP)
 
 
         except socket.error as msg:

@@ -25,6 +25,9 @@ class VersionControl():
             self.messageSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self.messageSocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
             host = socket.gethostname()
+            # print(host)
+            if DEBUG:
+                host = '127.0.0.1'
             self.messageSocket.bind((host, 9001))
             self.messageSocket.listen(10)
         except socket.error as msg:
@@ -34,7 +37,8 @@ class VersionControl():
             conn, addr = self.messageSocket.accept()
             t = threading.Thread(target=self.handlerReceiveCode, args=(conn, addr))
             t.start()
-        pass
+
+    pass
 
     def listenFile(self):
         """
@@ -45,6 +49,8 @@ class VersionControl():
             self.fileSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self.fileSocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
             host = socket.gethostname()
+            if DEBUG:
+                host = '127.0.0.1'
             self.fileSocket.bind((host, 9000))
             self.fileSocket.listen(10)
         except socket.error as msg:

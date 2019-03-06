@@ -9,6 +9,7 @@ class MarkUser():
             self.configFileReadTools = configFileRead.ConfigFileRead()
             self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self.s.connect((SERVER_IP, SERVER_MES_PORT))
+            print(SERVER_IP)
 
 
         except socket.error as msg:
@@ -35,17 +36,20 @@ class MarkUser():
         :return:
         """
         userCode = self.configFileReadTools.readFile('USER_CODE', 'user_code')
-        if userCode != '':
+        print('|'+userCode+'|')
+        if userCode == '':
             # 如果当前没有用户识别码，向服务器请求识别码，并写回配置文件
             # 发送代码101 作为向服务器请求新的用户识别码
-            self.s.send('101')
+            code = '101'.encode('utf-8')
+            self.s.send(code)
             returnData = self.s.recv(1024)
             # 写回配置文件
             self.configFileReadTools.saveFile('USER_CODE', 'user_code', returnData)
         else:
             # 如果有识别码，则向服务器发送识别码和当前记录的登录次数
             logTime = self.configFileReadTools.readFile('USER_CODE', 'user_time')
-            self.s.send('102')
+            code = '102'.encode('utf-8')
+            self.s.send(code)
             returnData = self.s.recv(1024)
             if returnData == 'user_code':
                 # 发送用户识别码

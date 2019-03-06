@@ -11,7 +11,7 @@ import string
 import pymongo
 import re
 
-SERVER_IP = 'localhost'
+SERVER_IP = '127.0.0.1'
 
 # 调试模式总开关
 DEBUG = True

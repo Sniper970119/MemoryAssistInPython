@@ -4,10 +4,13 @@ from src.Server.Conf.config import *
 from src.Server.MessageTransferSystem.Tools.CodeHandle.Code100 import Code100
 from src.Server.MessageTransferSystem.Tools.CodeHandle.Code101 import Code101
 from src.Server.MessageTransferSystem.Tools.CodeHandle.Code102 import Code102
+
+
 class HandleReceiveCode():
     """
     处理接受的请求代码
     """
+
     def __init__(self, connect, address):
         self.connect = connect
         self.address = address
@@ -21,7 +24,8 @@ class HandleReceiveCode():
         code = self.connect.recv(1024)
         if DEBUG and VERSION_CONTROL_DEBUG:
             print('Accept new connection(mes) from {0},code is {1}'.format(self.address, code))
-        address = re.findall('(.*?):', self.address)[0]
+        address = re.findall('\'(.*?)\'', str(self.address))[0]
+        address.replace('\.', '\\.')
         # 100代码为返回最新版本号
         if code == '100':
             Code100().respond(self.connect)
