@@ -7,7 +7,7 @@ passwd = 'ysqmxpfdkxhsbigd'  # 填入发送方邮箱的授权码
 msg_to = 'zhaoyu@sniper97.cn'  # 收件人邮箱
 
 subject = "python邮件测试"  # 主题
-content = "这是我使用python smtplib及email模块发送的邮件"
+content = "这是我使用python smtplib及\nemail模块发送的邮件1111"
 msg = MIMEText(content)
 msg['Subject'] = subject
 msg['From'] = msg_from

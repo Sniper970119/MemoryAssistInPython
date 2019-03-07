@@ -17,4 +17,4 @@ class ReturnAllCount():
         返回所有的访问次数
         :return:
         """
-        return len(self.weeklyCol.find()), len(self.totalCol.find())
+        return self.weeklyCol.count(), self.totalCol.count()
