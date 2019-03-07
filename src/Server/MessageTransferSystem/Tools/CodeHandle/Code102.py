@@ -21,9 +21,12 @@ class Code102():
             userCode = connect.recv(1024)
             connect.send('time'.encode('utf-8'))
             logTime = connect.recv(1024)
+            if DEBUG and CODE_HANDLE_DEBUG:
+                print('{SYS}{CODE_HANDLE_DEBUG} user code has been receive from client,user code is ' + str(
+                    userCode) + 'log time is ' + str(logTime))
             # 将数据更新到数据中
             # -------------------------------------------------------------------------
-            self.databaseTools.saveTools(userCode=userCode, address=address, logTime=logTime)
+            self.databaseTools.editCode(userCode=userCode, userIp=address, logTime=logTime)
         except socket.error as msg:
             # 打开错误日志文件
             wrongFile = open('data/wrongMessage.dat', 'a+')

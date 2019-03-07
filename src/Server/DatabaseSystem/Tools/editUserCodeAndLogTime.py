@@ -3,6 +3,9 @@ from src.Server.Conf.config import *
 
 
 class EditUserCodeAndLogTime():
+    """
+    处理已经有识别码的用户的登录请求，即修改数据库中的登录次数和ip（如果有必要）
+    """
     def __init__(self, totalCol, weeklyCol):
         self.totalCol = totalCol
         self.weeklyCol = weeklyCol
@@ -16,6 +19,7 @@ class EditUserCodeAndLogTime():
         :return:
         """
         try:
+            userIp = userIp.replace('.', '\\')
             # 读取数据
             dataInWeekly = self.weeklyCol.find_one({'user_code': userCode})
             dataInTotal = self.totalCol.find_one({'user_code': userCode})
@@ -33,6 +37,11 @@ class EditUserCodeAndLogTime():
                 totalIp[userIp] = str(int(totalIp[userIp]) + 1)
             else:
                 totalIp[userIp] = '1'
+            # 写回数据库
+            self.weeklyCol.remove({'user_code': userCode})
+            self.totalCol.remove({'user_code': userCode})
+            self.weeklyCol.insert(dataInWeekly)
+            self.totalCol.insert(dataInTotal)
         except socket.error as msg:
             # 打开错误日志文件
             wrongFile = open('data/wrongMessage.dat', 'a+')

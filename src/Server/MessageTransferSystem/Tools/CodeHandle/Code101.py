@@ -18,6 +18,8 @@ class Code101():
         try:
             # 生成随机的32位识别码
             code = ''.join(random.sample(string.ascii_letters + string.digits, 32))
+            if DEBUG and CODE_HANDLE_DEBUG:
+                print('{SYS}{CODE_HANDLE_DEBUG} user code has been create, is '+ str(code))
             # 将随机生成码保存到数据库中
             # -------------------------------------------------------------------------
             self.databaseTools.newCode(code, address)

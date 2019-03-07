@@ -3,6 +3,9 @@ from src.Server.Conf.config import *
 
 
 class SaveNewUserCodeToDataBase():
+    """
+    当没有用户识别码的用户第一次访问，则将新分配的用户识别码存入数据库
+    """
     def __init__(self, totalCol, weeklyCol):
         self.totalCol = totalCol
         self.weeklyCol = weeklyCol
@@ -15,6 +18,7 @@ class SaveNewUserCodeToDataBase():
         :return:
         """
         try:
+            userIp = userIp.replace('.', '\\')
             dictInTotal = {
                 'user_code': userCode,
                 'total_time': '1',

@@ -10,6 +10,10 @@ import random
 import string
 import pymongo
 import re
+import smtplib
+from email.mime.text import MIMEText
+import requests
+import json
 
 SERVER_IP = '127.0.0.1'
 
@@ -19,3 +23,7 @@ DEBUG = True
 VERSION_CONTROL_DEBUG = True
 
 SYSTEM_TOOLS_DEBUG = True
+
+CODE_HANDLE_DEBUG = True
+
+MEAL_SYSTEM_DEBUG = True
