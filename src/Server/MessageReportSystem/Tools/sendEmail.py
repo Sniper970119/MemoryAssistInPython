@@ -14,9 +14,12 @@ class SendEmail():
         pass
 
     def send(self):
+        print("need to send email")
+        # 获取邮件需要的信息
         weeklyArea, totalArea = self.areaTools.statistics()
         weeklyAllCount, totalAllCount = self.allCountTools.statistics()
         weeklyLogCount, totalLogCount = self.allLogTools.statistics()
+        # 发送邮件准备
         msg_from = 'MemoryAssist@sniper97.cn'  # 发送方邮箱
         passwd = 'ysqmxpfdkxhsbigd'  # 填入发送方邮箱的授权码
         msg_to = 'zhaoyu@sniper97.cn'  # 收件人邮箱
@@ -26,11 +29,11 @@ class SendEmail():
             totalLogCount) + "\n总计用户数量：" + str(totalAllCount) + "\n\n\n本周用户地区分布：" +
                       json.dumps(weeklyArea).encode('utf-8').decode('unicode_escape') + "\n\n总计地区分布：" + str(
             json.dumps(totalArea)).encode('utf-8').decode('unicode_escape'))
-        print(content)
         msg = MIMEText(content)
         msg['Subject'] = subject
         msg['From'] = msg_from
         msg['To'] = msg_to
+        # 发送email
         try:
             s = smtplib.SMTP_SSL("smtp.qq.com", 465)
             s.login(msg_from, passwd)
