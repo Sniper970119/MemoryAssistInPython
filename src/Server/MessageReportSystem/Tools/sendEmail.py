@@ -4,6 +4,7 @@ from src.Server.SystemTools.ConfFileRead import configFileRead
 from src.Server.DatabaseSystem.Tools.areaStatistics import AreaStatistics
 from src.Server.DatabaseSystem.Tools.returnAllCount import ReturnAllCount
 from src.Server.DatabaseSystem.Tools.returnAllLog import ReturnAllLog
+from src.Server.DatabaseSystem.Tools.delWeeklyData import DelWeeklyData
 
 
 class SendEmail():
@@ -11,10 +12,10 @@ class SendEmail():
         self.areaTools = AreaStatistics()
         self.allCountTools = ReturnAllCount()
         self.allLogTools = ReturnAllLog()
+        self.delTools = DelWeeklyData()
         pass
 
     def send(self):
-        print("need to send email")
         # 获取邮件需要的信息
         weeklyArea, totalArea = self.areaTools.statistics()
         weeklyAllCount, totalAllCount = self.allCountTools.statistics()
@@ -25,6 +26,7 @@ class SendEmail():
         msg_to = 'zhaoyu@sniper97.cn'  # 收件人邮箱
 
         subject = "MemoryAssist 每周使用报告"  # 主题
+        # 生成邮件正文，并进行编码转换
         content = str("本周登录次数：" + str(weeklyLogCount) + "\n本周用户数量：" + str(weeklyAllCount) + "\n\n总计登录次数：" + str(
             totalLogCount) + "\n总计用户数量：" + str(totalAllCount) + "\n\n\n本周用户地区分布：" +
                       json.dumps(weeklyArea).encode('utf-8').decode('unicode_escape') + "\n\n总计地区分布：" + str(
@@ -39,6 +41,8 @@ class SendEmail():
             s.login(msg_from, passwd)
             s.sendmail(msg_from, msg_to, msg.as_string())
             print('email send')
+            # 删除周统计数据库
+            self.delTools.handle()
         except s.SMTPException, e:
             # 打开错误日志文件
             wrongFile = open('data/wrongMessage.dat', 'a+')

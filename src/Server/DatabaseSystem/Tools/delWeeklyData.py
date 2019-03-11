@@ -2,7 +2,7 @@
 from src.Server.Conf.config import *
 
 
-class AreaStatistics():
+class DelWeeklyData():
     """
     删除每周数据的数据库
     """
