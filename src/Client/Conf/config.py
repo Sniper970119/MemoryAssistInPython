@@ -28,7 +28,7 @@ VERSION = 1.0
 
 
 # 调试模式总开关
-DEBUG = True
+DEBUG = False
 # GUI部分调试开关
 VIEW_DEBUG = True
 # 任务系统调试开关

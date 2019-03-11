@@ -25,3 +25,9 @@ if __name__ == '__main__':
     # print(f.read())
 
 # sphinx-apidoc -o ./source ../src
+
+# pyinstaller mainS.py -i ./images/icon.ico
+
+# pyinstaller mainC.py -i ./images/icon.ico -w -n run
+
+#
