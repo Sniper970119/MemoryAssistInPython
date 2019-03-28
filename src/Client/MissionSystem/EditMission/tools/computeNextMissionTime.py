@@ -77,7 +77,7 @@ class ComputeNextMissionTime():
             if DEBUG and MISSION_DEBUG:
                 print('{SYS}{W}{MISSION_DEBUG} wrong in compute next time, wrong state code')
             return list
-        except Exception, e:
+        except Exception as e:
             # 打开错误日志文件
             wrongFile = open('data/wrongMessage.dat', 'a+')
             # 获取当前时间

@@ -1,8 +1,9 @@
 # -*- coding:utf-8 -*-
 from src.Client.Conf.config import *
 
-import httplib
-import md5
+# import httplib
+import http.client
+import hashlib
 import urllib
 import random
 import re
@@ -28,7 +29,7 @@ class Translate():
         salt = random.randint(32768, 65536)
 
         sign = appid + q + str(salt) + secretKey
-        m1 = md5.new()
+        m1 = hashlib.md5()
         m1.update(sign)
         sign = m1.hexdigest()
         myurl = myurl + '?appid=' + appid + '&q=' + urllib.quote(
@@ -47,7 +48,7 @@ class Translate():
             if DEBUG and SEARCH_DEBUG:
                 print('{SYS}{SEARCH_DEBUG} word has been translate, result is ' + result)
             return result
-        except Exception, e:
+        except Exception as e:
             # 打开错误日志文件
             wrongFile = open('data/wrongMessage.dat', 'a+')
             # 获取当前时间

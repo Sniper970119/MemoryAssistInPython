@@ -5,7 +5,7 @@ import time
 import os
 import struct
 import threading
-import ConfigParser
+import configparser as ConfigParser
 import random
 import string
 import pymongo
@@ -20,7 +20,7 @@ import schedule
 SERVER_IP = '127.0.0.1'
 
 # 调试模式总开关
-DEBUG = False
+DEBUG = True
 #
 VERSION_CONTROL_DEBUG = True
 

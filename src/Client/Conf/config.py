@@ -3,7 +3,7 @@
 import tkinter
 from tkinter import ttk
 from tkinter import messagebox
-import ConfigParser
+import configparser as ConfigParser
 import time
 import datetime
 import os
@@ -28,7 +28,7 @@ VERSION = 1.0
 
 
 # 调试模式总开关
-DEBUG = False
+DEBUG = True
 # GUI部分调试开关
 VIEW_DEBUG = True
 # 任务系统调试开关

@@ -42,7 +42,7 @@ class BackupManage():
                 # 打印debug日志
                 if DEBUG and MISSION_DEBUG:
                     print('{SYS}{MISSION_DEBUG} backup file do not need to delete')
-        except Exception, e:
+        except Exception as e:
             # 打开错误日志文件
             wrongFile = open('data/wrongMessage.dat', 'a+')
             # 获取当前时间

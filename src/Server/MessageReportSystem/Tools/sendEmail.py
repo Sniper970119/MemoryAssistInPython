@@ -43,7 +43,7 @@ class SendEmail():
             print('email send')
             # 删除周统计数据库
             self.delTools.handle()
-        except s.SMTPException, e:
+        except s.SMTPException as e:
             # 打开错误日志文件
             wrongFile = open('data/wrongMessage.dat', 'a+')
             # 获取当前时间

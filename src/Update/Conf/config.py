@@ -3,7 +3,7 @@ import socket
 import datetime
 import time
 from tkinter import messagebox
-import ConfigParser
+import configparser as ConfigParser
 import struct
 import zipfile
 import shutil
@@ -14,7 +14,7 @@ import os
 SERVER_FILE_PORT = 9000
 SERVER_MES_PORT = 9001
 
-DEBUG = False
+DEBUG = True
 SYSTEM_TOOLS_DEBUG = True
 VERSION_CONTROL_DEBUG = True
 

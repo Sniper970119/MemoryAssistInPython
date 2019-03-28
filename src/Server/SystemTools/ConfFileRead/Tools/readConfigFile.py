@@ -28,7 +28,7 @@ class ReadConfigFile():
             if DEBUG and SYSTEM_TOOLS_DEBUG:
                 print('{SYS}{MISSION_DEBUG} config has been load from file successfully')
             return str(message)
-        except Exception, e:
+        except Exception as e:
             # 打开错误日志文件
             wrongFile = open('data/wrongMessage.dat', 'a+')
             # 获取当前时间

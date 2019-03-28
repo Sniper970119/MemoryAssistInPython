@@ -46,7 +46,7 @@ class EditMissionList():
                 print('{SYS}{MISSION_DEBUG} mission has been edit finish successfully id is ' + missionId)
 
             return list
-        except Exception, e:
+        except Exception as e:
             # 打开错误日志文件
             wrongFile = open('data/wrongMessage.dat', 'a+')
             # 获取当前时间

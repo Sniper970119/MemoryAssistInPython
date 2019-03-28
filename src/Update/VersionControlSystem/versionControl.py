@@ -16,6 +16,7 @@ class VersionControl():
         """
         try:
             needUpdate, version = self.judgeNeedUpdateTools.judge()
+            version = bytes.decode(version)
             print(version)
             if needUpdate:
                 if messagebox.askokcancel(title='是否更新', message='检测到有新版本，是否更新,更新完成后自动运行'):
