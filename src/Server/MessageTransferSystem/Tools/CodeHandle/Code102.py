@@ -19,8 +19,10 @@ class Code102():
             # 向客户端发送连接标记
             connect.send('user_code'.encode('utf-8'))
             userCode = connect.recv(1024)
+            userCode = bytes.decode(userCode)
             connect.send('time'.encode('utf-8'))
             logTime = connect.recv(1024)
+            logTime = bytes.decode(logTime)
             if DEBUG and CODE_HANDLE_DEBUG:
                 print('{SYS}{CODE_HANDLE_DEBUG} user code has been receive from client,user code is ' + str(
                     userCode) + 'log time is ' + str(logTime))

@@ -23,7 +23,7 @@ class HandleReceiveCode():
         """
         code = self.connect.recv(1024)
         if DEBUG and VERSION_CONTROL_DEBUG:
-            print('Accept new connection(mes) from {0},code is {1}'.format(self.address, code))
+            print('Accept new connection(mes) from {0},code is {1}'.format(self.address, int(code)))
         address = re.findall('\'(.*?)\'', str(self.address))[0]
         address.replace('\.', '\\.')
         # 100代码为返回最新版本号
