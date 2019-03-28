@@ -33,7 +33,7 @@ class JudgeNeedUpdate():
     def judge(self):
         # return True
         version = self.configFileReadTools.readFile('VERSION', 'version')
-        print(version)
+        print(str(version))
         # 请求码为100时 返回最新版本号
         code = '100'.encode('utf-8')
         self.s.send(code)

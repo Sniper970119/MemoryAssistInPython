@@ -24,7 +24,7 @@ class SaveMissionToFile():
             # 打印debug日志
             if DEBUG and MISSION_DEBUG:
                 print('{SYS}{MISSION_DEBUG} file has been write in file successfully')
-        except Exception, e:
+        except Exception as e:
             # 打开错误日志文件
             wrongFile = open('data/wrongMessage.dat', 'a+')
             # 获取当前时间

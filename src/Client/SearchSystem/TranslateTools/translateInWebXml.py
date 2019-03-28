@@ -22,7 +22,7 @@ class Translate():
             else:
                 message = self.handleENRequest(text)
             return message
-        except Exception, e:
+        except Exception as e:
             # 打开错误日志文件
             wrongFile = open('data/wrongMessage.dat', 'a+')
             # 获取当前时间

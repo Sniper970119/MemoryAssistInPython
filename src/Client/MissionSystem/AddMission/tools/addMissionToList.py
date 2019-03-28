@@ -43,7 +43,7 @@ class AddMissionToList():
             if DEBUG and MISSION_DEBUG:
                 print('{SYS}{MISSION_DEBUG} mission has been add to list successfully, id is ' + str(missionId))
             return list
-        except Exception, e:
+        except Exception as e:
             # 打开错误日志文件
             wrongFile = open('data/wrongMessage.dat', 'a+')
             # 获取当前时间

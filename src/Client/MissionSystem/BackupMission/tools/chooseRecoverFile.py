@@ -36,7 +36,7 @@ class ChooseRecoverFile():
                 print('{SYS}{MISSION_DEBUG} latest backup file has been chosen' + maxFileName)
             # 返回最小时间戳的文件名
             return maxFileName
-        except Exception, e:
+        except Exception as e:
             # 打开错误日志文件
             wrongFile = open('data/wrongMessage.dat', 'a+')
             # 获取当前时间

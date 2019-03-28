@@ -41,8 +41,6 @@ class SendUpdateFile():
                     break
                 self.connect.send(data)
             fp.close()
+            self.connect.close()
 
         pass
-
-
-

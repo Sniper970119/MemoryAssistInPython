@@ -15,6 +15,7 @@ class Code100():
         """
         try:
             returnCode = str(configFileRead.ConfigFileRead().readFile('VERSION', 'lastest_version'))
+            print('code is', returnCode)
             connect.send(returnCode.encode('utf-8'))
         except socket.error as msg:
             # 打开错误日志文件
@@ -34,4 +35,3 @@ class Code100():
             # 增加换行符
             wrongFile.write('\n')
             wrongFile.close()
-

@@ -37,13 +37,15 @@ class MarkUser():
         """
         try:
             userCode = self.configFileReadTools.readFile('USER_CODE', 'user_code')
-            print('|'+userCode+'|')
+            print('|' + userCode + '|')
             if userCode == '':
                 # 如果当前没有用户识别码，向服务器请求识别码，并写回配置文件
                 # 发送代码101 作为向服务器请求新的用户识别码
                 code = '101'.encode('utf-8')
                 self.s.send(code)
                 returnData = self.s.recv(1024)
+                returnData = bytes.decode(returnData)
+                print(returnData)
                 # 写回配置文件
                 self.configFileReadTools.saveFile('USER_CODE', 'user_code', returnData)
             else:
@@ -52,10 +54,12 @@ class MarkUser():
                 code = '102'.encode('utf-8')
                 self.s.send(code)
                 returnData = self.s.recv(1024)
+                returnData = bytes.decode(returnData)
                 if returnData == 'user_code':
                     # 发送用户识别码
                     self.s.send(userCode.encode('utf-8'))
                 returnData = self.s.recv(1024)
+                returnData = bytes.decode(returnData)
                 if returnData == 'time':
                     # 发送登录次数，发送成功则将配置文件中的属性清零
                     self.s.send(logTime.encode('utf-8'))
@@ -79,4 +83,3 @@ class MarkUser():
             # 增加换行符
             wrongFile.write('\n')
             wrongFile.close()
-

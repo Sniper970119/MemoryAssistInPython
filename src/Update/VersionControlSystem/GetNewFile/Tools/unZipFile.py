@@ -30,10 +30,10 @@ class UnZipFile():
         for filename in os.listdir('./update.zip_files/update/'):
             try:
                 os.remove('./' + filename)
-            except Exception, e:
+            except Exception as e:
                 try:
                     shutil.rmtree('./' + filename)
-                except Exception, e:
+                except Exception as e:
                     pass
                 pass
             shutil.move('./update.zip_files/update/' + filename, './')

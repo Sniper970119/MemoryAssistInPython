@@ -99,4 +99,5 @@ class VersionControl():
 
 if __name__ == '__main__':
     # VersionControl().listen()
-    VersionControl(filePath='F:\python17\pythonPro\MemortAssit\updateFile/').listenFile()
+    # VersionControl(filePath='F:\python17\pythonPro\MemortAssit\updateFile/').listenFile()
+    pass
