@@ -2,6 +2,8 @@
 
 *免责声明：仅供研究使用，请勿进行非法用途。*
 
+<a href="https://996.icu"><img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996.icu"></a>
+
 ## 环境要求
 
 1.python 3
