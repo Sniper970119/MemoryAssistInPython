@@ -9,7 +9,7 @@ if __name__ == '__main__':
     程序开始前的准备
     """
     # 对登录次数进行更新
-    configFileReadTools = configFileRead.ConfigFileRead()
+    configFileReadTools = configFileRead.ConfigFileRead(fileName="./conf/user.ini")
     logTime = configFileReadTools.readFile('USER_CODE', 'user_time')
     logTime = int(logTime)
     logTime = str(logTime + 1)
@@ -24,6 +24,9 @@ if __name__ == '__main__':
     # f = open('./../data/mission.dat')
     # print(f.read())
 
+"""
+打包用语句 
+"""
 # sphinx-apidoc -o ./source ../src
 
 # pyinstaller mainS.py -i ./images/icon.ico

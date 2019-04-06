@@ -2,7 +2,7 @@
 
 from src.Client.Conf.config import *
 from src.Client.View.MainFrame.TabFrame import tabFrame
-from src.Client.View.MainFrame.SearchFrame import searchFrame
+from src.Client.View.MainFrame.SearchAndSettingFrame import searchAndSettingFrame
 
 
 class MainFrame():
@@ -13,7 +13,7 @@ class MainFrame():
         screenHeight = rootWindow.winfo_screenheight()
         rootWindow.geometry('700x500+' + str(int((screenWidth - 700) / 2)) + '+' + str(int((screenHeight - 500) / 2)))
         rootWindow.resizable(width=False, height=False)
-        rootWindow.title('MemoryAssist v1.1')
+        rootWindow.title('MemoryAssist '+VERSION_CODE)
         rootWindow.iconbitmap('images/icon.ico')
 
         # 添加主框架
@@ -26,6 +26,6 @@ class MainFrame():
 
         # 调用子组件
         tabFrame.TabFrame(rootFrame=rootFrame)
-        searchFrame.SearchFrame(rootFrame=rootFrame)
+        searchAndSettingFrame.SearchFrame(rootFrame=rootFrame)
 
         rootWindow.mainloop()

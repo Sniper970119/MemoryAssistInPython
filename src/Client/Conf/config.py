@@ -3,7 +3,8 @@
 import tkinter
 from tkinter import ttk
 from tkinter import messagebox
-import configparser as ConfigParser
+# import configparser as ConfigParser
+import  ConfigParser
 import time
 import datetime
 import os
@@ -39,6 +40,8 @@ SEARCH_DEBUG = True
 SYSTEM_TOOLS_DEBUG = True
 # 版本控制调试开关
 VERSION_CONTROL_DEBUG = True
+
+VERSION_CODE = "v1.2"
 
 
 if DEBUG:
