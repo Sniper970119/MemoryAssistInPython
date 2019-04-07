@@ -8,8 +8,8 @@ import urllib
 import random
 import re
 
-appid = '20190210000265097'  # 你的appid
-secretKey = 'FN5ZzcxZIt41MWthQexp'  # 你的密钥
+appid = '201902100002697'  # 你的appid
+secretKey = 'FN5ZzcxZIt41MhQexp'  # 你的密钥
 
 
 class Translate():
