@@ -32,4 +32,4 @@ CODE_HANDLE_DEBUG = True
 MEAL_SYSTEM_DEBUG = True
 
 # 邮件授权码
-EMILECODE = 'jndmaedgdbkpbigc'
+EMILECODE = 'jndmaedgdbkpbi'
