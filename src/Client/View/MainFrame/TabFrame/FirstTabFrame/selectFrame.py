@@ -1,6 +1,7 @@
 # -*- coding:utf-8 -*-
 
 from src.Client.Conf.config import *
+from src.Client.SystemTools.ConfFileRead import configFileRead
 from src.Client.View.MainFrame.TabFrame.FirstTabFrame.subWindows import addWindow, editWindow, viewAllWindow
 
 
@@ -13,6 +14,10 @@ class SelectFrame():
 
         :param firstTabFrame: 当前Frame的父容器
         """
+        self.addMissionButtonVar = tkinter.StringVar()
+        self.editMissionButtonVar = tkinter.StringVar()
+        self.viewAllButtonVar = tkinter.StringVar()
+        self.language()
         if DEBUG and VIEW_DEBUG:
             self.menuFrame = tkinter.Frame(firstTabFrame, height=350, width=150, bg='pink')
         else:
@@ -22,6 +27,26 @@ class SelectFrame():
 
         #
         self.printSelect()
+
+
+    def language(self):
+        """
+        语言切换，暂时不做外部调用（即每次重启生效）
+        :return:
+        """
+        languageType = configFileRead.ConfigFileRead(fileName='./conf/user.ini').readFile("LANGUAGE", 'language')
+        if languageType == 'CN':
+            self.addMissionButtonVar.set('添加任务')
+            self.editMissionButtonVar.set('编辑任务')
+            self.viewAllButtonVar.set('查看全部')
+        elif languageType == 'EN':
+            self.addMissionButtonVar.set('add mission')
+            self.editMissionButtonVar.set('edit mission')
+            self.viewAllButtonVar.set('view all')
+        else:
+            self.addMissionButtonVar.set('添加任务')
+            self.editMissionButtonVar.set('编辑任务')
+            self.viewAllButtonVar.set('查看全部')
 
     def selectAddButton(self):
         """
@@ -65,13 +90,13 @@ class SelectFrame():
         :return:
         """
         # 添加添加按钮
-        addButton = tkinter.Button(self.menuFrame, text='添加任务', width=10, height=1, command=self.selectAddButton)
+        addButton = tkinter.Button(self.menuFrame, text=self.addMissionButtonVar.get(), width=10, height=1, command=self.selectAddButton)
         addButton.place(x=35, y=60, anchor='nw')
         # 添加编辑按钮
-        editButton = tkinter.Button(self.menuFrame, text='编辑任务', width=10, height=1, command=self.selectEditButton)
+        editButton = tkinter.Button(self.menuFrame, text=self.editMissionButtonVar.get(), width=10, height=1, command=self.selectEditButton)
         editButton.place(x=35, y=140, anchor='nw')
         # 添加查看按钮
-        viewAllButton = tkinter.Button(self.menuFrame, text='查看全部', width=10, height=1, command=self.selectAllButton)
+        viewAllButton = tkinter.Button(self.menuFrame, text=self.viewAllButtonVar.get(), width=10, height=1, command=self.selectAllButton)
         viewAllButton.place(x=35, y=220, anchor='nw')
         pass
 

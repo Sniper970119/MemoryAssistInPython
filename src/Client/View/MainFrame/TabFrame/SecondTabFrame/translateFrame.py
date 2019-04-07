@@ -1,5 +1,6 @@
 # -*- coding:utf-8 -*-
 from src.Client.Conf.config import *
+from src.Client.SystemTools.ConfFileRead import configFileRead
 from src.Client.TranslateSystem.Tools import translateInBaidu
 
 
@@ -13,6 +14,13 @@ class TranslateFrame():
 
         :param tab: tab 为当前frame的父容器
         """
+        self.textTranslateVar = tkinter.StringVar()
+        self.messageBoxTitleVar = tkinter.StringVar()
+        self.messageBoxMessageVar = tkinter.StringVar()
+        self.translateButtonVar = tkinter.StringVar()
+        self.copyButtonVar = tkinter.StringVar()
+        self.clearButtonVar = tkinter.StringVar()
+        self.language()
         if DEBUG and VIEW_DEBUG:
             self.secondTabFrame = tkinter.Frame(tab, height=350, width=700, bg='plum')
         else:
@@ -27,7 +35,35 @@ class TranslateFrame():
 
         self.printTanlateButton()
 
-        tab.add(self.secondTabFrame, text='文本翻译')
+        tab.add(self.secondTabFrame, text=self.textTranslateVar.get())
+
+    def language(self):
+        """
+        语言切换，暂时不做外部调用（即每次重启生效）
+        :return:
+        """
+        languageType = configFileRead.ConfigFileRead(fileName='./conf/user.ini').readFile("LANGUAGE", 'language')
+        if languageType == 'CN':
+            self.textTranslateVar.set('文本翻译')
+            self.messageBoxTitleVar.set('翻译错误')
+            self.messageBoxMessageVar.set('无法翻译，请检查输入\n　如输入无误请稍后再试')
+            self.translateButtonVar.set('翻  译')
+            self.copyButtonVar.set('复  制')
+            self.clearButtonVar.set('清  空')
+        elif languageType == 'EN':
+            self.textTranslateVar.set('text translate')
+            self.messageBoxTitleVar.set('translate error')
+            self.messageBoxMessageVar.set('something wrong,please check input and retry')
+            self.translateButtonVar.set('translate')
+            self.copyButtonVar.set('copy')
+            self.clearButtonVar.set("clear")
+        else:
+            self.textTranslateVar.set('添加任务')
+            self.messageBoxTitleVar.set('任务名')
+            self.messageBoxMessageVar.set('任务范围')
+            self.translateButtonVar.set('确认添加')
+            self.copyButtonVar.set('添加错误')
+            self.clearButtonVar.set('任务名和任务范围不可为空')
 
     def printInputText(self):
         """
@@ -67,7 +103,7 @@ class TranslateFrame():
             translateResult = translateInBaidu.Translate().translate(text)
             # 应对调用无法处理翻译的情况
             if translateResult is None:
-                messagebox.showwarning(title='翻译错误', message='无法翻译，请检查输入\n　如输入无误请稍后再试')
+                messagebox.showwarning(title=self.messageBoxTitleVar.get(), message=self.messageBoxMessageVar.get())
             # 解锁输出text并清空，将新翻译的文字填入，加锁text
             self.outputText.config(state='normal')
             self.outputText.delete('1.0', 'end')
@@ -107,7 +143,7 @@ class TranslateFrame():
             return 'break'
 
         # 翻译按钮
-        translateButton = tkinter.Button(self.secondTabFrame, text='翻 译', bg='red', width=7,
+        translateButton = tkinter.Button(self.secondTabFrame, text=self.translateButtonVar.get(), bg='red', width=7,
                                          activebackground='firebrick', fg='ghostwhite', activeforeground='ghostwhite',
                                          command=translateText)
         # 添加在输入文本上的各种快捷键
@@ -137,7 +173,7 @@ class TranslateFrame():
             pass
 
         # 复制到剪切板按钮
-        copyToShearPlateButton = tkinter.Button(self.secondTabFrame, text='复 制', bg='red', width=7,
+        copyToShearPlateButton = tkinter.Button(self.secondTabFrame, text=self.copyButtonVar.get(), bg='red', width=7,
                                                 activebackground='firebrick', fg='ghostwhite',
                                                 activeforeground='ghostwhite',
                                                 command=copyToShearPlate)
@@ -149,7 +185,7 @@ class TranslateFrame():
             self.outputText.config(state='disabled')
 
         # 清空按钮
-        deleteAllButton = tkinter.Button(self.secondTabFrame, text='清 空', bg='red', width=7,
+        deleteAllButton = tkinter.Button(self.secondTabFrame, text=self.clearButtonVar.get(), bg='red', width=7,
                                          activebackground='firebrick', fg='ghostwhite',
                                          activeforeground='ghostwhite',
                                          command=deleteAll)

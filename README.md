@@ -2,6 +2,11 @@
 
 *免责声明：仅供研究使用，请勿进行非法用途。
 
+
+<a href="https://996.icu"><img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996.icu" /></a>
+[![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg)](https://github.com/996icu/996.ICU/blob/master/LICENSE)
+
+
 ## 环境要求
 
 1.python 3
@@ -45,6 +50,10 @@ API帮助文档请点[这里](http://www.sniper97.cn/MemoryAssist/API)
 2019-3-11：完成第五次迭代。完成服务器对客户端的标识、登录数据统计以及定时的邮件回报。
 
 2019-3-28: 开始修复服务器端已知bug。
+
+2019-3-28: 修复已知bug，开始第六次迭代。计划完成软件设置模块，完成语言切换。
+
+2019-4-07: 完成第六次迭代。完成客户端语言中英切换。
 
 
 ## 动态展示（v0.2）

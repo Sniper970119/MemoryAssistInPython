@@ -11,9 +11,12 @@ import simplejson as simplejson
 # b = a['data']['country'] + a['data']['area'] + a['data']['region'] + a['data']['city']
 # print(b)
 # print(type(str(a['data']['city'])))
-from src.Server.DatabaseSystem.Tools.areaStatistics import AreaStatistics
-
-areaTools = AreaStatistics()
-weeklyArea, totalArea = areaTools.statistics()
-a = json.dumps(weeklyArea).encode('utf-8').decode('unicode_escape')
-print(a)
+# from src.Server.DatabaseSystem.Tools.areaStatistics import AreaStatistics
+#
+# areaTools = AreaStatistics()
+# weeklyArea, totalArea = areaTools.statistics()
+# a = json.dumps(weeklyArea).encode('utf-8').decode('unicode_escape')
+# print(a)
+print('testvar' in dir())
+testvar = True
+print('testvar' in dir())

@@ -3,7 +3,8 @@ import socket
 import datetime
 import time
 from tkinter import messagebox
-import configparser as ConfigParser
+# import configparser as ConfigParser
+import ConfigParser
 import struct
 import zipfile
 import shutil

@@ -1,6 +1,7 @@
 # -*- coding:utf-8 -*-
 
 from src.Client.Conf.config import *
+from src.Client.SystemTools.ConfFileRead import configFileRead
 from src.Client.View.MainFrame.TabFrame.FirstTabFrame import messageFrame
 from src.Client.View.MainFrame.TabFrame.FirstTabFrame import selectFrame
 
@@ -9,6 +10,7 @@ class FirstTabFrame():
     """
     第一个Tab框架，负责显示任务信息等GUI界面。
     """
+
     def __init__(self, tab):
         """
 
@@ -25,5 +27,11 @@ class FirstTabFrame():
         messageFrame.MessageFrame(firstTabFrame=self.firstTabFrame)
         selectFrame.SelectFrame(firstTabFrame=self.firstTabFrame)
 
-        tab.add(self.firstTabFrame, text='我的计划')
-
+        # 语言自定义
+        languageType = configFileRead.ConfigFileRead(fileName='./conf/user.ini').readFile("LANGUAGE", 'language')
+        if languageType == 'CN':
+            tab.add(self.firstTabFrame, text='我的计划')
+        elif languageType == 'EN':
+            tab.add(self.firstTabFrame, text='my plan')
+        else:
+            tab.add(self.firstTabFrame, text='我的计划')

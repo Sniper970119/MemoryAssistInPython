@@ -5,7 +5,8 @@ import time
 import os
 import struct
 import threading
-import configparser as ConfigParser
+# import configparser as ConfigParser
+import ConfigParser
 import random
 import string
 import pymongo
@@ -29,3 +30,6 @@ SYSTEM_TOOLS_DEBUG = True
 CODE_HANDLE_DEBUG = True
 
 MEAL_SYSTEM_DEBUG = True
+
+# 邮件授权码
+EMILECODE = 'jndmaedgdbkpbigc'

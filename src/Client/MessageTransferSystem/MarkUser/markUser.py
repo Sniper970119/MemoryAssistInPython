@@ -6,7 +6,7 @@ from src.Client.SystemTools.ConfFileRead import configFileRead
 class MarkUser():
     def __init__(self):
         try:
-            self.configFileReadTools = configFileRead.ConfigFileRead()
+            self.configFileReadTools = configFileRead.ConfigFileRead(fileName='./conf/user.ini')
             self.s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self.s.connect((SERVER_IP, SERVER_MES_PORT))
             print(SERVER_IP)

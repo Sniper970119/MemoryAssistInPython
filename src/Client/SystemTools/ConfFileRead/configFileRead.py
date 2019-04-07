@@ -7,7 +7,9 @@ from src.Client.SystemTools.ConfFileRead.Tools import saveConfigFile
 
 
 class ConfigFileRead():
-    def __init__(self, fileName='./conf/main.ini'):
+    def __init__(self, fileName):
+        # 因为用户自定义配置应该排除在版本控制文件之外，所以为了防止出现差错，要求配置文件读写全部指定文件，禁止使用默认
+        # def __init__(self, fileName='./conf/main.ini'):
         self.readConfigFileTools = readConfigFile.ReadConfigFile(fileName=fileName)
         self.saveConfigFileTools = saveConfigFile.SaveConfigFile(fileName=fileName)
         pass
