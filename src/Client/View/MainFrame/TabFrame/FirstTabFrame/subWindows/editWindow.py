@@ -377,7 +377,7 @@ class EditWindow():
                     print('{USR}{MESSAGE_FRAME} now user click edit mission button')
 
         # 按钮
-        addButton = tkinter.Button(self.addWindow, text=self.editButtonVar.get(), command=editMission)
+        addButton = tkinter.Button(self.addWindow, text=self.editButtonVar.get(), command=editMission, width=8)
         addButton.place(x=200, y=385, anchor='nw')
 
 

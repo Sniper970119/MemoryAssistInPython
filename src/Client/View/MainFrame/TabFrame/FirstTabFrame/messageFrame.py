@@ -2,6 +2,7 @@
 
 from src.Client.Conf.config import *
 from src.Client.MissionSystem import missionSystem
+from src.Client.SystemTools.ConfFileRead import configFileRead
 
 
 class MessageFrame():
@@ -13,6 +14,14 @@ class MessageFrame():
 
         :param firstTabFrame: 当前Frame的父容器
         """
+        self.missionIdVar = tkinter.StringVar()
+        self.missionNameVar = tkinter.StringVar()
+        self.missionRangeVar = tkinter.StringVar()
+        self.missionStateCodeVar = tkinter.StringVar()
+        self.missionNextTimeCodeVar = tkinter.StringVar()
+        self.messageBoxTitleVar = tkinter.StringVar()
+        self.messageBoxMessageVar = tkinter.StringVar()
+        self.language()
         self.missionSystemTools = missionSystem.MissionSystem()
         # 初始化框架
         if DEBUG and VIEW_DEBUG:
@@ -31,6 +40,37 @@ class MessageFrame():
         self.threadUpdate()
         MessageFrame.needReprint = False
 
+    def language(self):
+        """
+        语言切换，暂时不做外部调用（即每次重启生效）
+        :return:
+        """
+        languageType = configFileRead.ConfigFileRead(fileName='./conf/user.ini').readFile("LANGUAGE", 'language')
+        if languageType == 'CN':
+            self.missionIdVar.set('任务id')
+            self.missionNameVar.set('任务名')
+            self.missionRangeVar.set('任务范围')
+            self.missionStateCodeVar.set('任务进度')
+            self.missionNextTimeCodeVar.set('下次任务')
+            self.messageBoxTitleVar.set('完成任务')
+            self.messageBoxMessageVar.set('已完成当前任务')
+        elif languageType == 'EN':
+            self.missionIdVar.set('mission id')
+            self.missionNameVar.set('mission name')
+            self.missionRangeVar.set('mission range')
+            self.missionStateCodeVar.set('mission state')
+            self.missionNextTimeCodeVar.set('next time')
+            self.messageBoxTitleVar.set('finish mission')
+            self.messageBoxMessageVar.set('mission has been finished')
+        else:
+            self.missionIdVar.set('任务id')
+            self.missionNameVar.set('任务名')
+            self.missionRangeVar.set('任务范围')
+            self.missionStateCodeVar.set('任务进度')
+            self.missionNextTimeCodeVar.set('下次任务')
+            self.messageBoxTitleVar.set('完成任务')
+            self.messageBoxMessageVar.set('已完成当前任务')
+
     # 定义鼠标双击事件
     def treeviewClick(self, event):
         """
@@ -43,7 +83,7 @@ class MessageFrame():
             for item in self.tree.selection():
                 item_text = self.tree.item(item, "values")
                 print('{USR}{VIEW_DEBUG} treeview has been double click at ' + item_text[0])
-        isFinish = tkinter.messagebox.askyesno(title='完成任务', message='已完成当前任务')
+        isFinish = tkinter.messagebox.askyesno(title=self.messageBoxTitleVar.get(), message=self.messageBoxMessageVar.get())
         if isFinish:
             for item in self.tree.selection():
                 item_text = self.tree.item(item, "values")
@@ -112,11 +152,11 @@ class MessageFrame():
         self.tree.column('3', width=110, anchor='center')
         self.tree.column('4', width=110, anchor='center')
         self.tree.column('5', width=110, anchor='center')
-        self.tree.heading('1', text='任务id')
-        self.tree.heading('2', text='书名')
-        self.tree.heading('3', text='任务范围')
-        self.tree.heading('4', text='任务进度')
-        self.tree.heading('5', text='下次任务')
+        self.tree.heading('1', text=self.missionIdVar.get())
+        self.tree.heading('2', text=self.missionNameVar.get())
+        self.tree.heading('3', text=self.missionRangeVar.get())
+        self.tree.heading('4', text=self.missionStateCodeVar.get())
+        self.tree.heading('5', text=self.missionNextTimeCodeVar.get())
         self.tree.place(x=0, y=0, anchor='nw')
         self.tree.bind("<Double-Button-1>", self.treeviewClick)
         self.getList()

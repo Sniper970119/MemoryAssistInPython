@@ -60,16 +60,16 @@ class AddWindow():
         self.addWindow.iconbitmap('images/icon.ico')
 
         nameLabel = tkinter.Label(self.addWindow, text=self.missionNameVar.get(), font=('Arial', 12), width=15, height=2)
-        nameLabel.place(x=-30, y=50, anchor='nw')
+        nameLabel.place(x=-20, y=50, anchor='nw')
 
         nameEntry = tkinter.Entry(self.addWindow, font=('Arial', 12), width=15, bd=5, relief='flat')
-        nameEntry.place(x=80, y=55, anchor='nw')
+        nameEntry.place(x=100, y=55, anchor='nw')
 
         missionRangeLabel = tkinter.Label(self.addWindow, text=self.missionNameVar.get(), font=('Arial', 12), width=15, height=2)
-        missionRangeLabel.place(x=-30, y=100, anchor='nw')
+        missionRangeLabel.place(x=-20, y=100, anchor='nw')
 
         missionRangeEntry = tkinter.Entry(self.addWindow, font=('Arial', 12), width=15, bd=5, relief='flat')
-        missionRangeEntry.place(x=80, y=105, anchor='nw')
+        missionRangeEntry.place(x=100, y=105, anchor='nw')
 
         def addMission():
             """
@@ -93,6 +93,6 @@ class AddWindow():
                 print('{USR}{MESSAGE_FRAME} now user click add mission button and system save it')
             pass
         # 按钮
-        addButton = tkinter.Button(self.addWindow, text=self.addButtonVar.get(), command=addMission)
+        addButton = tkinter.Button(self.addWindow, text=self.addButtonVar.get(), command=addMission, width=8)
         addButton.place(x=200, y=155, anchor='nw')
 
