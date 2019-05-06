@@ -4,7 +4,7 @@ from src.Client.Conf.config import *
 
 from src.Client.MissionSystem.EditMission.tools import editMissionList, computeNextMissionTime, removeMission, \
     finishMission
-from src.Client.MissionSystem.SaveMission import saveMission
+from src.Client.SystemTools.SaveMission import saveMission
 
 
 class EditMission():
@@ -62,7 +62,7 @@ class EditMission():
 
 # 测试任务编辑系统
 if __name__ == '__main__':
-    from src.Client.MissionSystem.LoadMission import loadMission
+    from src.Client.SystemTools.LoadMission import loadMission
 
     l = loadMission.LoadMission("F:\python17\pythonPro\MemortAssit\data\mission.dat")
     list = l.loadMission()

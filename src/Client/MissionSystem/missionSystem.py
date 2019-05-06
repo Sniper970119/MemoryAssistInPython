@@ -1,9 +1,9 @@
 # -*- coding:utf-8 -*-
 from src.Client.Conf.config import *
 
-from src.Client.MissionSystem.LoadMission import loadMission
+from src.Client.SystemTools.LoadMission import loadMission
 from src.Client.MissionSystem.BackupMission import backupMission
-from src.Client.MissionSystem.SaveMission import saveMission
+from src.Client.SystemTools.SaveMission import saveMission
 from src.Client.MissionSystem.EditMission import editMission
 from src.Client.MissionSystem.AddMission import addMission
 
@@ -12,7 +12,7 @@ class MissionSystem():
     """
     任务系统，一级子系统。对外提供任务系统的各个功能。
     """
-    def __init__(self, confFileName='conf\mession.ini',
+    def __init__(self, confFileName='conf\mission.ini',
                  dataFileName='data\mission.dat',
                  backupFilePath='data/bkup/mbk/'):
         # 初始化工具

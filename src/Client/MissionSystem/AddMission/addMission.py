@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
 from src.Client.MissionSystem.AddMission.tools import saveConfigFile, loadConfigFile, addMissionToList
-from src.Client.MissionSystem.SaveMission import saveMission
+from src.Client.SystemTools.SaveMission import saveMission
 
 
 class AddMission():
@@ -52,6 +52,6 @@ if __name__ == '__main__':
     # l = loadMission.LoadMission("F:\python17\pythonPro\MemortAssit\data\mission.dat")
     # list = l.loadMission()
     #
-    # a = AddMission(confFileName='F:\python17\pythonPro\MemortAssit\conf\mession.ini',
+    # a = AddMission(confFileName='F:\python17\pythonPro\MemortAssit\conf\mission.ini',
     #                dataFileName='F:\python17\pythonPro\MemortAssit\data\mission.dat')
     # a.addMission(list=list, bookName='testBook', missionRange='testMission')
