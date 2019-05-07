@@ -9,19 +9,19 @@ class SelectFrame():
     """
     右侧选择GUI。同时对应右侧按钮进行调用。
     """
-    def __init__(self, firstTabFrame):
+    def __init__(self, thirdTabFrame):
         """
 
-        :param firstTabFrame: 当前Frame的父容器
+        :param thirdTabFrame: 当前Frame的父容器
         """
         self.addMissionButtonVar = tkinter.StringVar()
         self.editMissionButtonVar = tkinter.StringVar()
         self.viewAllButtonVar = tkinter.StringVar()
         self.language()
         if DEBUG and VIEW_DEBUG:
-            self.menuFrame = tkinter.Frame(firstTabFrame, height=350, width=150, bg='pink')
+            self.menuFrame = tkinter.Frame(thirdTabFrame, height=350, width=150, bg='pink')
         else:
-            self.menuFrame = tkinter.Frame(firstTabFrame, height=350, width=150)
+            self.menuFrame = tkinter.Frame(thirdTabFrame, height=350, width=150)
 
         self.menuFrame.place(x=550, y=00, anchor='nw')
 

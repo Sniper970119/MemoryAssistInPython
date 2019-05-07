@@ -3,7 +3,7 @@
 from src.Client.Conf.config import *
 from src.Client.View.MainFrame.TabFrame.FirstTabFrame import firstTabFrame
 from src.Client.View.MainFrame.TabFrame.SecondTabFrame import translateFrame
-from src.Client.View.MainFrame.TabFrame.ThirdFrame import reciterFrame
+from src.Client.View.MainFrame.TabFrame.ThirdFrame import thirdTabFrame
 
 
 class TabFrame():
@@ -21,8 +21,8 @@ class TabFrame():
 
         # 调用子组件
         firstTabFrame.FirstTabFrame(tab=self.tab)
+        thirdTabFrame.ReciterFrame(tab=self.tab)
         translateFrame.TranslateFrame(tab=self.tab)
-        reciterFrame.ReciterFrame(tab=self.tab)
 
 
 
