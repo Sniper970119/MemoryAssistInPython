@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-from src.Client.recitationSystem.AddRecitation.tools import loadConfigFile, saveConfigFile, addRecitationToList
+from src.Client.recitationSystem.addRecitation.tools import loadConfigFile, saveConfigFile, addRecitationToList
 from src.Client.SystemTools.SaveFiles import saveFiles
 
 
@@ -16,13 +16,14 @@ class AddRecitation():
         self.saveMissionTools = saveFiles.SaveFiles(filename=dataFileName)
         pass
 
-    def addMission(self, list, recitationId, question, answer):
+    def addRecitation(self, list, recitationId, question, answer, weight):
         """
 
         :param list:  目标list
         :param recitationId: 任务id（string
         :param question: 问题
         :param answer: 答案
+        :param weight: 权重
         :return: 添加后的list
         """
         if recitationId is None:
@@ -33,8 +34,8 @@ class AddRecitation():
             self.saveConfigTools.saveConfigFile(nextRecitationId)
             recitationId = nextRecitationId
         # 添加到列表并获取到返回列表
-        list = self.addMissionTools.addMission(list=list, recitationId=recitationId, question=question,
-                                               answer=answer)
+        list = self.addMissionTools.addRecitation(list=list, recitationId=recitationId, question=question,
+                                                  answer=answer, weight=weight)
         # 保存到文件
         self.saveMissionTools.saveFiles(list)
         return list
@@ -42,7 +43,8 @@ class AddRecitation():
 
 # 对添加任务子系统的测试
 if __name__ == '__main__':
-    a = AddMission()
+    pass
+    # a = AddMission()
     # l = loadMission.LoadFiles("F:\python17\pythonPro\MemortAssit\data\mission.dat")
     # list = l.loadMission()
     #

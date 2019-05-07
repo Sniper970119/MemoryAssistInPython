@@ -37,7 +37,6 @@ class EditMission():
         :return: 编辑后的list
         """
         try:
-            print('in')
             # 对不同的编辑命令做出不同的响应
             if isEdit:
                 # 调用编辑子系统

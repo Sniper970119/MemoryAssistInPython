@@ -18,6 +18,7 @@ class LoadFiles():
     def loadFiles(self, missionType='mission'):
         """
         读取任务文件,读取失败直接删除该文件
+        :param missionType 因为读取文件时需要对任务初始化，而背诵不需要，因此增加任务类型
         :return:
         """
         try:

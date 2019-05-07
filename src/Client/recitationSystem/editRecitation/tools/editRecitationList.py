@@ -7,13 +7,14 @@ class EditRecitationList():
     负责编辑任务，实际操作类
     """
 
-    def edit(self, list, recitationId, question=None, answer=None):
+    def edit(self, list, recitationId, question=None, answer=None, weight=10):
         """
         编辑任务
         :param list:  目标list
         :param recitationId: 任务id（string
         :param question: 书名
         :param answer: 任务范围
+        :param weight: 权重
         :return: 插入后的list
         """
         # 首先将列表备份，以便添加失败时返回最近正常的点
@@ -29,9 +30,11 @@ class EditRecitationList():
                         each['question'] = question
                     if answer != None:
                         each['answer'] = answer
+                    if weight != None:
+                        each['weight'] = weight
             # 打印debug日志
             if DEBUG and MISSION_DEBUG:
-                print('{SYS}{RECITATION_DEBUG} mission has been edit finish successfully id is ' + recitationId)
+                print('{SYS}{RECITATION_DEBUG} recitation has been edit finish successfully id is ' + recitationId)
 
             return list
         except Exception as e:
@@ -43,7 +46,7 @@ class EditRecitationList():
             # 生成报错的错误信息
             wrongMessage = {
                 '|currentTime': currentTime,
-                '|file': 'RecitationSystem-EditRecitation-editRecitationList',
+                '|file': 'RecitationSystem-editRecitation-editRecitationList',
                 '|list': list,
                 '|recitationId': recitationId,
                 '|question': question,

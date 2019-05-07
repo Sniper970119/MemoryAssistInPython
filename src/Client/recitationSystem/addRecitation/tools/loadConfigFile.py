@@ -34,7 +34,7 @@ class LoadConfigFile():
             # 生成报错的错误信息
             wrongMessage = {
                 '|currentTime': currentTime,
-                '|file': 'RecitationSystem-AddRecitation-loadConfigFile',
+                '|file': 'RecitationSystem-addRecitation-loadConfigFile',
                 '|wrongMessage': str(e)
             }
             # 存入文件

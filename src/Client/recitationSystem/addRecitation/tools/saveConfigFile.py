@@ -38,7 +38,7 @@ class SaveConfigFile():
             # 生成报错的错误信息
             wrongMessage = {
                 '|currentTime': currentTime,
-                '|file': 'RECITATIONSystem-AddRecitation-saveConfigFile',
+                '|file': 'RECITATIONSystem-addRecitation-saveConfigFile',
                 '|missionId': recitationId,
                 '|wrongMessage': str(e)
             }
