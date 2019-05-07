@@ -1,5 +1,6 @@
 # -*- coding:utf-8 -*-
 from src.Client.Conf.config import *
+import random
 
 from src.Client.SystemTools.LoadFiles import loadFiles
 from src.Client.SystemTools.SaveFiles import saveFiles
@@ -110,15 +111,25 @@ class RecitationSystem():
 
     def getOneRecitation(self):
         """
-        获取一条信息
+        根据权重计算，随机获取一条信息
         :return:
         """
         mapList = []
+        totalWeight = 0
+        for each in self.list:
+            totalWeight = totalWeight + each['weight']
+            mapList.append(totalWeight)
+        randomNumber = random.uniform(0, totalWeight)
+        for i in range(len(mapList)):
+            if randomNumber <=mapList[i]:
+                return self.list[i]
         pass
 
 
 if __name__ == '__main__':
-    pass
-    # m = MissionSystem()
+    # m = RecitationSystem(confFileName='../../conf/recitation.ini', dataFileName='../../data/recitation.dat')
+    # m.addRecitation('question1', 'answer1', weight=10)
+    # m.addRecitation('question2', 'answer2', weight=20)
     # f = open('../../data/mission.dat')
     # print(f.read())
+    pass

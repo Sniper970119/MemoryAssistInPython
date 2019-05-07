@@ -48,5 +48,5 @@ class LoadConfigFile():
 
 # 配置文件读取测试
 if __name__ == '__main__':
-    l = LoadConfigFile(fileName='F:\python17\pythonPro\MemortAssit\conf\mession.ini')
+    l = LoadConfigFile(fileName='F:\python17\pythonPro\MemortAssit\conf/recitation.ini')
     print(l.loadConfigFile())

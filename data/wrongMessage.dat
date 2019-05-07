@@ -1,0 +1,11 @@
+{'|file': 'SystemTools-LoadFiles-loadMissionFile', '|currentTime': '2019-05-07 22:26:47', '|wrongMessage': "[Errno 2] No such file or directory: '../../data/recitation.dat'"}
+{'|data': None, '|file': 'SystemTools-LoadFiles-decodeText', '|currentTime': '2019-05-07 22:26:47', '|wrongMessage': 'a2b_hex() argument 1 must be string or buffer, not None'}
+{'|file': 'RecitationSystem-addRecitation-loadConfigFile', '|currentTime': '2019-05-07 22:26:47', '|wrongMessage': "[Errno 2] No such file or directory: '../../conf/recitation.ini'"}
+{'|file': 'SystemTools-LoadFiles-loadMissionFile', '|currentTime': '2019-05-07 22:28:22', '|wrongMessage': "[Errno 2] No such file or directory: '../../data/recitation.dat'"}
+{'|data': None, '|file': 'SystemTools-LoadFiles-decodeText', '|currentTime': '2019-05-07 22:28:22', '|wrongMessage': 'a2b_hex() argument 1 must be string or buffer, not None'}
+{'|file': 'RecitationSystem-addRecitation-loadConfigFile', '|currentTime': '2019-05-07 22:28:22', '|wrongMessage': "[Errno 2] No such file or directory: '../../conf/recitation.ini'"}
+{'|file': 'SystemTools-LoadFiles-loadMissionFile', '|currentTime': '2019-05-07 22:28:56', '|wrongMessage': "[Errno 2] No such file or directory: '../../data/recitation.dat'"}
+{'|data': None, '|file': 'SystemTools-LoadFiles-decodeText', '|currentTime': '2019-05-07 22:28:56', '|wrongMessage': 'a2b_hex() argument 1 must be string or buffer, not None'}
+{'|file': 'SystemTools-LoadFiles-loadMissionFile', '|currentTime': '2019-05-07 22:29:30', '|wrongMessage': "[Errno 2] No such file or directory: '../../data/recitation.dat'"}
+{'|data': None, '|file': 'SystemTools-LoadFiles-decodeText', '|currentTime': '2019-05-07 22:29:30', '|wrongMessage': 'a2b_hex() argument 1 must be string or buffer, not None'}
+{'|data': '', '|file': 'SystemTools-LoadFiles-decodeText', '|currentTime': '2019-05-07 22:29:56', '|wrongMessage': ''}

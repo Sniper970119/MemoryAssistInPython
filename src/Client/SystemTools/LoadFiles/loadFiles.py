@@ -39,7 +39,7 @@ class LoadFiles():
                     returnList.append(each)
                 return returnList
             if missionType == 'recitation':
-                return returnList
+                return list
 
         except:
             # 处理非异常情况，即第一次打开软件的空数据文件
