@@ -2,7 +2,7 @@
 from src.Client.Conf.config import *
 
 
-class AddMissionToList():
+class AddRecitationToList():
     """
     该类负责将背诵任务添加到列表，属于实际操作类
     """

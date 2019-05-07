@@ -1,18 +1,18 @@
 # -*- coding:utf-8 -*-
 from src.Client.MissionSystem.AddMission.tools import saveConfigFile, loadConfigFile, addMissionToList
-from src.Client.SystemTools.SaveMission import saveMission
+from src.Client.SystemTools.SaveFiles import saveFiles
 
 
 class AddMission():
     """
     该类负责增加任务相关事宜，属于调用类，调用各种方法完成目的。
     """
-    def __init__(self, confFileName='../data/mission.dat', dataFileName='../data/mission.dat'):
+    def __init__(self, confFileName='../conf/mission.ini', dataFileName='../data/mission.dat'):
         # 初始化工具
         self.loadConfigTools = loadConfigFile.LoadConfigFile(fileName=confFileName)
         self.addMissionTools = addMissionToList.AddMissionToList()
         self.saveConfigTools = saveConfigFile.SaveConfigFile(fileName=confFileName)
-        self.saveMissionTools = saveMission.SaveMission(filename=dataFileName)
+        self.saveMissionTools = saveFiles.SaveFiles(filename=dataFileName)
         pass
 
     def addMission(self, list, bookName, missionRange, missionId=None, nextTime=None, state=1, loopTime=5,
@@ -42,14 +42,14 @@ class AddMission():
                                                loopTime=loopTime,
                                                isFinish=isFinish)
         # 保存到文件
-        self.saveMissionTools.saveMission(list)
+        self.saveMissionTools.saveFiles(list)
         return list
 
 
 # 对添加任务子系统的测试
 if __name__ == '__main__':
     a = AddMission()
-    # l = loadMission.LoadMission("F:\python17\pythonPro\MemortAssit\data\mission.dat")
+    # l = loadMission.LoadFiles("F:\python17\pythonPro\MemortAssit\data\mission.dat")
     # list = l.loadMission()
     #
     # a = AddMission(confFileName='F:\python17\pythonPro\MemortAssit\conf\mission.ini',
