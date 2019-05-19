@@ -24,12 +24,13 @@ SERVER_FILE_PORT = 9000
 SERVER_MES_PORT = 9001
 
 
-VERSION = 1.0
+VERSION = 1.3
 
 
 
 # 调试模式总开关
 DEBUG = True
+# DEBUG = False
 # GUI部分调试开关
 VIEW_DEBUG = True
 # 任务系统调试开关
@@ -41,7 +42,7 @@ SYSTEM_TOOLS_DEBUG = True
 # 版本控制调试开关
 VERSION_CONTROL_DEBUG = True
 
-VERSION_CODE = "v1.2"
+VERSION_CODE = "v1.3"
 
 
 if DEBUG:
