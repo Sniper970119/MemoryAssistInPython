@@ -2,7 +2,7 @@
 
 from src.Client.Conf.config import *
 from src.Client.SystemTools.ConfFileRead import configFileRead
-from src.Client.View.MainFrame.TabFrame.FirstTabFrame.subWindows import addWindow, editWindow, viewAllWindow
+from src.Client.View.MainFrame.TabFrame.ThirdFrame.subWindows import addWindow, editWindow, viewAllWindow
 
 
 class SelectFrame():

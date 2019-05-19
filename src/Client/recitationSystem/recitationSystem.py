@@ -30,7 +30,7 @@ class RecitationSystem():
         list = self.loadRecitationTools.loadFiles(missionType='recitation')
         return list
 
-    def addRecitation(self, question, answer, recitationId=None, weight=10):
+    def addRecitation(self, question, answer, recitationId=None, weight=20):
         """
         一级子系统的添加任务操作
         :param recitationId: 任务id（string
@@ -121,9 +121,11 @@ class RecitationSystem():
             mapList.append(totalWeight)
         randomNumber = random.uniform(0, totalWeight)
         for i in range(len(mapList)):
-            if randomNumber <=mapList[i]:
+            if randomNumber <= mapList[i]:
                 return self.list[i]
         pass
+
+
 
 
 if __name__ == '__main__':
