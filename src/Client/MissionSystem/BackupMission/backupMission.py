@@ -1,8 +1,8 @@
 # -*- coding:utf-8 -*-
 
 from src.Client.Conf.config import *
-from src.Client.MissionSystem.SaveMission import saveMission
-from src.Client.MissionSystem.LoadMission import loadMission
+from src.Client.SystemTools.SaveFiles import saveFiles
+from src.Client.SystemTools.LoadFiles import loadFiles
 from src.Client.MissionSystem.BackupMission.tools import backupFile, backupManage, chooseRecoverFile
 
 
@@ -31,13 +31,13 @@ class BackupMission():
             "%Y%m%d")
         fileName = self.filePath + currentTime + '.dat'
         # 由于文件名发生变化，只能在这里初始化保存工具
-        saveMissionTools = saveMission.SaveMission(filename=fileName)
+        saveMissionTools = saveFiles.SaveFiles(filename=fileName)
         # 打印debug日志
         if DEBUG and MISSION_DEBUG:
             print('{SYS}{MISSION_DEBUG} save backup file')
 
         # 保存备份文件
-        saveMissionTools.saveMission(list=list)
+        saveMissionTools.saveFiles(list=list)
 
         # 调用备份管理，管理备份文件
         self.backupManageTools.manage()
@@ -54,8 +54,8 @@ class BackupMission():
         backupFileNeedToLoad = True  # 循环读取备份文件标记，直到正确读取
         while (backupFileNeedToLoad):
             try:
-                loadMissionTools = loadMission.LoadMission(filename=fileName)
-                list = loadMissionTools.loadMission()
+                loadMissionTools = loadFiles.LoadFiles(filename=fileName)
+                list = loadMissionTools.loadFiles(missionType='mission')
                 # 读取成功则跳出循环
                 backupFileNeedToLoad = False
                 # 判断文件是否真的读取成功了（读取失败返回None）
@@ -72,8 +72,8 @@ class BackupMission():
                     print('{SYS}{W}{MISSION_DEBUG} backup file load fail,name is ' + fileName)
 
         # 将从配置文件读取的信息保存
-        saveMissionTools = saveMission.SaveMission(filename=self.missionFileName)
-        saveMissionTools.saveMission(list=list)
+        saveMissionTools = saveFiles.SaveFiles(filename=self.missionFileName)
+        saveMissionTools.saveFiles(list=list)
 
 
 

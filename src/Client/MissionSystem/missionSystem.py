@@ -1,9 +1,9 @@
 # -*- coding:utf-8 -*-
 from src.Client.Conf.config import *
 
-from src.Client.MissionSystem.LoadMission import loadMission
+from src.Client.SystemTools.LoadFiles import loadFiles
 from src.Client.MissionSystem.BackupMission import backupMission
-from src.Client.MissionSystem.SaveMission import saveMission
+from src.Client.SystemTools.SaveFiles import saveFiles
 from src.Client.MissionSystem.EditMission import editMission
 from src.Client.MissionSystem.AddMission import addMission
 
@@ -12,14 +12,15 @@ class MissionSystem():
     """
     任务系统，一级子系统。对外提供任务系统的各个功能。
     """
-    def __init__(self, confFileName='conf\mession.ini',
+
+    def __init__(self, confFileName='conf\mission.ini',
                  dataFileName='data\mission.dat',
                  backupFilePath='data/bkup/mbk/'):
         # 初始化工具
-        self.loadMissionTools = loadMission.LoadMission(filename=dataFileName)
+        self.loadMissionTools = loadFiles.LoadFiles(filename=dataFileName)
         self.addMissionTools = addMission.AddMission(confFileName=confFileName, dataFileName=dataFileName)
         self.editMissionTools = editMission.EditMission(filename=dataFileName)
-        self.saveMissionTools = saveMission.SaveMission(filename=dataFileName)
+        self.saveMissionTools = saveFiles.SaveFiles(filename=dataFileName)
         self.backupMissionTools = backupMission.BackupMission(fileLimit=7, backupFilePath=backupFilePath,
                                                               missionFileName=dataFileName)
         self.list = self.loadMission()
@@ -31,7 +32,7 @@ class MissionSystem():
         :return:
         """
         # 读取任务文件
-        list = self.loadMissionTools.loadMission()
+        list = self.loadMissionTools.loadFiles(missionType='mission')
         # 如果返回为None，即无法读取正确的配置信息
         if list == None:
             # 使用备份文件恢复数据
@@ -114,7 +115,7 @@ class MissionSystem():
         :return:
         """
         # 调用工具保存任务
-        self.saveMissionTools.saveMission(list=self.list)
+        self.saveMissionTools.saveFiles(list=self.list)
         # 打印 debug日志
         if DEBUG and MISSION_DEBUG:
             print('{SYS}{R}{MISSION_DEBUG} mission has been saved successful')

@@ -90,13 +90,13 @@ class SelectFrame():
         :return:
         """
         # 添加添加按钮
-        addButton = tkinter.Button(self.menuFrame, text=self.addMissionButtonVar.get(), width=10, height=1, command=self.selectAddButton)
+        addButton = tkinter.Button(self.menuFrame, text=self.addMissionButtonVar.get(), width=12, height=1, command=self.selectAddButton)
         addButton.place(x=35, y=60, anchor='nw')
         # 添加编辑按钮
-        editButton = tkinter.Button(self.menuFrame, text=self.editMissionButtonVar.get(), width=10, height=1, command=self.selectEditButton)
+        editButton = tkinter.Button(self.menuFrame, text=self.editMissionButtonVar.get(), width=12, height=1, command=self.selectEditButton)
         editButton.place(x=35, y=140, anchor='nw')
         # 添加查看按钮
-        viewAllButton = tkinter.Button(self.menuFrame, text=self.viewAllButtonVar.get(), width=10, height=1, command=self.selectAllButton)
+        viewAllButton = tkinter.Button(self.menuFrame, text=self.viewAllButtonVar.get(), width=12, height=1, command=self.selectAllButton)
         viewAllButton.place(x=35, y=220, anchor='nw')
         pass
 

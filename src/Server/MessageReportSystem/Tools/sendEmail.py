@@ -13,6 +13,7 @@ class SendEmail():
         self.allCountTools = ReturnAllCount()
         self.allLogTools = ReturnAllLog()
         self.delTools = DelWeeklyData()
+        self.emailCode = configFileRead.ConfigFileRead().readFile('EMAIL', 'email_code')
         pass
 
     def send(self):
@@ -22,7 +23,7 @@ class SendEmail():
         weeklyLogCount, totalLogCount = self.allLogTools.statistics()
         # 发送邮件准备
         msg_from = 'MemoryAssist@sniper97.cn'  # 发送方邮箱
-        passwd = EMILECODE  # 填入发送方邮箱的授权码
+        passwd = self.emailCode  # 填入发送方邮箱的授权码
         msg_to = 'zhaoyu@sniper97.cn'  # 收件人邮箱
 
         subject = "MemoryAssist 每周使用报告"  # 主题

@@ -4,7 +4,7 @@ from src.Client.Conf.config import *
 
 from src.Client.MissionSystem.EditMission.tools import editMissionList, computeNextMissionTime, removeMission, \
     finishMission
-from src.Client.MissionSystem.SaveMission import saveMission
+from src.Client.SystemTools.SaveFiles import saveFiles
 
 
 class EditMission():
@@ -17,7 +17,7 @@ class EditMission():
         self.editMissionTools = editMissionList.EditMissionList()
         self.finishMissionTools = finishMission.FinishMission()
         self.removeMissionTools = removeMission.RemoveMission()
-        self.saveMissionTools = saveMission.SaveMission(filename=filename)
+        self.saveMissionTools = saveFiles.SaveFiles(filename=filename)
         pass
 
     def edit(self, list, missionId, bookName=None, missionRange=None, nextTime=None, state=None, loopTime=None,
@@ -37,23 +37,22 @@ class EditMission():
         :return: 编辑后的list
         """
         try:
-            print('in')
             # 对不同的编辑命令做出不同的响应
             if isEdit:
                 # 调用编辑子系统
                 list = self.editMissionTools.edit(list=list, missionId=missionId, bookName=bookName,
                                                   missionRange=missionRange,
                                                   nextTime=nextTime, state=state, loopTime=loopTime, isFinish=isFinish)
-                self.saveMissionTools.saveMission(list)
+                self.saveMissionTools.saveFiles(list)
             if isFinish:
                 # 调用完成子系统
                 list = self.finishMissionTools.finish(list=list, missionId=missionId)
                 list = self.computeNextTimeTools.compute(list=list, missionId=missionId)
-                self.saveMissionTools.saveMission(list)
+                self.saveMissionTools.saveFiles(list)
             if isDelete:
                 # 调用删除子系统
                 list = self.removeMissionTools.remove(list=list, missionId=missionId)
-                self.saveMissionTools.saveMission(list)
+                self.saveMissionTools.saveFiles(list)
         except:
             # 打印debug日志
             if DEBUG and MISSION_DEBUG:
@@ -62,10 +61,10 @@ class EditMission():
 
 # 测试任务编辑系统
 if __name__ == '__main__':
-    from src.Client.MissionSystem.LoadMission import loadMission
+    from src.Client.SystemTools.LoadFiles import loadFiles
 
-    l = loadMission.LoadMission("F:\python17\pythonPro\MemortAssit\data\mission.dat")
-    list = l.loadMission()
+    l = loadFiles.LoadFiles("F:\python17\pythonPro\MemortAssit\data\mission.dat")
+    list = l.loadFiles(missionType='mission')
     print(list)
     print()
     e = EditMission('F:\python17\pythonPro\MemortAssit\data\mission.dat')

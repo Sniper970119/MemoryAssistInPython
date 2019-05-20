@@ -1,4 +1,6 @@
 # -*- coding:utf-8 -*-
+import httplib
+
 from src.Client.Conf.config import *
 
 # import httplib

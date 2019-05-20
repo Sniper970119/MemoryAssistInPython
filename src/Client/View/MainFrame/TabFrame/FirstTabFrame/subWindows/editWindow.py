@@ -77,13 +77,14 @@ class EditWindow():
             self.missionRangeExampleVar.set('输入任务范围 例如：p1~p6')
             #
             self.missionStateHintVar.set('状态代码')
-            self.missionStateExampleVar.set('0，1，2，3，4，5，6，7 分别为不再提示、          \n当天、次日、两天后、四天后、                               \n七天后、十五天后、和循环记忆                                 ')
+            self.missionStateExampleVar.set('0，1，2，3，4，5，6，7 分别为不再提示、当天、1、2、4、7、15天后、和循环记忆')
+
             #
             self.missionLoopTimeHintVar.set('循环次数')
-            self.missionLoopTimeExamlpeVar.set('15天后再重复的次数，默认为5      ')
+            self.missionLoopTimeExamlpeVar.set('15天后再重复的次数，默认为5')
             #
             self.missionMissionStateHintVar.set('是否完成')
-            self.missionMissionStateExampleVar.set('0 代表未完成 1 代表完成     ')
+            self.missionMissionStateExampleVar.set('0 代表未完成 1 代表完成')
             # error message
             self.wrongIdTitleVar.set('错误的id')
             self.wrongIdMessageVar.set('请输入正确的任务id（非数字）')
@@ -121,7 +122,7 @@ class EditWindow():
             self.missionRangeExampleVar.set('mission range.eg：p1~p6')
             #
             self.missionStateHintVar.set('state code')
-            self.missionStateExampleVar.set('0,1,2,3,4,5,6,7 respectively never \nappear,today,1,2,4,7,15 days\nlater、and appear circle')
+            self.missionStateExampleVar.set('0,1,2,3,4,5,6,7 respectively never appear,today,1,2,4,7,15 days later、and appear circle')
             #
             self.missionLoopTimeHintVar.set('loop time')
             self.missionLoopTimeExamlpeVar.set('loop time after 15 days,defaults 5')
@@ -130,10 +131,10 @@ class EditWindow():
             self.missionMissionStateExampleVar.set('1 stand for true,and 0 opposite')
             # error message
             self.wrongIdTitleVar.set('wrong id')
-            self.wrongIdMessageVar.set('please input current mission id（your input is not a number）')
+            self.wrongIdMessageVar.set('please input the current mission id（your input is not a number）')
             #
             self.wrongNameTitleVar.set('wrong mission name')
-            self.wrongNameMessageVar.set('please input current mission name（your input is null）')
+            self.wrongNameMessageVar.set('please input the current mission name（your input is null）')
             #
             self.wrongRangeTitleVar.set('wrong mission range')
             self.wrongRangeMessageVar.set('please input current mission range（your input is null）')
@@ -149,7 +150,7 @@ class EditWindow():
             self.wrongFinishStateMessage2Var.set('please input current state code（your input is in not a number）')
             #
             self.ifGoOnTitleVar.set('Edit')
-            self.ifGoOnMessageVar.set("if you choose ok,message will be change and can't recover")
+            self.ifGoOnMessageVar.set("if you choose ok,information will be change and can't recover")
             # button
             self.editButtonVar.set('edit')
         else:
@@ -165,13 +166,13 @@ class EditWindow():
             self.missionRangeExampleVar.set('输入任务范围 例如：p1~p6')
             #
             self.missionStateHintVar.set('状态代码')
-            self.missionStateExampleVar.set('0，1，2，3，4，5，6，7 分别为不再提示、          \n当天、次日、两天后、四天后、                               \n七天后、十五天后、和循环记忆                                 ')
+            self.missionStateExampleVar.set('0，1，2，3，4，5，6，7 分别为不再提示、当天、次日、2天后、4天后、7天后、15天后、和循环记忆')
             #
             self.missionLoopTimeHintVar.set('循环次数')
-            self.missionLoopTimeExamlpeVar.set('15天后再重复的次数，默认为5      ')
+            self.missionLoopTimeExamlpeVar.set('15天后再重复的次数，默认为5')
             #
             self.missionMissionStateHintVar.set('是否完成')
-            self.missionMissionStateExampleVar.set('0 代表未完成 1 代表完成     ')
+            self.missionMissionStateExampleVar.set('0 代表未完成 1 代表完成')
             # error message
             self.wrongIdTitleVar.set('错误的id')
             self.wrongIdMessageVar.set('请输入正确的任务id（非数字）')
@@ -231,8 +232,8 @@ class EditWindow():
         idLabel.place(x=-20, y=50, anchor='nw')
 
         idTLabel = tkinter.Label(self.addWindow, text=self.missionIdExampleVar.get(), font=('Arial', 8), width=30, height=1,
-                                 foreground='DimGray', justify='left')
-        idTLabel.place(x=70, y=85, anchor='nw')
+                                 foreground='DimGray', wraplength=180, justify='left', anchor='nw')
+        idTLabel.place(x=100, y=85, anchor='nw')
 
         idEntry = tkinter.Entry(self.addWindow, font=('Arial', 12), width=15, bd=5, relief='flat')
         idEntry.place(x=100, y=55, anchor='nw')
@@ -246,8 +247,8 @@ class EditWindow():
 
         # 空格是为了拉距离...
         nameTLabel = tkinter.Label(self.addWindow, text=self.missionNameExampleVar.get(), font=('Arial', 8), width=40, height=1,
-                                   foreground='DimGray', justify='left')
-        nameTLabel.place(x=60, y=135, anchor='nw')
+                                   foreground='DimGray', wraplength=180, justify='left', anchor='nw')
+        nameTLabel.place(x=100, y=135, anchor='nw')
 
         nameEntry = tkinter.Entry(self.addWindow, font=('Arial', 12), width=15, bd=5, relief='flat',
                                   textvariable=self.bookName)
@@ -262,8 +263,8 @@ class EditWindow():
 
         missionRangeTLabel = tkinter.Label(self.addWindow, text= self.missionRangeExampleVar.get(), font=('Arial', 8), width=30,
                                            height=1,
-                                           foreground='DimGray')
-        missionRangeTLabel.place(x=70, y=185, anchor='nw')
+                                           foreground='DimGray', wraplength=180, justify='left', anchor='nw')
+        missionRangeTLabel.place(x=100, y=185, anchor='nw')
 
         missionRangeEntry = tkinter.Entry(self.addWindow, font=('Arial', 12), width=15, bd=5, relief='flat',
                                           textvariable=self.missionRange)
@@ -277,8 +278,8 @@ class EditWindow():
         stateTLabel = tkinter.Label(self.addWindow,
                                     text=self.missionStateExampleVar.get(),
                                     font=('Arial', 8), width=50, height=3,
-                                    foreground='DimGray', justify='left')
-        stateTLabel.place(x=35, y=235, anchor='nw')
+                                    foreground='DimGray', wraplength=180, justify='left', anchor='nw')
+        stateTLabel.place(x=100, y=235, anchor='nw')
 
         stateEntry = tkinter.Entry(self.addWindow, font=('Arial', 12), width=15, bd=5, relief='flat',
                                    textvariable=self.state)
@@ -290,8 +291,8 @@ class EditWindow():
 
         loopTimeTLabel = tkinter.Label(self.addWindow, text=self.missionLoopTimeExamlpeVar.get(), font=('Arial', 8), width=35,
                                        height=1,
-                                       foreground='DimGray')
-        loopTimeTLabel.place(x=70, y=315, anchor='nw')
+                                       foreground='DimGray', wraplength=180, justify='left', anchor='nw')
+        loopTimeTLabel.place(x=100, y=315, anchor='nw')
 
         loopTimeEntry = tkinter.Entry(self.addWindow, font=('Arial', 12), width=15, bd=5, relief='flat',
                                       textvariable=self.loopTime)
@@ -303,8 +304,8 @@ class EditWindow():
 
         isFinishTLabel = tkinter.Label(self.addWindow, text=self.missionMissionStateExampleVar.get(), font=('Arial', 8), width=30,
                                        height=1,
-                                       foreground='DimGray')
-        isFinishTLabel.place(x=80, y=365, anchor='nw')
+                                       foreground='DimGray', wraplength=180, justify='left', anchor='nw')
+        isFinishTLabel.place(x=100, y=365, anchor='nw')
 
         isFinishEntry = tkinter.Entry(self.addWindow, font=('Arial', 12), width=15, bd=5, relief='flat',
                                       textvariable=self.isFinish)
