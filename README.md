@@ -58,6 +58,8 @@ API帮助文档请点[这里](http://www.sniper97.cn/MemoryAssist/API)
 2019-4-07： 开始第七次迭代。添加提问模块。用户添加问题后会根据问题权值（软件争取做到自适应）来对用户进行提问（例如提问政治背诵等）。
 同时由于比较忙，可能会显著延长迭代周期。
 
+2019-5-20: 完成第七次迭代。添加了提问模块，优化显示，修复服务器端邮箱授权码被盗用后导致不能再发送邮件的问题。
+
 ## 动态展示（v0.2）
 
 ![gif展示](https://github.com/Sniper970119/MemoryAssistInPython/blob/master/showPic/show.gif)
