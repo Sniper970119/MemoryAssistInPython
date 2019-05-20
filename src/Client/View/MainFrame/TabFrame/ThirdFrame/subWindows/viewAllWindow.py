@@ -1,7 +1,8 @@
 # -*- coding:utf-8 -*-
 
 from src.Client.Conf.config import *
-from src.Client.MissionSystem import missionSystem
+from src.Client.recitationSystem import recitationSystem
+from src.Client.View.MainFrame.TabFrame.ThirdFrame import messageFrame
 from src.Client.SystemTools.ConfFileRead import configFileRead
 
 
@@ -9,17 +10,15 @@ class ViewAllWindow():
     """
     显示全部任务的GUI界面
     """
+
     def __init__(self):
         self.windowTitleVar = tkinter.StringVar()
-        self.missionIdVar = tkinter.StringVar()
-        self.missionNameVar = tkinter.StringVar()
-        self.missionRangeVar = tkinter.StringVar()
-        self.missionStateCodeVar = tkinter.StringVar()
-        self.missionNextTimeCodeVar = tkinter.StringVar()
-        self.missionLoopTimeCodeVar = tkinter.StringVar()
-        self.missionisFinish = tkinter.StringVar()
+        self.recitationIdVar = tkinter.StringVar()
+        self.questionVar = tkinter.StringVar()
+        self.answerVar = tkinter.StringVar()
+        self.weightVar = tkinter.StringVar()
         self.language()
-        self.missionSystemTools = missionSystem.MissionSystem()
+        self.recitationSystemTools = recitationSystem.RecitationSystem()
 
     def language(self):
         """
@@ -28,32 +27,46 @@ class ViewAllWindow():
         """
         languageType = configFileRead.ConfigFileRead(fileName='./conf/user.ini').readFile("LANGUAGE", 'language')
         if languageType == 'CN':
-            self.windowTitleVar.set('查看全部')
-            self.missionIdVar.set('任务id')
-            self.missionNameVar.set('任务名')
-            self.missionRangeVar.set('任务范围')
-            self.missionStateCodeVar.set('任务进度')
-            self.missionNextTimeCodeVar.set('下次任务')
-            self.missionLoopTimeCodeVar.set('循环次数')
-            self.missionisFinish.set('是否完成')
+            self.windowTitleVar.set('查看全部（双击查看详情）')
+            self.recitationIdVar.set('问题id')
+            self.questionVar.set('问题')
+            self.answerVar.set('答案')
+            self.weightVar.set('权重')
         elif languageType == 'EN':
-            self.windowTitleVar.set('view all')
-            self.missionIdVar.set('mission id')
-            self.missionNameVar.set('mission name')
-            self.missionRangeVar.set('mission range')
-            self.missionStateCodeVar.set('state')
-            self.missionNextTimeCodeVar.set('next time')
-            self.missionLoopTimeCodeVar.set('loop time')
-            self.missionisFinish.set('isFinish')
+            self.windowTitleVar.set('view all（double click to view detail）')
+            self.recitationIdVar.set('recitation id')
+            self.questionVar.set('question')
+            self.answerVar.set('answer')
+            self.weightVar.set('weight')
         else:
-            self.windowTitleVar.set('查看全部')
-            self.missionIdVar.set('任务id')
-            self.missionNameVar.set('任务名')
-            self.missionRangeVar.set('任务范围')
-            self.missionStateCodeVar.set('任务进度')
-            self.missionNextTimeCodeVar.set('下次任务')
-            self.missionLoopTimeCodeVar.set('循环次数')
-            self.missionisFinish.set('是否完成')
+            self.windowTitleVar.set('查看全部（双击查看详情）')
+            self.recitationIdVar.set('问题id')
+            self.questionVar.set('问题')
+            self.answerVar.set('答案')
+            self.weightVar.set('权重')
+
+            # 定义鼠标双击事件
+
+    def treeviewClick(self, event):
+        """
+        定义鼠标在treeview上的双击事件
+        :param event:
+        :return:
+        """
+
+        if DEBUG and VIEW_DEBUG:
+            for item in self.tree.selection():
+                item_text = self.tree.item(item, "values")
+                print('{USR}{VIEW_DEBUG} treeview has been double click at ' + item_text[0])
+        for item in self.tree.selection():
+            item_text = self.tree.item(item, "values")
+            # print('对id为'+item_text[0]+'执行双击操作')
+            messageFrame.MessageFrame.showAssignQuestion(item_text[0])
+            self.addWindow.after(300, self.addWindow.destroy)
+            # 调用用户操作记录函数，记录用户此次操作
+            self.logUserAction('recitation treeview has been double click at ', item_text[0])
+        pass
+
 
     def window(self):
         self.addWindow = tkinter.Toplevel()
@@ -64,26 +77,39 @@ class ViewAllWindow():
         self.addWindow.resizable(width=False, height=False)
         self.addWindow.title(self.windowTitleVar.get())
         self.addWindow.iconbitmap('images/icon.ico')
-        self.tree = ttk.Treeview(self.addWindow, columns=['1', '2', '3', '4', '5', '6', '7'], show='headings',
+        self.tree = ttk.Treeview(self.addWindow, columns=['1', '2', '3', '4'], show='headings',
                                  height=15)
 
         self.tree.column('1', width=80, anchor='center')
-        self.tree.column('2', width=80, anchor='center')
-        self.tree.column('3', width=80, anchor='center')
+        self.tree.column('2', width=150, anchor='center')
+        self.tree.column('3', width=250, anchor='center')
         self.tree.column('4', width=80, anchor='center')
-        self.tree.column('5', width=80, anchor='center')
-        self.tree.column('6', width=80, anchor='center')
-        self.tree.column('7', width=80, anchor='center')
-        self.tree.heading('1', text=self.missionIdVar.get())
-        self.tree.heading('2', text=self.missionNameVar.get())
-        self.tree.heading('3', text=self.missionRangeVar.get())
-        self.tree.heading('4', text=self.missionStateCodeVar.get())
-        self.tree.heading('5', text=self.missionNextTimeCodeVar.get())
-        self.tree.heading('6', text=self.missionLoopTimeCodeVar.get())
-        self.tree.heading('7', text=self.missionisFinish.get())
+        self.tree.heading('1', text=self.recitationIdVar.get())
+        self.tree.heading('2', text=self.questionVar.get())
+        self.tree.heading('3', text=self.answerVar.get())
+        self.tree.heading('4', text=self.weightVar.get())
+        self.tree.bind("<Double-Button-1>", self.treeviewClick)
         self.tree.place(x=0, y=0, anchor='nw')
-        list = missionSystem.MissionSystem().loadMission()
+        list = self.recitationSystemTools.loadRecitation()
         for each in list:
-            dataInList = [each['missionId'], each['bookName'], each['missionRange'], each['state'], each['nextTime'],
-                          each['loopTime'], each['isFinish']]
+            dataInList = [each['recitationId'], each['question'], each['answer'], each['weight']]
             self.tree.insert('', 'end', values=dataInList)
+
+    def logUserAction(self, action, message=None):
+
+        # 记录用户操作
+        userActionLogFile = open('data/userAction.dat', 'a+')
+        # 获取当前时间
+        currentTime = str(datetime.datetime.strptime(time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime()),
+                                                     '%Y-%m-%d-%H-%M-%S'))
+        # 生成记录信息
+        if message is None:
+            userAction = '{' + currentTime + '} ' + action + ' '
+        else:
+            userAction = '{' + currentTime + '} ' + action + ' ' + message
+
+        # 存入文件
+        userActionLogFile.write(str(userAction))
+        # 增加换行符
+        userActionLogFile.write('\n')
+        userActionLogFile.close()

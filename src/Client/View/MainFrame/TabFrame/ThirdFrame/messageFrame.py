@@ -36,7 +36,7 @@ class MessageFrame():
         self.messageFrame.place(x=0, y=00, anchor='nw')
         self.printFrame()
         # 初始化第一次问题
-        self.showQuestion()
+        self.showRandomQuestion()
         pass
 
     def language(self):
@@ -96,7 +96,7 @@ class MessageFrame():
         self.outputText2.place(x=120, y=120, anchor='nw')
         # 下一个问题按钮
         nextQuestionButton = tkinter.Button(self.messageFrame, text=self.nextQuestionVar.get(), width=10, height=1,
-                                            command=self.showQuestion)
+                                            command=self.showRandomQuestion)
         nextQuestionButton.place(x=350, y=280, anchor='nw')
         # 提示按钮
         hintButton = tkinter.Button(self.messageFrame, text=self.hintVar.get(), width=10, height=1,
@@ -105,9 +105,30 @@ class MessageFrame():
 
         pass
 
-    def showQuestion(self):
+    def showAssignQuestion(self, recitationId):
         """
-        点击下一问题按钮的动作
+        显示指定的问题
+        :return:
+        """
+        # 记录用户点击事件
+        self.logUserAction('user choose question detail', str(recitationId))
+        mission = self.recitationSystemTools.searchRecitation(recitationId=recitationId)
+
+        self.idText2.config(text=mission['recitationId'])
+        self.weightText2.config(text=mission['weight'])
+        self.inputText2.config(text=mission['question'])
+        self.outputText2.config(text=mission['answer'])
+        # 重新初始化重复次数
+        self.hintTime = 0
+        # 初始化id 以及记录当前权重
+        self.currentQuestionId = mission['recitationId']
+        self.currentQuestionWeight = mission['weight']
+        self.answer = mission['answer']
+        pass
+
+    def showRandomQuestion(self):
+        """
+        点击下一问题按钮的动作(随机
         :return:
         """
         # 记录用户点击事件
