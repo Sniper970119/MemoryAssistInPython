@@ -36,7 +36,7 @@ class MessageFrame():
         self.messageFrame.place(x=0, y=00, anchor='nw')
         self.printFrame()
         # 初始化第一次问题
-        self.showQuestion()
+        self.showRandomQuestion()
         pass
 
     def language(self):
@@ -96,7 +96,7 @@ class MessageFrame():
         self.outputText2.place(x=120, y=120, anchor='nw')
         # 下一个问题按钮
         nextQuestionButton = tkinter.Button(self.messageFrame, text=self.nextQuestionVar.get(), width=10, height=1,
-                                            command=self.showQuestion)
+                                            command=self.showRandomQuestion)
         nextQuestionButton.place(x=350, y=280, anchor='nw')
         # 提示按钮
         hintButton = tkinter.Button(self.messageFrame, text=self.hintVar.get(), width=10, height=1,
@@ -105,9 +105,30 @@ class MessageFrame():
 
         pass
 
-    def showQuestion(self):
+    def showAssignQuestion(self, recitationId):
         """
-        点击下一问题按钮的动作
+        显示指定的问题
+        :return:
+        """
+        # 记录用户点击事件
+        self.logUserAction('user choose question detail', str(recitationId))
+        mission = self.recitationSystemTools.searchRecitation(recitationId=recitationId)
+
+        self.idText2.config(text=mission['recitationId'])
+        self.weightText2.config(text=mission['weight'])
+        self.inputText2.config(text=mission['question'])
+        self.outputText2.config(text=mission['answer'])
+        # 重新初始化重复次数
+        self.hintTime = 0
+        # 初始化id 以及记录当前权重
+        self.currentQuestionId = mission['recitationId']
+        self.currentQuestionWeight = mission['weight']
+        self.answer = mission['answer']
+        pass
+
+    def showRandomQuestion(self):
+        """
+        点击下一问题按钮的动作(随机
         :return:
         """
         # 记录用户点击事件
@@ -117,30 +138,43 @@ class MessageFrame():
         if self.hintTime == 0:
             if self.currentQuestionWeight > 8:
                 # 会背后权重-3
-                self.recitationSystemTools.editRecitation(self.currentQuestionId, weight=self.currentQuestionWeight - 3,
-                                                          isEdit=True)
+                if mission['weight'] != 0:
+                    self.recitationSystemTools.editRecitation(self.currentQuestionId,
+                                                              weight=self.currentQuestionWeight - 3,
+                                                              isEdit=True)
             else:
                 # 非人为干预情况下最低为5
-                self.recitationSystemTools.editRecitation(self.currentQuestionId, weight=5, isEdit=True)
+                if mission['weight'] != 0:
+                    self.recitationSystemTools.editRecitation(self.currentQuestionId, weight=5, isEdit=True)
         # 处理点击过提示，对当前信息权值进行增加
         else:
             # 如果提示次数小于3次，则认为有印象，少量增加权重
             if self.hintTime < 3:
-                self.recitationSystemTools.editRecitation(self.currentQuestionId, weight=self.currentQuestionWeight + 2,
-                                                          isEdit=True)
+                if mission['weight'] != 0:
+                    self.recitationSystemTools.editRecitation(self.currentQuestionId,
+                                                              weight=self.currentQuestionWeight + 2,
+                                                              isEdit=True)
             else:
-                self.recitationSystemTools.editRecitation(self.currentQuestionId, weight=self.currentQuestionWeight + 5,
-                                                          isEdit=True)
+                if mission['weight'] != 0:
+                    self.recitationSystemTools.editRecitation(self.currentQuestionId,
+                                                              weight=self.currentQuestionWeight + 5,
+                                                              isEdit=True)
         self.idText2.config(text=mission['recitationId'])
         self.weightText2.config(text=mission['weight'])
         self.inputText2.config(text=mission['question'])
         self.outputText2.config(text='')
+
+
         # 重新初始化重复次数
         self.hintTime = 0
         # 初始化id 以及记录当前权重
         self.currentQuestionId = mission['recitationId']
-        self.currentQuestionWeight = mission['weight']
+        self.currentQuestionWeight = int(mission['weight'])
         self.answer = mission['answer']
+
+        if mission['weight'] == 0:
+            self.outputText2.config(text=mission['answer'])
+            self.answer = '#&#'
 
         pass
 
@@ -151,6 +185,9 @@ class MessageFrame():
         """
         # 记录用户点击事件
         self.logUserAction('user choose hint')
+        # 对权重为0的特殊数据 取消showHint功能
+        if self.answer == '#&#':
+            return
         self.hintTime = self.hintTime + 1
         if self.hintTime == 1:
             self.outputText2.config(text=self.subString(self.answer, 10))

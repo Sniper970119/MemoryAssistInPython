@@ -20,6 +20,8 @@ class AddWindow():
         self.errorTitleVar = tkinter.StringVar()
         self.errorMessage1Var = tkinter.StringVar()
         self.errorMessage2Var = tkinter.StringVar()
+        self.errorMessage3Var = tkinter.StringVar()
+        self.errorMessage4Var = tkinter.StringVar()
         self.weightExampleVar = tkinter.StringVar()
         self.language()
         self.recitationSystemTools = recitationSystem.RecitationSystem()
@@ -40,7 +42,9 @@ class AddWindow():
             self.addVar.set('添加')
             self.errorTitleVar.set('添加错误')
             self.errorMessage1Var.set('问题和答案不可为空')
-            self.errorMessage2Var.set('权重不在允许范围内')
+            self.errorMessage2Var.set('权重不在允许范围内或为非数字')
+            self.errorMessage3Var.set('问题过长')
+            self.errorMessage4Var.set('答案过长')
         elif languageType == 'EN':
             self.windowTitleVar.set('add recitation')
             self.questionVar.set('question')
@@ -49,8 +53,10 @@ class AddWindow():
             self.weightExampleVar.set('frequency of occurrence,between 10 and 30')
             self.addVar.set('add')
             self.errorTitleVar.set('add error')
-            self.errorMessage1Var.set("question name and answer range can't be null")
-            self.errorMessage2Var.set("weight is not in the right range")
+            self.errorMessage1Var.set("question name and answer can't be null")
+            self.errorMessage2Var.set("weight is not in the right range or it is now a number")
+            self.errorMessage3Var.set('问题过长')
+            self.errorMessage4Var.set('答案过长')
         else:
             self.windowTitleVar.set('添加背诵')
             self.questionVar.set('问题')
@@ -60,40 +66,42 @@ class AddWindow():
             self.addVar.set('添加')
             self.errorTitleVar.set('添加错误')
             self.errorMessage1Var.set('问题和答案不可为空')
-            self.errorMessage2Var.set('权重不在允许范围内')
+            self.errorMessage2Var.set('权重不在允许范围内或为非数字')
+            self.errorMessage3Var.set('问题过长')
+            self.errorMessage4Var.set('答案过长')
 
     def window(self):
         self.addWindow = tkinter.Toplevel()
         screenWidth = self.addWindow.winfo_screenwidth()
         screenHeight = self.addWindow.winfo_screenheight()
         self.addWindow.geometry(
-            '300x290+' + str(int((screenWidth - 300) / 2)) + '+' + str(int((screenHeight - 290) / 2)))
+            '300x300+' + str(int((screenWidth - 300) / 2)) + '+' + str(int((screenHeight - 300) / 2)))
         self.addWindow.resizable(width=False, height=False)
         self.addWindow.title(self.windowTitleVar.get())
         self.addWindow.iconbitmap('images/icon.ico')
 
         questionLabel = tkinter.Label(self.addWindow, text=self.questionVar.get(), font=('Arial', 12), width=15,
                                       height=2)
-        questionLabel.place(x=-20, y=50, anchor='nw')
+        questionLabel.place(x=-20, y=20, anchor='nw')
 
         questionEntry = tkinter.Entry(self.addWindow, font=('Arial', 12), width=15, bd=5, relief='flat')
-        questionEntry.place(x=100, y=55, anchor='nw')
-
-        answerLabel = tkinter.Label(self.addWindow, text=self.answerVar.get(), font=('Arial', 12), width=15, height=2)
-        answerLabel.place(x=-20, y=100, anchor='nw')
-
-        answerEntry = tkinter.Entry(self.addWindow, font=('Arial', 12), width=15, bd=5, relief='flat')
-        answerEntry.place(x=100, y=105, anchor='nw')
+        questionEntry.place(x=100, y=25, anchor='nw')
 
         weightLabel = tkinter.Label(self.addWindow, text=self.weightVar.get(), font=('Arial', 12), width=15, height=2)
-        weightLabel.place(x=-20, y=150, anchor='nw')
+        weightLabel.place(x=-20, y=70, anchor='nw')
 
         weightEntry = tkinter.Entry(self.addWindow, font=('Arial', 12), width=15, bd=5, relief='flat')
-        weightEntry.place(x=100, y=155, anchor='nw')
+        weightEntry.place(x=100, y=75, anchor='nw')
 
         weightTLabel = tkinter.Label(self.addWindow, text=self.weightExampleVar.get(), font=('Arial', 8), width=30,
                                      height=2, anchor='nw', foreground='DimGray', wraplength=180, justify='left')
-        weightTLabel.place(x=100, y=185, anchor='nw')
+        weightTLabel.place(x=100, y=105, anchor='nw')
+
+        answerLabel = tkinter.Label(self.addWindow, text=self.answerVar.get(), font=('Arial', 12), width=15, height=2)
+        answerLabel.place(x=-20, y=140, anchor='nw')
+
+        self.answerEntry = tkinter.Text(self.addWindow, width=20, height=6, font=('Arial', 10))
+        self.answerEntry.place(x=100, y=145, anchor='nw')
 
         def addMission():
             """
@@ -102,23 +110,41 @@ class AddWindow():
             """
             # 获取两个任务信息
             question = questionEntry.get()
-            answer = answerEntry.get()
-            weight = answerEntry.get()
+            answer = self.answerEntry.get("0.0", "end")[:-1]
+            weight = weightEntry.get()
             # 检查输入非空，若为空向用户反馈更改
             if question is '' or answer is '':
                 messagebox.showwarning(title=self.errorTitleVar.get(), message=self.errorMessage1Var.get())
+                return
+
+            # 检查问题长度范围范围是否允许
+            try:
+                if len(question) > 100:
+                    messagebox.showwarning(title=self.errorTitleVar.get(), message=self.errorMessage3Var.get())
+                    return
+            except:
+                messagebox.showwarning(title=self.errorTitleVar.get(), message=self.errorMessage3Var.get())
+                return
+
+            # 检查答案长度范围范围是否允许
+            try:
+                if len(answer) > 300:
+                    messagebox.showwarning(title=self.errorTitleVar.get(), message=self.errorMessage4Var.get())
+                    return
+            except:
+                messagebox.showwarning(title=self.errorTitleVar.get(), message=self.errorMessage4Var.get())
                 return
             # 检查权重范围是否允许
             try:
                 weight = int(weight)
                 if int(weight) < 10 or int(weight) > 30:
-                    messagebox.showwarning(title=self.errorTitleVar.get(), message=self.errorMessage1Var.get())
+                    messagebox.showwarning(title=self.errorTitleVar.get(), message=self.errorMessage2Var.get())
                     return
             except:
-                messagebox.showwarning(title=self.errorTitleVar.get(), message=self.errorMessage1Var.get())
+                messagebox.showwarning(title=self.errorTitleVar.get(), message=self.errorMessage2Var.get())
                 return
             # 调用添加任务工具
-            # self.recitationSystemTools.addRecitation(question=)
+            self.recitationSystemTools.addRecitation(question=question, answer=answer, weight=weight)
             # 关闭窗口
             self.addWindow.after(300, self.addWindow.destroy)
             # 将messageFrame的重绘变量置为True
@@ -129,4 +155,4 @@ class AddWindow():
 
         # 按钮
         addButton = tkinter.Button(self.addWindow, text=self.addVar.get(), command=addMission, width=8)
-        addButton.place(x=200, y=215, anchor='nw')
+        addButton.place(x=200, y=250, anchor='nw')

@@ -117,7 +117,7 @@ class RecitationSystem():
         mapList = []
         totalWeight = 0
         for each in self.list:
-            totalWeight = totalWeight + each['weight']
+            totalWeight = totalWeight + int(each['weight'])
             mapList.append(totalWeight)
         randomNumber = random.uniform(0, totalWeight)
         for i in range(len(mapList)):

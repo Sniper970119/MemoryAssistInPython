@@ -1,198 +1,409 @@
-{2019-05-07 22:49:58} user press enter 
-{2019-05-07 22:49:58} user select translate 
-{2019-05-07 22:50:16} search button has been click,and the search text is hello
-{2019-05-07 22:50:19} user select translate 
-{2019-05-07 22:50:49} user press enter 
-{2019-05-07 22:50:49} user select translate 
-{2019-05-07 22:51:00} user select translate 
-{2019-05-07 22:52:18} user press enter 
-{2019-05-07 22:52:18} user select translate 
-{2019-05-07 22:57:51} edit recitation button has been pressed 
-{2019-05-07 22:57:52} add recitation button has been pressed 
-{2019-05-07 22:57:53} view recitation button has been pressed 
-{2019-05-19 18:10:44} edit recitation button has been pressed 
-{2019-05-19 19:52:38} view recitation button has been pressed 
-{2019-05-19 19:52:40} edit recitation button has been pressed 
-{2019-05-19 19:52:42} add recitation button has been pressed 
-{2019-05-19 22:42:31} user choose next question 
-{2019-05-19 23:00:57} user choose next question 
-{2019-05-19 23:01:04} user choose hint 
-{2019-05-19 23:03:06} user choose next question 
-{2019-05-19 23:03:08} user choose next question 
-{2019-05-19 23:03:32} user choose next question 
-{2019-05-19 23:03:38} user choose next question 
-{2019-05-19 23:03:41} user choose hint 
-{2019-05-19 23:03:41} user choose next question 
-{2019-05-19 23:03:42} user choose next question 
-{2019-05-19 23:03:43} user choose next question 
-{2019-05-19 23:04:20} user choose next question 
-{2019-05-19 23:04:22} user choose hint 
-{2019-05-19 23:04:23} user choose hint 
-{2019-05-19 23:04:24} user choose hint 
-{2019-05-19 23:18:42} user choose next question 
-{2019-05-19 23:18:46} user choose hint 
-{2019-05-19 23:18:47} user choose hint 
-{2019-05-19 23:18:48} user choose hint 
-{2019-05-19 23:24:00} user choose next question 
-{2019-05-19 23:24:02} user choose next question 
-{2019-05-19 23:24:02} user choose next question 
-{2019-05-19 23:24:03} user choose hint 
-{2019-05-19 23:24:03} user choose hint 
-{2019-05-19 23:24:04} user choose hint 
-{2019-05-19 23:24:05} user choose next question 
-{2019-05-19 23:24:24} user choose next question 
-{2019-05-19 23:24:31} user choose next question 
-{2019-05-19 23:24:40} user choose next question 
-{2019-05-19 23:24:47} user choose next question 
-{2019-05-19 23:25:16} user choose next question 
-{2019-05-19 23:26:19} user choose next question 
-{2019-05-19 23:26:42} user choose next question 
-{2019-05-19 23:27:07} user choose next question 
-{2019-05-19 23:27:16} user choose next question 
-{2019-05-19 23:27:22} user choose hint 
-{2019-05-19 23:28:01} user choose next question 
-{2019-05-19 23:28:05} user choose next question 
-{2019-05-19 23:28:06} user choose next question 
-{2019-05-19 23:28:07} user choose next question 
-{2019-05-19 23:28:07} user choose hint 
-{2019-05-19 23:28:08} user choose hint 
-{2019-05-19 23:28:09} user choose hint 
-{2019-05-19 23:28:20} user choose next question 
-{2019-05-19 23:28:23} user choose hint 
-{2019-05-19 23:28:35} user choose next question 
-{2019-05-19 23:28:45} user choose next question 
-{2019-05-19 23:37:54} user choose next question 
-{2019-05-19 23:38:00} user choose hint 
-{2019-05-19 23:38:07} user choose hint 
-{2019-05-19 23:38:08} user choose hint 
-{2019-05-19 23:38:09} user choose hint 
-{2019-05-19 23:38:10} user choose hint 
-{2019-05-19 23:40:24} user choose next question 
-{2019-05-19 23:40:26} user choose hint 
-{2019-05-19 23:40:27} user choose hint 
-{2019-05-19 23:40:27} user choose next question 
-{2019-05-19 23:40:28} user choose hint 
-{2019-05-19 23:40:30} user choose hint 
-{2019-05-19 23:40:31} user choose hint 
-{2019-05-19 23:40:31} user choose hint 
-{2019-05-19 23:40:32} user choose hint 
-{2019-05-19 23:40:34} user choose hint 
-{2019-05-19 23:40:35} user choose hint 
-{2019-05-19 23:40:36} user choose hint 
-{2019-05-19 23:41:48} user choose next question 
-{2019-05-19 23:41:50} user choose next question 
-{2019-05-19 23:41:51} user choose next question 
-{2019-05-19 23:41:52} user choose hint 
-{2019-05-19 23:41:53} user choose hint 
-{2019-05-19 23:41:55} user choose hint 
-{2019-05-19 23:41:56} user choose hint 
-{2019-05-19 23:41:58} user choose hint 
-{2019-05-19 23:41:59} user choose next question 
-{2019-05-19 23:41:59} user choose next question 
-{2019-05-19 23:42:00} user choose next question 
-{2019-05-19 23:42:01} user choose next question 
-{2019-05-19 23:42:02} user choose next question 
-{2019-05-19 23:42:02} user choose next question 
-{2019-05-19 23:42:03} user choose next question 
-{2019-05-19 23:42:03} user choose next question 
-{2019-05-19 23:42:04} user choose next question 
-{2019-05-19 23:42:04} user choose next question 
-{2019-05-19 23:42:05} user choose next question 
-{2019-05-19 23:42:06} user choose next question 
-{2019-05-19 23:42:07} user choose next question 
-{2019-05-19 23:42:08} user choose next question 
-{2019-05-19 23:42:08} user choose next question 
-{2019-05-19 23:42:09} user choose hint 
-{2019-05-19 23:42:09} user choose next question 
-{2019-05-19 23:42:10} user choose hint 
-{2019-05-19 23:42:10} user choose next question 
-{2019-05-19 23:42:10} user choose hint 
-{2019-05-19 23:42:11} user choose hint 
-{2019-05-19 23:42:11} user choose next question 
-{2019-05-19 23:42:12} user choose hint 
-{2019-05-19 23:42:12} user choose next question 
-{2019-05-19 23:42:12} user choose hint 
-{2019-05-19 23:42:12} user choose next question 
-{2019-05-19 23:42:13} user choose hint 
-{2019-05-19 23:42:13} user choose next question 
-{2019-05-19 23:42:13} user choose hint 
-{2019-05-19 23:42:13} user choose next question 
-{2019-05-19 23:42:13} user choose hint 
-{2019-05-19 23:42:14} user choose next question 
-{2019-05-19 23:42:14} user choose next question 
-{2019-05-19 23:42:14} user choose hint 
-{2019-05-19 23:42:15} user choose next question 
-{2019-05-19 23:42:15} user choose next question 
-{2019-05-19 23:42:15} user choose hint 
-{2019-05-19 23:42:15} user choose next question 
-{2019-05-19 23:42:16} user choose hint 
-{2019-05-19 23:42:16} user choose next question 
-{2019-05-19 23:42:16} user choose hint 
-{2019-05-19 23:42:16} user choose next question 
-{2019-05-19 23:42:16} user choose hint 
-{2019-05-19 23:42:17} user choose next question 
-{2019-05-19 23:42:17} user choose hint 
-{2019-05-19 23:42:17} user choose next question 
-{2019-05-19 23:42:18} user choose hint 
-{2019-05-19 23:42:18} user choose next question 
-{2019-05-19 23:42:18} user choose hint 
-{2019-05-19 23:42:18} user choose next question 
-{2019-05-19 23:42:19} user choose hint 
-{2019-05-19 23:42:19} user choose next question 
-{2019-05-19 23:42:58} user choose next question 
-{2019-05-19 23:43:01} user choose hint 
-{2019-05-19 23:43:03} user choose hint 
-{2019-05-19 23:43:04} user choose hint 
-{2019-05-19 23:43:08} user choose hint 
-{2019-05-19 23:43:09} user choose hint 
-{2019-05-19 23:43:11} user choose hint 
-{2019-05-19 23:43:23} user choose next question 
-{2019-05-19 23:43:25} user choose hint 
-{2019-05-19 23:43:26} user choose hint 
-{2019-05-19 23:43:27} user choose hint 
-{2019-05-19 23:43:28} user choose hint 
-{2019-05-19 23:43:29} user choose hint 
-{2019-05-19 23:43:30} user choose hint 
-{2019-05-19 23:43:59} user choose next question 
-{2019-05-19 23:44:04} user choose next question 
-{2019-05-19 23:44:06} user choose next question 
-{2019-05-19 23:44:08} user choose hint 
-{2019-05-19 23:44:09} user choose hint 
-{2019-05-19 23:44:10} user choose hint 
-{2019-05-19 23:44:11} user choose hint 
-{2019-05-19 23:44:12} user choose hint 
-{2019-05-19 23:44:14} user choose hint 
-{2019-05-19 23:50:30} user choose next question 
-{2019-05-20 00:06:31} user choose next question 
-{2019-05-20 00:06:33} add recitation button has been pressed 
-{2019-05-20 00:07:02} user choose next question 
-{2019-05-20 00:07:08} add recitation button has been pressed 
-{2019-05-20 00:07:42} user choose next question 
-{2019-05-20 00:07:43} add recitation button has been pressed 
-{2019-05-20 00:07:46} add button has been pressed 
-{2019-05-20 00:07:48} add recitation button has been pressed 
-{2019-05-20 00:08:50} user choose next question 
-{2019-05-20 00:11:56} add recitation button has been pressed 
-{2019-05-20 00:16:31} user choose next question 
-{2019-05-20 00:16:33} edit button has been pressed 
-{2019-05-20 00:16:34} add button has been pressed 
-{2019-05-20 00:16:35} add button has been pressed 
-{2019-05-20 00:16:36} edit button has been pressed 
-{2019-05-20 00:23:54} user choose next question 
-{2019-05-20 00:23:56} add recitation button has been pressed 
-{2019-05-20 00:24:20} user choose next question 
-{2019-05-20 00:24:23} add recitation button has been pressed 
-{2019-05-20 00:24:31} user choose next question 
-{2019-05-20 00:24:32} add recitation button has been pressed 
-{2019-05-20 00:24:36} add recitation button has been pressed 
-{2019-05-20 00:25:14} user choose next question 
-{2019-05-20 00:25:18} add recitation button has been pressed 
-{2019-05-20 00:25:29} user choose next question 
-{2019-05-20 00:25:30} add recitation button has been pressed 
-{2019-05-20 00:25:37} user choose next question 
-{2019-05-20 00:25:38} add recitation button has been pressed 
-{2019-05-20 00:25:47} user choose next question 
-{2019-05-20 00:25:48} add recitation button has been pressed 
-{2019-05-20 00:25:54} user choose next question 
-{2019-05-20 00:25:56} add recitation button has been pressed 
-{2019-05-20 00:26:06} add recitation button has been pressed 
+{2019-05-20 16:35:22} user choose next question 
+{2019-05-20 16:35:24} edit recitation button has been pressed 
+{2019-05-20 16:35:28} add recitation button has been pressed 
+{2019-05-20 16:35:37} view recitation button has been pressed 
+{2019-05-20 16:35:39} edit recitation button has been pressed 
+{2019-05-20 16:35:43} user click edit recitation button 
+{2019-05-20 16:35:47} view recitation button has been pressed 
+{2019-05-20 16:36:44} user choose next question 
+{2019-05-20 16:37:01} user choose next question 
+{2019-05-20 16:37:04} add recitation button has been pressed 
+{2019-05-20 16:37:11} add recitation button has been pressed 
+{2019-05-20 16:37:44} add recitation button has been pressed 
+{2019-05-20 16:37:50} view recitation button has been pressed 
+{2019-05-20 16:37:57} add recitation button has been pressed 
+{2019-05-20 16:38:05} user choose next question 
+{2019-05-20 16:38:07} view recitation button has been pressed 
+{2019-05-20 16:38:08} add recitation button has been pressed 
+{2019-05-20 16:38:31} user choose next question 
+{2019-05-20 16:38:34} add recitation button has been pressed 
+{2019-05-20 16:39:46} user choose next question 
+{2019-05-20 16:39:53} view recitation button has been pressed 
+{2019-05-20 16:39:54} recitation treeview has been double click at  000001
+{2019-05-20 16:39:56} add recitation button has been pressed 
+{2019-05-20 16:40:21} edit recitation button has been pressed 
+{2019-05-20 16:40:56} user choose next question 
+{2019-05-20 16:40:57} edit recitation button has been pressed 
+{2019-05-20 16:41:40} user choose next question 
+{2019-05-20 16:41:41} view recitation button has been pressed 
+{2019-05-20 16:41:43} edit recitation button has been pressed 
+{2019-05-20 16:41:54} user choose next question 
+{2019-05-20 16:41:55} edit recitation button has been pressed 
+{2019-05-20 16:42:01} user choose next question 
+{2019-05-20 16:42:02} edit recitation button has been pressed 
+{2019-05-20 16:42:22} user choose next question 
+{2019-05-20 16:42:24} edit recitation button has been pressed 
+{2019-05-20 16:43:08} user choose next question 
+{2019-05-20 16:43:10} edit recitation button has been pressed 
+{2019-05-20 16:43:23} user choose next question 
+{2019-05-20 16:43:24} edit recitation button has been pressed 
+{2019-05-20 16:44:00} user choose next question 
+{2019-05-20 16:44:02} edit recitation button has been pressed 
+{2019-05-20 16:44:13} user choose next question 
+{2019-05-20 16:44:14} edit recitation button has been pressed 
+{2019-05-20 16:44:20} user choose next question 
+{2019-05-20 16:44:21} edit recitation button has been pressed 
+{2019-05-20 16:44:28} user choose next question 
+{2019-05-20 16:44:29} edit recitation button has been pressed 
+{2019-05-20 16:44:35} user choose next question 
+{2019-05-20 16:44:36} edit recitation button has been pressed 
+{2019-05-20 16:44:45} user choose next question 
+{2019-05-20 16:44:47} edit recitation button has been pressed 
+{2019-05-20 16:45:08} user choose next question 
+{2019-05-20 16:45:09} edit recitation button has been pressed 
+{2019-05-20 16:45:47} user choose next question 
+{2019-05-20 16:45:49} edit recitation button has been pressed 
+{2019-05-20 16:45:56} user choose next question 
+{2019-05-20 16:45:57} edit recitation button has been pressed 
+{2019-05-20 16:46:08} user choose next question 
+{2019-05-20 16:46:09} edit recitation button has been pressed 
+{2019-05-20 16:46:43} user choose next question 
+{2019-05-20 16:46:44} edit recitation button has been pressed 
+{2019-05-20 16:46:57} user choose next question 
+{2019-05-20 16:47:02} user choose next question 
+{2019-05-20 16:47:04} edit recitation button has been pressed 
+{2019-05-20 16:47:13} user choose next question 
+{2019-05-20 16:47:14} edit recitation button has been pressed 
+{2019-05-20 16:47:46} user choose next question 
+{2019-05-20 16:47:47} edit recitation button has been pressed 
+{2019-05-20 16:48:06} user choose next question 
+{2019-05-20 16:48:07} edit recitation button has been pressed 
+{2019-05-20 16:48:20} user choose next question 
+{2019-05-20 16:48:21} edit recitation button has been pressed 
+{2019-05-20 16:48:50} user choose next question 
+{2019-05-20 16:48:51} edit recitation button has been pressed 
+{2019-05-20 16:50:44} user choose next question 
+{2019-05-20 16:50:46} edit recitation button has been pressed 
+{2019-05-20 16:51:00} user choose next question 
+{2019-05-20 16:51:01} edit recitation button has been pressed 
+{2019-05-20 16:51:09} user choose next question 
+{2019-05-20 16:51:11} edit recitation button has been pressed 
+{2019-05-20 16:51:25} user choose next question 
+{2019-05-20 16:51:26} edit recitation button has been pressed 
+{2019-05-20 16:51:31} user choose next question 
+{2019-05-20 16:51:32} edit recitation button has been pressed 
+{2019-05-20 16:51:51} view recitation button has been pressed 
+{2019-05-20 16:52:00} edit recitation button has been pressed 
+{2019-05-20 16:52:21} user choose next question 
+{2019-05-20 16:52:23} edit recitation button has been pressed 
+{2019-05-20 16:54:04} user choose next question 
+{2019-05-20 16:54:06} edit recitation button has been pressed 
+{2019-05-20 16:54:47} user choose next question 
+{2019-05-20 16:54:48} edit recitation button has been pressed 
+{2019-05-20 16:55:07} user choose next question 
+{2019-05-20 16:55:09} edit recitation button has been pressed 
+{2019-05-20 16:55:21} user choose next question 
+{2019-05-20 16:55:22} edit recitation button has been pressed 
+{2019-05-20 16:55:32} user choose next question 
+{2019-05-20 16:55:33} edit recitation button has been pressed 
+{2019-05-20 16:55:47} user choose next question 
+{2019-05-20 16:55:48} edit recitation button has been pressed 
+{2019-05-20 16:56:11} edit recitation button has been pressed 
+{2019-05-20 16:56:12} view recitation button has been pressed 
+{2019-05-20 16:56:15} edit recitation button has been pressed 
+{2019-05-20 16:57:58} user choose next question 
+{2019-05-20 16:58:00} edit recitation button has been pressed 
+{2019-05-20 17:00:41} user choose next question 
+{2019-05-20 17:00:44} edit recitation button has been pressed 
+{2019-05-20 17:01:35} user choose next question 
+{2019-05-20 17:01:37} edit recitation button has been pressed 
+{2019-05-20 17:02:21} user choose next question 
+{2019-05-20 17:02:24} edit recitation button has been pressed 
+{2019-05-20 17:02:55} user choose next question 
+{2019-05-20 17:02:57} edit recitation button has been pressed 
+{2019-05-20 17:03:05} user click edit recitation button 
+{2019-05-20 17:03:07} view recitation button has been pressed 
+{2019-05-20 17:03:10} edit recitation button has been pressed 
+{2019-05-20 17:03:40} user click edit recitation button 
+{2019-05-20 17:03:41} edit recitation button has been pressed 
+{2019-05-20 17:03:43} view recitation button has been pressed 
+{2019-05-20 17:03:44} recitation treeview has been double click at  000001
+{2019-05-20 17:04:03} edit recitation button has been pressed 
+{2019-05-20 17:04:12} user click edit recitation button 
+{2019-05-20 17:04:12} view recitation button has been pressed 
+{2019-05-20 17:04:13} recitation treeview has been double click at  000001
+{2019-05-20 17:04:15} edit recitation button has been pressed 
+{2019-05-20 17:19:14} user choose next question 
+{2019-05-20 17:19:23} edit recitation button has been pressed 
+{2019-05-20 17:19:51} user choose next question 
+{2019-05-20 17:19:53} edit recitation button has been pressed 
+{2019-05-20 17:20:12} user choose next question 
+{2019-05-20 17:20:13} edit recitation button has been pressed 
+{2019-05-20 17:20:51} user choose next question 
+{2019-05-20 17:20:53} edit recitation button has been pressed 
+{2019-05-20 17:21:12} user click edit recitation button 
+{2019-05-20 17:21:12} view recitation button has been pressed 
+{2019-05-20 17:21:14} recitation treeview has been double click at  000001
+{2019-05-20 17:21:18} edit recitation button has been pressed 
+{2019-05-20 17:31:17} user choose next question 
+{2019-05-20 17:31:21} edit recitation button has been pressed 
+{2019-05-20 17:31:43} user choose next question 
+{2019-05-20 17:31:55} edit recitation button has been pressed 
+{2019-05-20 17:32:20} user choose next question 
+{2019-05-20 17:32:21} edit recitation button has been pressed 
+{2019-05-20 17:32:43} user choose next question 
+{2019-05-20 17:32:45} add recitation button has been pressed 
+{2019-05-20 17:32:46} edit recitation button has been pressed 
+{2019-05-20 17:32:50} add recitation button has been pressed 
+{2019-05-20 17:33:25} user choose next question 
+{2019-05-20 17:33:26} add recitation button has been pressed 
+{2019-05-20 17:33:52} user choose next question 
+{2019-05-20 17:33:54} add recitation button has been pressed 
+{2019-05-20 17:47:43} user choose next question 
+{2019-05-20 17:47:44} add recitation button has been pressed 
+{2019-05-20 17:48:04} user choose next question 
+{2019-05-20 17:48:05} add recitation button has been pressed 
+{2019-05-20 17:53:58} user choose next question 
+{2019-05-20 17:54:00} add recitation button has been pressed 
+{2019-05-20 17:54:10} user choose next question 
+{2019-05-20 17:54:12} add recitation button has been pressed 
+{2019-05-20 17:54:17} user choose next question 
+{2019-05-20 17:54:19} add recitation button has been pressed 
+{2019-05-20 17:54:32} user choose next question 
+{2019-05-20 17:54:33} add recitation button has been pressed 
+{2019-05-20 17:55:07} user choose next question 
+{2019-05-20 17:55:09} add recitation button has been pressed 
+{2019-05-20 17:55:21} user choose next question 
+{2019-05-20 17:55:22} add recitation button has been pressed 
+{2019-05-20 17:55:28} user choose next question 
+{2019-05-20 17:55:29} add recitation button has been pressed 
+{2019-05-20 17:55:59} user choose next question 
+{2019-05-20 17:56:04} user choose next question 
+{2019-05-20 17:56:06} view recitation button has been pressed 
+{2019-05-20 17:56:11} recitation treeview has been double click at  000003
+{2019-05-20 18:01:26} user choose next question 
+{2019-05-20 18:01:28} view recitation button has been pressed 
+{2019-05-20 18:01:30} recitation treeview has been double click at  000003
+{2019-05-20 18:01:36} view recitation button has been pressed 
+{2019-05-20 18:01:46} user choose next question 
+{2019-05-20 18:01:47} add recitation button has been pressed 
+{2019-05-20 18:01:48} view recitation button has been pressed 
+{2019-05-20 18:01:48} recitation treeview has been double click at  000001
+{2019-05-20 18:02:15} user choose next question 
+{2019-05-20 18:02:17} view recitation button has been pressed 
+{2019-05-20 18:02:19} recitation treeview has been double click at  000001
+{2019-05-20 18:02:33} user choose next question 
+{2019-05-20 18:02:34} edit recitation button has been pressed 
+{2019-05-20 18:02:36} view recitation button has been pressed 
+{2019-05-20 18:02:37} recitation treeview has been double click at  000001
+{2019-05-20 18:02:53} user choose next question 
+{2019-05-20 18:02:54} view recitation button has been pressed 
+{2019-05-20 18:02:55} recitation treeview has been double click at  000002
+{2019-05-20 18:02:57} recitation treeview has been double click at  000001
+{2019-05-20 18:03:46} user choose next question 
+{2019-05-20 18:03:48} edit recitation button has been pressed 
+{2019-05-20 18:03:50} view recitation button has been pressed 
+{2019-05-20 18:03:50} recitation treeview has been double click at  000001
+{2019-05-20 18:03:52} recitation treeview has been double click at  000002
+{2019-05-20 18:04:10} user choose next question 
+{2019-05-20 18:04:12} view recitation button has been pressed 
+{2019-05-20 18:04:13} recitation treeview has been double click at  000002
+{2019-05-20 18:04:18} view recitation button has been pressed 
+{2019-05-20 18:04:20} add recitation button has been pressed 
+{2019-05-20 18:04:35} user choose next question 
+{2019-05-20 18:04:36} add recitation button has been pressed 
+{2019-05-20 18:04:44} edit recitation button has been pressed 
+{2019-05-20 18:04:49} view recitation button has been pressed 
+{2019-05-20 18:04:57} view button has been pressed 
+{2019-05-20 18:05:01} user select   False
+{2019-05-20 18:05:07} user choose next question 
+{2019-05-20 18:05:51} user choose next question 
+{2019-05-20 18:05:53} add recitation button has been pressed 
+{2019-05-20 18:05:55} view recitation button has been pressed 
+{2019-05-20 18:05:56} edit recitation button has been pressed 
+{2019-05-20 18:05:58} user choose next question 
+{2019-05-20 18:06:39} user choose next question 
+{2019-05-20 18:06:40} user choose next question 
+{2019-05-20 18:06:42} user choose next question 
+{2019-05-20 18:06:43} user choose next question 
+{2019-05-20 18:06:44} user choose next question 
+{2019-05-20 18:06:44} user choose next question 
+{2019-05-20 18:06:45} user choose next question 
+{2019-05-20 18:06:45} user choose next question 
+{2019-05-20 18:06:45} user choose next question 
+{2019-05-20 18:06:46} user choose next question 
+{2019-05-20 18:06:46} user choose next question 
+{2019-05-20 18:06:46} user choose next question 
+{2019-05-20 18:06:46} user choose next question 
+{2019-05-20 18:06:46} user choose next question 
+{2019-05-20 18:06:46} user choose next question 
+{2019-05-20 18:06:47} user choose next question 
+{2019-05-20 18:06:47} user choose next question 
+{2019-05-20 18:06:47} user choose next question 
+{2019-05-20 18:06:47} user choose next question 
+{2019-05-20 18:06:47} user choose next question 
+{2019-05-20 18:06:47} user choose next question 
+{2019-05-20 18:06:48} user choose next question 
+{2019-05-20 18:06:48} user choose next question 
+{2019-05-20 18:06:48} user choose next question 
+{2019-05-20 18:06:48} user choose next question 
+{2019-05-20 18:06:49} user choose next question 
+{2019-05-20 18:06:49} user choose next question 
+{2019-05-20 18:06:50} user choose hint 
+{2019-05-20 18:06:50} user choose hint 
+{2019-05-20 18:06:51} user choose hint 
+{2019-05-20 18:06:51} user choose hint 
+{2019-05-20 18:06:52} user choose hint 
+{2019-05-20 18:06:53} user choose hint 
+{2019-05-20 18:06:54} user choose hint 
+{2019-05-20 18:06:55} user choose next question 
+{2019-05-20 18:06:56} user choose hint 
+{2019-05-20 18:06:56} user choose hint 
+{2019-05-20 18:06:57} user choose next question 
+{2019-05-20 18:06:57} user choose hint 
+{2019-05-20 18:06:57} user choose next question 
+{2019-05-20 18:06:58} user choose hint 
+{2019-05-20 18:06:58} user choose hint 
+{2019-05-20 18:06:59} user choose next question 
+{2019-05-20 18:06:59} user choose hint 
+{2019-05-20 18:07:00} user choose hint 
+{2019-05-20 18:07:00} user choose next question 
+{2019-05-20 18:07:01} user choose hint 
+{2019-05-20 18:07:01} user choose next question 
+{2019-05-20 18:07:01} user choose next question 
+{2019-05-20 18:07:01} user choose next question 
+{2019-05-20 18:07:01} user choose next question 
+{2019-05-20 18:07:02} user choose next question 
+{2019-05-20 18:07:02} user choose next question 
+{2019-05-20 18:07:02} user choose next question 
+{2019-05-20 18:07:02} user choose next question 
+{2019-05-20 18:07:02} user choose next question 
+{2019-05-20 18:07:02} user choose next question 
+{2019-05-20 18:07:03} user choose next question 
+{2019-05-20 18:07:03} user choose next question 
+{2019-05-20 18:07:03} user choose next question 
+{2019-05-20 18:07:03} user choose next question 
+{2019-05-20 18:07:03} user choose next question 
+{2019-05-20 18:07:03} user choose next question 
+{2019-05-20 18:07:04} user choose next question 
+{2019-05-20 18:07:04} user choose next question 
+{2019-05-20 18:07:04} user choose next question 
+{2019-05-20 18:07:04} user choose next question 
+{2019-05-20 18:07:04} user choose next question 
+{2019-05-20 18:07:05} user choose next question 
+{2019-05-20 18:07:05} user choose next question 
+{2019-05-20 18:07:05} user choose next question 
+{2019-05-20 18:07:06} view recitation button has been pressed 
+{2019-05-20 18:07:08} recitation treeview has been double click at  000001
+{2019-05-20 18:07:11} view recitation button has been pressed 
+{2019-05-20 18:07:11} recitation treeview has been double click at  000002
+{2019-05-20 18:07:18} user choose next question 
+{2019-05-20 18:08:40} user choose next question 
+{2019-05-20 18:08:47} user choose next question 
+{2019-05-20 18:08:51} view recitation button has been pressed 
+{2019-05-20 18:08:53} recitation treeview has been double click at  000004
+{2019-05-20 18:09:01} edit recitation button has been pressed 
+{2019-05-20 18:09:20} user choose next question 
+{2019-05-20 18:09:23} view recitation button has been pressed 
+{2019-05-20 18:09:25} recitation treeview has been double click at  000004
+{2019-05-20 18:09:27} add recitation button has been pressed 
+{2019-05-20 18:09:28} edit recitation button has been pressed 
+{2019-05-20 18:10:31} view recitation button has been pressed 
+{2019-05-20 18:10:32} recitation treeview has been double click at  000001
+{2019-05-20 18:10:39} view recitation button has been pressed 
+{2019-05-20 18:10:39} recitation treeview has been double click at  000001
+{2019-05-20 18:10:58} view recitation button has been pressed 
+{2019-05-20 18:10:59} recitation treeview has been double click at  000001
+{2019-05-20 18:11:06} user choose hint 
+{2019-05-20 18:11:07} user choose hint 
+{2019-05-20 18:11:08} user choose hint 
+{2019-05-20 18:11:08} user choose hint 
+{2019-05-20 18:11:08} user choose hint 
+{2019-05-20 18:11:09} user choose hint 
+{2019-05-20 18:11:09} view recitation button has been pressed 
+{2019-05-20 18:11:10} user choose next question 
+{2019-05-20 18:11:11} view recitation button has been pressed 
+{2019-05-20 18:11:18} recitation treeview has been double click at  000004
+{2019-05-20 18:11:28} user choose next question 
+{2019-05-20 18:11:29} view recitation button has been pressed 
+{2019-05-20 18:13:15} user choose next question 
+{2019-05-20 18:13:17} user choose hint 
+{2019-05-20 18:13:18} user choose hint 
+{2019-05-20 18:13:18} user choose hint 
+{2019-05-20 18:13:18} user choose hint 
+{2019-05-20 18:13:18} user choose hint 
+{2019-05-20 18:13:18} user choose hint 
+{2019-05-20 18:13:18} user choose hint 
+{2019-05-20 18:13:19} user choose next question 
+{2019-05-20 18:13:20} user choose next question 
+{2019-05-20 18:13:20} user choose next question 
+{2019-05-20 18:13:21} user choose next question 
+{2019-05-20 18:13:21} user choose next question 
+{2019-05-20 18:13:21} user choose next question 
+{2019-05-20 18:13:21} user choose next question 
+{2019-05-20 18:13:32} user choose next question 
+{2019-05-20 18:13:34} user choose hint 
+{2019-05-20 18:13:34} user choose hint 
+{2019-05-20 18:13:34} user choose hint 
+{2019-05-20 18:13:35} user choose hint 
+{2019-05-20 18:13:35} user choose hint 
+{2019-05-20 18:13:35} user choose hint 
+{2019-05-20 18:13:35} user choose hint 
+{2019-05-20 18:13:36} view recitation button has been pressed 
+{2019-05-20 18:13:38} user choose next question 
+{2019-05-20 18:13:38} view recitation button has been pressed 
+{2019-05-20 18:14:26} user choose next question 
+{2019-05-20 18:14:28} user choose hint 
+{2019-05-20 18:14:28} user choose hint 
+{2019-05-20 18:14:28} user choose hint 
+{2019-05-20 18:14:28} user choose hint 
+{2019-05-20 18:14:29} user choose hint 
+{2019-05-20 18:14:29} user choose hint 
+{2019-05-20 18:14:29} user choose next question 
+{2019-05-20 18:14:30} user choose hint 
+{2019-05-20 18:14:30} user choose hint 
+{2019-05-20 18:14:30} user choose hint 
+{2019-05-20 18:14:30} user choose next question 
+{2019-05-20 18:14:31} view recitation button has been pressed 
+{2019-05-20 18:14:34} view recitation button has been pressed 
+{2019-05-20 18:15:26} user choose next question 
+{2019-05-20 18:15:28} user choose hint 
+{2019-05-20 18:15:28} user choose hint 
+{2019-05-20 18:15:29} user choose hint 
+{2019-05-20 18:15:29} user choose hint 
+{2019-05-20 18:15:29} user choose hint 
+{2019-05-20 18:17:20} user choose next question 
+{2019-05-20 18:17:22} user choose hint 
+{2019-05-20 18:17:22} user choose hint 
+{2019-05-20 18:17:23} user choose hint 
+{2019-05-20 18:17:23} user choose hint 
+{2019-05-20 18:17:23} user choose hint 
+{2019-05-20 18:20:14} user choose next question 
+{2019-05-20 18:20:17} user choose hint 
+{2019-05-20 18:20:27} user choose next question 
+{2019-05-20 18:20:29} user choose hint 
+{2019-05-20 18:20:34} user choose hint 
+{2019-05-20 18:20:34} user choose hint 
+{2019-05-20 18:20:34} user choose hint 
+{2019-05-20 18:20:34} user choose hint 
+{2019-05-20 18:20:34} user choose hint 
+{2019-05-20 18:20:35} user choose hint 
+{2019-05-20 18:20:35} user choose hint 
+{2019-05-20 18:20:35} user choose hint 
+{2019-05-20 18:20:35} user choose hint 
+{2019-05-20 18:20:35} user choose hint 
+{2019-05-20 18:20:35} user choose hint 
+{2019-05-20 18:20:36} user choose hint 
+{2019-05-20 18:20:36} user choose hint 
+{2019-05-20 18:20:36} user choose hint 
+{2019-05-20 18:20:36} user choose hint 
+{2019-05-20 18:20:37} user choose next question 
+{2019-05-20 18:20:37} user choose next question 
+{2019-05-20 18:20:37} user choose next question 
+{2019-05-20 18:20:37} user choose next question 
+{2019-05-20 18:20:37} user choose hint 
+{2019-05-20 18:20:38} user choose hint 
+{2019-05-20 18:20:38} user choose next question 
+{2019-05-20 18:20:38} user choose hint 
+{2019-05-20 18:20:38} user choose next question 
+{2019-05-20 18:20:38} user choose hint 
+{2019-05-20 18:20:39} user choose next question 
+{2019-05-20 18:20:39} user choose hint 
+{2019-05-20 18:20:39} user choose next question 
+{2019-05-20 18:21:14} user choose next question 
+{2019-05-20 18:21:19} view recitation button has been pressed 
+{2019-05-20 18:22:02} user choose next question 
+{2019-05-20 18:22:04} view recitation button has been pressed 
+{2019-05-20 18:22:04} recitation treeview has been double click at  000001
+{2019-05-20 18:22:24} add button has been pressed 
+{2019-05-20 18:22:26} edit button has been pressed 

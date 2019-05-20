@@ -19,8 +19,7 @@ class ReciterFrame():
 
         # 调用子组件
         selectFrame.SelectFrame(thirdTabFrame=self.thirdTabFrame)
-        messageFrame.MessageFrame(thirdTabFrame=self.thirdTabFrame)
-
+        self.messageFrame = messageFrame.MessageFrame(thirdTabFrame=self.thirdTabFrame)
 
         # 语言自定义
         languageType = configFileRead.ConfigFileRead(fileName='./conf/user.ini').readFile("LANGUAGE", 'language')
@@ -30,3 +29,6 @@ class ReciterFrame():
             tab.add(self.thirdTabFrame, text='recitation')
         else:
             tab.add(self.thirdTabFrame, text='我的背诵')
+
+    # def showQuestion(self, recitationId):
+    #     self.messageFrame.showAssignQuestion(recitationId)

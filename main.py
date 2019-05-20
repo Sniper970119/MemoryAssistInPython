@@ -8,13 +8,14 @@ from src.Server.SystemTools.ConfFileRead import configFileRead
 if __name__ == '__main__':
     m = RecitationSystem()
     # 添加
-    # m.addRecitation('question1', 'answer1', weight=10)
+    # m.addRecitation('注意', '', weight=0)
     # m.addRecitation('question2', 'answer2', weight=20)
     # 获取一条
     # print(m.loadRecitation())
-    # m.editRecitation(recitationId='000001',
-    #                  question='question1',
-    #                  answer='运行程序，超出Label的那部分文本被截断了，常用的方法是：使用自动换行功能，及当文本长度大于控件的宽度时，文本应该换到下一行显示，Tk不会自动处理，但提供了属性： wraplength： 指定多少单位后开始换行 justify: 指定多行的对齐方式 ahchor： 指定文本(text)或图像(bitmap/image)在Label中的显示位',isEdit=True)
+    m.editRecitation(recitationId='000001',
+                     answer='由于某种原因，最好不要将所有的背诵清空，请保留本条，本条权重已经设为0，不会在提问中出现（只会在只剩本条时出现），那么就请从右侧添加背诵开始吧~',weight=0,isEdit=True)
     # print(m.getOneRecitation())
-    print(type(configFileRead.ConfigFileRead().readFile('EMAIL', 'email_code'))
-)
+    # print(type(configFileRead.ConfigFileRead().readFile('EMAIL', 'email_code'))
+    # str = '''
+    # 哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈'''
+    # print(len(str))

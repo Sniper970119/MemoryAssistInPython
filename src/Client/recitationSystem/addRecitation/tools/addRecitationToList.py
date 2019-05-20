@@ -25,7 +25,7 @@ class AddRecitationToList():
                 'recitationId': str(recitationId).zfill(6),
                 'question': question,
                 'answer': answer,
-                'weight': weight
+                'weight': int(weight)
             }
             # 将任务字典添加到列表中
             list.append(recitationDir)

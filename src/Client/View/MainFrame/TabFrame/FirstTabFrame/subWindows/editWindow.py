@@ -130,10 +130,10 @@ class EditWindow():
             self.missionMissionStateExampleVar.set('1 stand for true,and 0 opposite')
             # error message
             self.wrongIdTitleVar.set('wrong id')
-            self.wrongIdMessageVar.set('please input current mission id（your input is not a number）')
+            self.wrongIdMessageVar.set('please input the current mission id（your input is not a number）')
             #
             self.wrongNameTitleVar.set('wrong mission name')
-            self.wrongNameMessageVar.set('please input current mission name（your input is null）')
+            self.wrongNameMessageVar.set('please input the current mission name（your input is null）')
             #
             self.wrongRangeTitleVar.set('wrong mission range')
             self.wrongRangeMessageVar.set('please input current mission range（your input is null）')
@@ -149,7 +149,7 @@ class EditWindow():
             self.wrongFinishStateMessage2Var.set('please input current state code（your input is in not a number）')
             #
             self.ifGoOnTitleVar.set('Edit')
-            self.ifGoOnMessageVar.set("if you choose ok,message will be change and can't recover")
+            self.ifGoOnMessageVar.set("if you choose ok,information will be change and can't recover")
             # button
             self.editButtonVar.set('edit')
         else:
