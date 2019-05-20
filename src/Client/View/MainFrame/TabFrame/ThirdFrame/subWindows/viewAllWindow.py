@@ -1,8 +1,7 @@
 # -*- coding:utf-8 -*-
 
 from src.Client.Conf.config import *
-from src.Client.recitationSystem import recitationSystem
-from src.Client.View.MainFrame.TabFrame.ThirdFrame import messageFrame
+from src.Client.MissionSystem import missionSystem
 from src.Client.SystemTools.ConfFileRead import configFileRead
 
 
@@ -144,39 +143,26 @@ class ViewAllWindow():
         self.addWindow.resizable(width=False, height=False)
         self.addWindow.title(self.windowTitleVar.get())
         self.addWindow.iconbitmap('images/icon.ico')
-        self.tree = ttk.Treeview(self.addWindow, columns=['1', '2', '3', '4'], show='headings',
+        self.tree = ttk.Treeview(self.addWindow, columns=['1', '2', '3', '4', '5', '6', '7'], show='headings',
                                  height=15)
 
         self.tree.column('1', width=80, anchor='center')
-        self.tree.column('2', width=150, anchor='center')
-        self.tree.column('3', width=250, anchor='center')
+        self.tree.column('2', width=80, anchor='center')
+        self.tree.column('3', width=80, anchor='center')
         self.tree.column('4', width=80, anchor='center')
-        self.tree.heading('1', text=self.recitationIdVar.get())
-        self.tree.heading('2', text=self.questionVar.get())
-        self.tree.heading('3', text=self.answerVar.get())
-        self.tree.heading('4', text=self.weightVar.get())
-        self.tree.bind("<Double-Button-1>", self.treeviewClick)
+        self.tree.column('5', width=80, anchor='center')
+        self.tree.column('6', width=80, anchor='center')
+        self.tree.column('7', width=80, anchor='center')
+        self.tree.heading('1', text=self.missionIdVar.get())
+        self.tree.heading('2', text=self.missionNameVar.get())
+        self.tree.heading('3', text=self.missionRangeVar.get())
+        self.tree.heading('4', text=self.missionStateCodeVar.get())
+        self.tree.heading('5', text=self.missionNextTimeCodeVar.get())
+        self.tree.heading('6', text=self.missionLoopTimeCodeVar.get())
+        self.tree.heading('7', text=self.missionisFinish.get())
         self.tree.place(x=0, y=0, anchor='nw')
-        list = self.recitationSystemTools.loadRecitation()
+        list = missionSystem.MissionSystem().loadMission()
         for each in list:
-            dataInList = [each['recitationId'], each['question'], each['answer'], each['weight']]
+            dataInList = [each['missionId'], each['bookName'], each['missionRange'], each['state'], each['nextTime'],
+                          each['loopTime'], each['isFinish']]
             self.tree.insert('', 'end', values=dataInList)
-
-    def logUserAction(self, action, message=None):
-
-        # 记录用户操作
-        userActionLogFile = open('data/userAction.dat', 'a+')
-        # 获取当前时间
-        currentTime = str(datetime.datetime.strptime(time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime()),
-                                                     '%Y-%m-%d-%H-%M-%S'))
-        # 生成记录信息
-        if message is None:
-            userAction = '{' + currentTime + '} ' + action + ' '
-        else:
-            userAction = '{' + currentTime + '} ' + action + ' ' + message
-
-        # 存入文件
-        userActionLogFile.write(str(userAction))
-        # 增加换行符
-        userActionLogFile.write('\n')
-        userActionLogFile.close()
