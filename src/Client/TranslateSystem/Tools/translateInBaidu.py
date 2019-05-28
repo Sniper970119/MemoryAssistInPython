@@ -10,8 +10,8 @@ import urllib
 import random
 import re
 
-appid = '201902100002697'  # 你的appid
-secretKey = 'FN5ZzcxZIt41MhQexp'  # 你的密钥
+appid = 'your appId'  # 你的appid
+secretKey = 'your Key'  # 你的密钥
 
 
 class Translate():
@@ -51,6 +51,7 @@ class Translate():
                 print('{SYS}{SEARCH_DEBUG} word has been translate, result is ' + result)
             return result
         except Exception as e:
+            # print (e)
             # 打开错误日志文件
             wrongFile = open('data/wrongMessage.dat', 'a+')
             # 获取当前时间

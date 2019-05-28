@@ -65,7 +65,7 @@ class AddWindow():
         nameEntry = tkinter.Entry(self.addWindow, font=('Arial', 12), width=15, bd=5, relief='flat')
         nameEntry.place(x=100, y=55, anchor='nw')
 
-        missionRangeLabel = tkinter.Label(self.addWindow, text=self.missionNameVar.get(), font=('Arial', 12), width=15, height=2)
+        missionRangeLabel = tkinter.Label(self.addWindow, text=self.missionRangeVar.get(), font=('Arial', 12), width=15, height=2)
         missionRangeLabel.place(x=-20, y=100, anchor='nw')
 
         missionRangeEntry = tkinter.Entry(self.addWindow, font=('Arial', 12), width=15, bd=5, relief='flat')

@@ -43,7 +43,7 @@ class RecitationSystem():
         if recitationId is not None:
             recitationId = str(recitationId).zfill(6)
         # 调用增加任务工具
-        self.addRecitationTools.addRecitation(list=self.list, question=question, answer=answer,
+        self.list = self.addRecitationTools.addRecitation(list=self.list, question=question, answer=answer,
                                               recitationId=recitationId,
                                               weight=weight)
         # 打印debug日志
@@ -114,6 +114,7 @@ class RecitationSystem():
         根据权重计算，随机获取一条信息
         :return:
         """
+        self.list = self.loadRecitation()
         mapList = []
         totalWeight = 0
         for each in self.list:

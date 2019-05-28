@@ -22,6 +22,7 @@ class RemoveRecitation():
             for each in list:
                 if each['recitationId'] == recitationId:
                     # 从列表中删除任务
+                    print(each)
                     list.remove(each)
             # 打印debug日志
             if DEBUG and MISSION_DEBUG:
