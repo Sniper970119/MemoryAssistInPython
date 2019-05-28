@@ -24,6 +24,7 @@ class SendUpdateFile():
             fileAbsPath = self.filePath+each
             self.send(fileAbsPath)
         self.connect.close()
+        print('connect close')
         if DEBUG and VERSION_CONTROL_DEBUG:
             print('{SYS}{VERSION_CONTROL_DEBUG}update file has been send, filesize is ' + str(self.fileSize))
 
@@ -41,6 +42,6 @@ class SendUpdateFile():
                     break
                 self.connect.send(data)
             fp.close()
-            self.connect.close()
+            # self.connect.close()
 
         pass

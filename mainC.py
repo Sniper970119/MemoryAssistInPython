@@ -33,4 +33,4 @@ if __name__ == '__main__':
 
 # pyinstaller mainC.py -i ./images/icon.ico -w -n run
 
-#
+# pyinstaller mainU.py -i ./images/icon.ico -w -n MemoryAssist -F

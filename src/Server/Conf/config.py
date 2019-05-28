@@ -21,7 +21,7 @@ import schedule
 SERVER_IP = '127.0.0.1'
 
 # 调试模式总开关
-DEBUG = True
+DEBUG = False
 #
 VERSION_CONTROL_DEBUG = True
 
