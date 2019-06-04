@@ -1,6 +1,7 @@
 # -*- coding:utf-8 -*-
 from src.Client.Conf.config import *
 from src.Client.SystemTools.ConfFileRead import configFileRead
+import sys
 
 
 class ShowMission():
@@ -17,6 +18,8 @@ class ShowMission():
         self.missionStateVar = tkinter.StringVar()
         self.missionLoopTimeVar = tkinter.StringVar()
         self.missionStateVar = tkinter.StringVar()
+        reload(sys)
+        sys.setdefaultencoding("utf-8")
         self.language()
 
         pass

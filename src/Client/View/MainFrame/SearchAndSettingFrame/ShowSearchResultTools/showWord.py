@@ -14,6 +14,8 @@ class ShowWord():
         self.wordTranslateVar = tkinter.StringVar()
         self.wordExampleVar = tkinter.StringVar()
         self.languageType = None
+        reload(sys)
+        sys.setdefaultencoding("utf-8")
         self.language()
         pass
 

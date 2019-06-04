@@ -62,6 +62,8 @@ API帮助文档请点[这里](http://www.sniper97.cn/MemoryAssist/API)
 
 2019-5-28: 修复一系列已知问题，v1.3.2 发布。
 
+2019-6-04: 修复显示bug。v1.3.3发布。
+
 ## 动态展示（v0.2）
 
 ![gif展示](https://github.com/Sniper970119/MemoryAssistInPython/blob/master/showPic/show.gif)
